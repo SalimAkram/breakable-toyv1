@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_20_015520) do
+ActiveRecord::Schema.define(version: 2020_10_27_022751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "roasts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "brand", null: false
+    t.string "region", null: false
+    t.string "notes", null: false
+    t.string "process", null: false
+    t.string "producer"
+    t.string "altitude"
+    t.string "url"
+    t.integer "price", null: false
+    t.integer "rating", null: false
+    t.boolean "fair_trade"
+    t.boolean "ethical_business_practices"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "harvest_date"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
