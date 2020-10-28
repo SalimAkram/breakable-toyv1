@@ -1,0 +1,1 @@
+left off trying to get authentications and user authorizations etc
