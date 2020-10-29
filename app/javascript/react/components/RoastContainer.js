@@ -1,5 +1,7 @@
 import  React, { useEffect, useState } from 'react'
+import RoastShow from './RoastShow'
 import RoastTile from './RoastTile'
+
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
@@ -44,18 +46,11 @@ const RoastContainer = (props) => {
     )
   })
 
-
   return(
     <div>
         {roastTileArray}
     </div>
   )
 }
-
-
-
-
-
-
 
 export default RoastContainer
