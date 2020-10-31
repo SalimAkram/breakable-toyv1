@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_164855) do
+ActiveRecord::Schema.define(version: 2020_10_31_212529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "brew_methods", force: :cascade do |t|
+  create_table "methods", force: :cascade do |t|
     t.string "type", null: false
     t.string "filter_type", null: false
     t.integer "brew_time", null: false
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_164855) do
     t.bigint "roast_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["roast_id"], name: "index_brew_methods_on_roast_id"
-    t.index ["user_id"], name: "index_brew_methods_on_user_id"
+    t.index ["roast_id"], name: "index_methods_on_roast_id"
+    t.index ["user_id"], name: "index_methods_on_user_id"
   end
 
   create_table "roasts", force: :cascade do |t|

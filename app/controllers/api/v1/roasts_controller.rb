@@ -4,6 +4,11 @@ class Api::V1::RoastsController < ApplicationController
     render json: roasts
   end
 
+  def create
+    binding.pry
+  end
+
+
   def show
     roast = Roast.find(params[:id])
     render json: roast

@@ -6,6 +6,7 @@ class Api::V1::UsersController < ApplicationController
     render json: user
   end
 
+
   protected
   def authenticate_user
     if !user_signed_in?

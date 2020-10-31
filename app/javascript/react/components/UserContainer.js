@@ -35,7 +35,8 @@ const UserContainer = (props) => {
   }, [])
 
   const addBrewMethodFromForm = (brewMethodFromForm) => {
-    fetch(`/api/v1/users/${id}/brewmethods`, {
+    
+    fetch('/api/v1/methods', {
       credentials: "same-origin",
       method: "POST",
       body: JSON.stringify(brewMethodFromForm),
