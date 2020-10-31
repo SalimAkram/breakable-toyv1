@@ -6,9 +6,8 @@ Rails.application.routes.draw do
     namespace :v1 do      
       resources :roasts, only: [:index, :show]
       resources :landing, only: [:index]   
-      resources :users, only: [:show]
-      resources :brewmethods, only: [:create] do
-        # resources :users, only: [:show]
+      resources :users, only: [:show] do
+        resources :brewmethods, only: [:create] 
       end
     end  
   end

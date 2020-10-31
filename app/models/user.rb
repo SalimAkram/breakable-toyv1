@@ -4,6 +4,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: true 
   mount_uploader :profile_photo, ProfilePhotoUploader
+  has_many :roasts
+  has_many :brew_methods
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

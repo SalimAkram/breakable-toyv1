@@ -13,8 +13,10 @@ class Roasts < ActiveRecord::Migration[5.2]
       t.integer :rating, null: false
       t.boolean :fair_trade
       t.boolean :ethical_business_practices
-
-      t.timestamps
+       
+      t.belongs_to :users
+      
+      t.timestamps null: false
     end
   end
 end

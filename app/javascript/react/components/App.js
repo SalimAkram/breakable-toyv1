@@ -15,8 +15,6 @@ export const App = (props) => {
           <Route exact path="/roasts" component={RoastContainer} />
           <Route exact path="/roasts/:id" component={RoastShow} />
           <Route exact path="/users/:id" component={UserContainer} />
-          {/* <Route exact path="/brewmethods/new component={UserContainer} /> */}
-
         </Switch>
       </BrowserRouter>
     </div>

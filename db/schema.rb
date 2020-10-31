@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_000029) do
+ActiveRecord::Schema.define(version: 2020_10_31_164855) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "brew_methods", force: :cascade do |t|
+    t.string "type", null: false
+    t.string "filter_type", null: false
+    t.integer "brew_time", null: false
+    t.string "kettle_type", null: false
+    t.integer "water_temperature", null: false
+    t.integer "grams", null: false
+    t.string "ratio", null: false
+    t.integer "yield"
+    t.string "grind", null: false
+    t.text "instructions", null: false
+    t.text "result_description", null: false
+    t.bigint "users_id"
+    t.bigint "roasts_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["roasts_id"], name: "index_brew_methods_on_roasts_id"
+    t.index ["users_id"], name: "index_brew_methods_on_users_id"
+  end
 
   create_table "roasts", force: :cascade do |t|
     t.string "name", null: false
@@ -28,9 +48,11 @@ ActiveRecord::Schema.define(version: 2020_10_29_000029) do
     t.integer "rating", null: false
     t.boolean "fair_trade"
     t.boolean "ethical_business_practices"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "harvest_date"
+    t.index ["users_id"], name: "index_roasts_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
