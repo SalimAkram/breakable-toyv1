@@ -24,6 +24,7 @@ const LandingContainer = (props) => {
   return (
     <div>
       <li><Link to="/users/1">This Should be a link that takes you to the current_users profile</Link></li>
+      <li><Link to="/">this should be a link to all brew methods</Link></li>
       <li><Link to="/roasts">roast index page</Link></li>
     </div>
   )

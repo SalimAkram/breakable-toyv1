@@ -1,5 +1,6 @@
 import React from 'react'
 import UserTile from './UserTile'
+import BrewMethodForm from './BrewMethodForm'
 
 const UserShow = (props) => {
   return (

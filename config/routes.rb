@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       resources :roasts, only: [:index, :show]
       resources :landing, only: [:index]   
       resources :users, only: [:show]
+      resources :brewmethods, only: [:create] do
+        # resources :users, only: [:show]
+      end
     end  
   end
 
