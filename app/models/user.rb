@@ -7,7 +7,7 @@ class User < ApplicationRecord
   mount_uploader :profile_photo, ProfilePhotoUploader 
 
   has_many :roasts
-  has_many :brew_methods
+  has_many :brews
 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable

@@ -28,9 +28,7 @@ const BrewMethodForm = (props) => {
     event.preventDefault()
     props.addBrewMethodFromForm(userBrewMethodData)
     clearForm()
-    // console.log('Form submitted!')
   }
-
 
   const clearForm = () => {
     setUserBrewMethodData ({

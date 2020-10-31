@@ -1,6 +1,6 @@
-class BrewMethods < ActiveRecord::Migration[5.2]
+class Brew < ActiveRecord::Migration[5.2]
   def change
-    create_table :brew_methods do |t|
+    create_table :brew_ do |t|
       t.string :type, null: false
       t.string :filter_type, null: false
       t.integer :brew_time, null: false

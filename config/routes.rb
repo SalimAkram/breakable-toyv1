@@ -7,10 +7,10 @@ Rails.application.routes.draw do
       resources :roasts, only: [:index, :show, :create]
       resources :landing, only: [:index]   
       resources :users, only: [:show]
-      resources :methods, only: [:create, :show
+      resources :brews, only: [:create, :show]
         
       # resources :users, only: [:show] do
-      #   resources :methods, only: [:show] 
+      #   resources :, only: [:show] 
       # end
     end  
   end

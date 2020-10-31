@@ -35,7 +35,6 @@ const UserContainer = (props) => {
   }, [])
 
   const addBrewMethodFromForm = (brewMethodFromForm) => {
-    
     fetch('/api/v1/methods', {
       credentials: "same-origin",
       method: "POST",
@@ -59,8 +58,9 @@ const UserContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  // write the map function to display their brew methods from the database
+
   return (
-    
     <div className="grid-x grid-padding-y grid-margin-x">
       <h1>{errorList}</h1>
       <div className="cell small-12 text-center">
@@ -78,7 +78,10 @@ const UserContainer = (props) => {
           />
         </div>
         <div className="cell small-12">
-          brew methods here
+          brew methods here 
+          {/* <BrewMethodTile 
+            from mapping function above
+          /> */}
         </div>
       </div>
     </div>

@@ -5,9 +5,7 @@ class Api::V1::RoastsController < ApplicationController
   end
 
   def create
-    binding.pry
   end
-
 
   def show
     roast = Roast.find(params[:id])
