@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 2020_10_31_164855) do
     t.string "grind", null: false
     t.text "instructions", null: false
     t.text "result_description", null: false
-    t.bigint "users_id"
-    t.bigint "roasts_id"
+    t.bigint "user_id", null: false
+    t.bigint "roast_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["roasts_id"], name: "index_brew_methods_on_roasts_id"
-    t.index ["users_id"], name: "index_brew_methods_on_users_id"
+    t.index ["roast_id"], name: "index_brew_methods_on_roast_id"
+    t.index ["user_id"], name: "index_brew_methods_on_user_id"
   end
 
   create_table "roasts", force: :cascade do |t|
@@ -48,11 +48,9 @@ ActiveRecord::Schema.define(version: 2020_10_31_164855) do
     t.integer "rating", null: false
     t.boolean "fair_trade"
     t.boolean "ethical_business_practices"
-    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "harvest_date"
-    t.index ["users_id"], name: "index_roasts_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

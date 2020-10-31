@@ -12,5 +12,4 @@ class BrewMethod < ApplicationRecord
   validates :result_description, presence: true
  
   belongs_to :user
-  belongs_to :roast
 end

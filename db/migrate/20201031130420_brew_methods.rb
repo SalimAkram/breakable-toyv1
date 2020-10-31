@@ -13,8 +13,8 @@ class BrewMethods < ActiveRecord::Migration[5.2]
       t.text :instructions, null: false
       t.text :result_description, null: false
 
-      t.belongs_to :users
-      t.belongs_to :roasts
+      t.belongs_to :user, null: false
+      t.belongs_to :roast, null: false
       
       t.timestamps null: false
     end

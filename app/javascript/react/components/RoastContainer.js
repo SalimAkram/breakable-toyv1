@@ -1,7 +1,6 @@
 import  React, { useEffect, useState } from 'react'
-import RoastShow from './RoastShow'
-import RoastTile from './RoastTile'
 
+import RoastTile from './RoastTile'
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])

@@ -83,3 +83,18 @@ roast5 = Roast.create(
   ethical_business_practices: nil,
 )
 
+# roast5 = Roast.new(
+#   name: "Guatemala Chochujau",
+#   brand: "2ten Coffee Roasters",
+#   region: "Guatemalan",
+#   notes: "Cherry, Chocolate, Caramel",
+#   process: "washed",
+#   producer: nil,
+#   altitude: nil,
+#   url: "http://www.2tencoffeeroasters.com/single-origin/guatemala",
+#   price: 15.00,
+#   rating: 5,
+#   harvest_date: nil,
+#   fair_trade: nil,
+#   ethical_business_practices: nil,
+# )
