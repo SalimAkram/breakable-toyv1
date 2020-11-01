@@ -25,6 +25,7 @@ const UserContainer = (props) => {
       .then(responseBody => {
         if(responseBody.error == null) {
           setUsersData(responseBody)
+          setBrewMethodsFromDataBase(responseBody.brews)
         } else if (responseBody.error[0] === "You need to be signed in first") {
           props.history.go("users/sign_in")
         } else if (responseBody.error) {
@@ -35,7 +36,7 @@ const UserContainer = (props) => {
   }, [])
 
   const addBrewMethodFromForm = (brewMethodFromForm) => {
-    fetch('/api/v1/methods', {
+    fetch('/api/v1/brews', {
       credentials: "same-origin",
       method: "POST",
       body: JSON.stringify(brewMethodFromForm),
@@ -53,11 +54,10 @@ const UserContainer = (props) => {
           throw error;
         }
       })
-      .then(response => response.json())
-      .then(responseBody => { setBrewMethodsFromDataBase([...brewMethodsFromDataBase, responseBody]); }) //this should be the new brewmethod the user just posted returning back from the data base to be displayed on the page
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  
   // write the map function to display their brew methods from the database
 
   return (

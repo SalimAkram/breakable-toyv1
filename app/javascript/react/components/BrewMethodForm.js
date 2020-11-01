@@ -52,7 +52,7 @@ const BrewMethodForm = (props) => {
           <ul className="menu vertical">
             <li>
               <label>Brew Method: 
-                <select onChange={handleInputChange} name="type" id="type">
+                <select onChange={handleInputChange} name="method" id="method">
                   <option value="default">Select your brew method</option>
                   <option value="chemex">CHEMEX</option>
                   <option value="travel">TRAVEL</option>

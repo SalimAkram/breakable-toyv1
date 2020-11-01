@@ -14,8 +14,7 @@ class Brews < ActiveRecord::Migration[5.2]
       t.text :result_description, null: false
 
       t.belongs_to :user, null: false
-      t.belongs_to :roast, null: false
-      
+        
       t.timestamps null: false
     end
   end

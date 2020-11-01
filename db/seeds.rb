@@ -83,6 +83,14 @@ roast5 = Roast.create(
   ethical_business_practices: nil,
 )
 
+# creator = User.create(
+#   email: "salimakram123@gmail.com",
+#   encrypted_password: "123456",
+#   first_name: "salim",
+#   last_name: "akram",
+#   username: "askablackdude",
+# )
+
 # roast5 = Roast.new(
 #   name: "Guatemala Chochujau",
 #   brand: "2ten Coffee Roasters",
