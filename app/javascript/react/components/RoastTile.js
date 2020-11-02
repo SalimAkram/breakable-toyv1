@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const RoastTile = (props) =>{
   return (
@@ -15,6 +16,7 @@ const RoastTile = (props) =>{
       <li>
         Price: ${props.price}
       </li>
+      <Link to={`roasts/${props.id}`}>view this roast</Link>
     </ul>
   )
 }

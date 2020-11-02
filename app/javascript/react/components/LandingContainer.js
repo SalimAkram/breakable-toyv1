@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const LandingContainer = (props) => {
   const [landingData, setLandingData] = useState([])
@@ -20,10 +21,10 @@ const LandingContainer = (props) => {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
-
   return (
     <div>
-      hello from the landing page
+      <li><Link to="/users/1">This Should be a link that takes you to the current_users profile</Link></li>
+      <li><Link to="/roasts">roast index page</Link></li>
     </div>
   )
 }
