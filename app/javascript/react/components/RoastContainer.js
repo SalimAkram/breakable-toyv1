@@ -46,7 +46,7 @@ const RoastContainer = (props) => {
   })
 
   return(
-    <div>
+    <div className="cell small-12 text-center">
         {roastTileArray}
     </div>
   )

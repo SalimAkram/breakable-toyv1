@@ -61,7 +61,7 @@ const UserContainer = (props) => {
   // write the map function to display their brew methods from the database
 
   return (
-    <div className="grid-x grid-padding-y grid-margin-x">
+    <div className="">
       <h1>{errorList}</h1>
       <div className="cell small-12 text-center">
         <UserTile
@@ -72,12 +72,12 @@ const UserContainer = (props) => {
           username={usersData.username}
           email={usersData.email}
         />
-        <div className="cell small-12">
+        <div className="">
           <BrewMethodForm
             addBrewMethodFromForm={addBrewMethodFromForm}
           />
         </div>
-        <div className="cell small-12">
+        <div className="">
           brew methods here 
           {/* <BrewMethodTile 
             from mapping function above

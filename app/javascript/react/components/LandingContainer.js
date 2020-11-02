@@ -33,7 +33,7 @@ const LandingContainer = (props) => {
   }
 
   return (
-    <div>
+    <div className="cell small-12 text-center">
       <li><Link to={path}> profile </Link></li>
       <li><Link to="/">this should be a link to all brew methods</Link></li>
       <li><Link to="/roasts">roast index page</Link></li>
