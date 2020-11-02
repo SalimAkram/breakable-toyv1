@@ -15,6 +15,9 @@ require 'rails_helper'
 
 #     visit new_user_session_path
 
+#     fill_in 'First Name' with: user.first_name
+#     fill_in 'Last Name' with: user.last_name
+#     fill_in 'Username' with: user.username
 #     fill_in 'Email', with: user.email
 #     fill_in 'Password', with: user.password
 

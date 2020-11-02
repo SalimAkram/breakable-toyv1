@@ -1,7 +1,6 @@
 import  React, { useEffect, useState } from 'react'
-import RoastShow from './RoastShow'
-import RoastTile from './RoastTile'
 
+import RoastTile from './RoastTile'
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
@@ -47,7 +46,7 @@ const RoastContainer = (props) => {
   })
 
   return(
-    <div>
+    <div className="cell small-12 text-center">
         {roastTileArray}
     </div>
   )

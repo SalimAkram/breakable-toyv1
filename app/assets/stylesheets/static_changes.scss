@@ -1,0 +1,20 @@
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui/motion-ui';
+
+li {
+  list-style: none;
+}
+
+.roast-tile{
+  background-color: #DBC1B0 ;
+  max-height: 700px;
+  margin: 5rem 50px;
+  box-shadow: 1px 1px 5px 1px;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.main{
+  background-color: #99BEE3;
+}

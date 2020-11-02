@@ -83,3 +83,26 @@ roast5 = Roast.create(
   ethical_business_practices: nil,
 )
 
+# creator = User.create(
+#   email: "salimakram123@gmail.com",
+#   encrypted_password: "123456",
+#   first_name: "salim",
+#   last_name: "akram",
+#   username: "askablackdude",
+# )
+
+# roast5 = Roast.new(
+#   name: "Guatemala Chochujau",
+#   brand: "2ten Coffee Roasters",
+#   region: "Guatemalan",
+#   notes: "Cherry, Chocolate, Caramel",
+#   process: "washed",
+#   producer: nil,
+#   altitude: nil,
+#   url: "http://www.2tencoffeeroasters.com/single-origin/guatemala",
+#   price: 15.00,
+#   rating: 5,
+#   harvest_date: nil,
+#   fair_trade: nil,
+#   ethical_business_practices: nil,
+# )
