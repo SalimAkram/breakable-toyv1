@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_01_162634) do
+ActiveRecord::Schema.define(version: 2020_11_01_141333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,12 @@ ActiveRecord::Schema.define(version: 2020_11_01_162634) do
     t.string "kettle_type", null: false
     t.integer "water_temperature", null: false
     t.integer "grams", null: false
-    t.string "ratio", null: false
-    t.integer "yield"
     t.string "grind", null: false
     t.text "instructions", null: false
-    t.text "result_description", null: false
+    t.string "ratio"
+    t.integer "yield"
+    t.string "roast"
+    t.string "roast_region"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
