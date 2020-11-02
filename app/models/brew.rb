@@ -5,11 +5,13 @@ class Brew < ApplicationRecord
   validates :kettle_type, presence: true
   validates :water_temperature, numericality: true 
   validates :grams, numericality: true
-  validates :ratio, presence: true
-  validates :yield, numericality: true
   validates :grind, presence: true
   validates :instructions, presence: true
-  validates :result_description, presence: true
+  validates :ratio
+  validates :yield
+  validates :roast
+  validates :roast_region
+  
  
   belongs_to :user
 end

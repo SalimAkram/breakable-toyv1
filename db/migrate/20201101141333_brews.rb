@@ -7,11 +7,12 @@ class Brews < ActiveRecord::Migration[5.2]
       t.string :kettle_type, null: false
       t.integer :water_temperature, null: false
       t.integer :grams, null: false
-      t.string :ratio, null: false
-      t.integer :yield
       t.string :grind, null: false
       t.text :instructions, null: false
-      t.text :result_description, null: false
+      t.string :ratio
+      t.integer :yield
+      t.string :roast
+      t.string :roast_region
 
       t.belongs_to :user, null: false
         
