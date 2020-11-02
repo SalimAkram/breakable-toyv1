@@ -18,6 +18,7 @@ const RoastContainer = (props) => {
       })
       .then(response => response.json())
       .then(responseBody => {
+        debugger
         setRoastData(responseBody)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))

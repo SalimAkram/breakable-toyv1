@@ -1,5 +1,10 @@
 class Api::V1::BrewsController < ApplicationController
 
+  def index
+    brews = Brew.all
+    render json: brews
+  end
+
   def create
     brew = Brew.new(brew_params)
     brew.user_id = current_user.id 
