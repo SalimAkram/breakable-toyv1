@@ -83,26 +83,42 @@ roast5 = Roast.create(
   ethical_business_practices: nil,
 )
 
-# creator = User.create(
-#   email: "salimakram123@gmail.com",
-#   encrypted_password: "123456",
-#   first_name: "salim",
-#   last_name: "akram",
-#   username: "askablackdude",
-# )
+creator = User.create(
+  email: "salimakram123@gmail.com",
+  encrypted_password: "123456",
+  first_name: "salim",
+  last_name: "akram",
+  username: "askablackdude",
+)
 
-# roast5 = Roast.new(
-#   name: "Guatemala Chochujau",
-#   brand: "2ten Coffee Roasters",
-#   region: "Guatemalan",
-#   notes: "Cherry, Chocolate, Caramel",
-#   process: "washed",
-#   producer: nil,
-#   altitude: nil,
-#   url: "http://www.2tencoffeeroasters.com/single-origin/guatemala",
-#   price: 15.00,
-#   rating: 5,
-#   harvest_date: nil,
-#   fair_trade: nil,
-#   ethical_business_practices: nil,
-# )
+ brew1 = Brew.create(
+    method: "chemex",
+    filter_type: "metal",
+    brew_time: 2,
+    kettle_type: "electric",
+    water_temperature: 202,
+    grams: 24,
+    ratio: "1.6/2",
+    yield: 12,
+    grind: "coarse",
+    instructions: "this is a test but just brew it!",
+    roast: "light",
+    roast_region: "kenya",
+    user_id: 1
+ )
+
+ brew2 = Brew.create(
+    method: "chemex",
+    filter_type: "natural paper",
+    brew_time: 2,
+    kettle_type: "electric",
+    water_temperature: 202,
+    grams: 32,
+    ratio: "1.6/2",
+    yield: 16,
+    grind: "coarse",
+    instructions: "this is another test but we will just brew it!",
+    roast: "light",
+    roast_region: "ethiopian",
+    user_id: 1
+ )
