@@ -3,17 +3,18 @@ import React, { useState } from 'react'
 const BrewMethodForm = (props) => {
 
   const [userBrewMethodData, setUserBrewMethodData] = useState({
-    type: "",
-    filter_type:"", 
-    brew_time: "", 
-    kettle_type: "", 
-    water_temperature: "", 
-    grams: "", 
-    ratio: "", 
+    method: "",
+    filter_type: "",
+    brew_time: "",
+    kettle_type: "",
+    water_temperature: "",
+    grams: "",
+    ratio: "",
     yield: "",
-    grind: "", 
-    instructions: "", 
-    result_description: ""
+    grind: "",
+    instructions: "",
+    roast: "",
+    roast_region: ""
   });
 
   const handleInputChange = event => {
@@ -32,7 +33,7 @@ const BrewMethodForm = (props) => {
 
   const clearForm = () => {
     setUserBrewMethodData ({
-      type: "",
+      method: "",
       filter_type: "",
       brew_time: "",
       kettle_type: "",
@@ -42,7 +43,8 @@ const BrewMethodForm = (props) => {
       yield: "",
       grind: "",
       instructions: "",
-      result_description: ""
+      roast: "",
+      roast_region: ""
     })
 }
   return(
@@ -91,12 +93,34 @@ const BrewMethodForm = (props) => {
                 </li>
                 <li>
                   <label>Grind:
-                        <select onChange={handleInputChange} name="grind" id="grind">
+                    <select onChange={handleInputChange} name="grind" id="grind">
                       <option value="default">Select From The Following:</option>
                       <option value="medium fine">MEDIUM FINE</option>
                       <option value="medium">MEDIUM</option>
                       <option value="medium-coarse">MEDIUM-COARSE</option>
                       <option value="coarse">COARSE</option>
+                    </select>
+                  </label>
+                </li>
+                <li>
+                  <label>Roast:
+                        <select onChange={handleInputChange} name="roast" id="roast">
+                      <option value="default">Select From The Following:</option>
+                      <option value="light roast">LIGHT ROAST</option>
+                      <option value="medium roast">MEDIUM ROAST</option>
+                      <option value="dark roast">DARK ROAST</option>
+                      <option value="other">OTHER</option>
+                    </select>
+                  </label>
+                </li>
+                <li>
+                  <label>Roast Region:
+                        <select onChange={handleInputChange} name="roast_region" id="roast_region">
+                      <option value="default">Select From The Following:</option>
+                      <option value="ethiopian">ETHIOPIAN</option>
+                      <option value="costa rican">COSTA RICAN</option>
+                      <option value="kenyan">KENYAN</option>
+                      <option value="other">OTHER</option>
                     </select>
                   </label>
                 </li>
@@ -173,17 +197,6 @@ const BrewMethodForm = (props) => {
                         type="text"
                         onChange={handleInputChange}
                         value={userBrewMethodData.instructions}
-                    />
-                  </label>
-                </li>
-                <li>
-                  <label>Describe Your Result:
-                      <input
-                        name="result_description"
-                        id="result_description"
-                        type="text"
-                        onChange={handleInputChange}
-                        value={userBrewMethodData.result_description}
                     />
                   </label>
                 </li>

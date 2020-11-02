@@ -1,7 +1,7 @@
 class Brews < ActiveRecord::Migration[5.2]
   def change
      create_table :brews do |t|
-      t.string :type, null: false
+      t.string :method, null: false
       t.string :filter_type, null: false
       t.integer :brew_time, null: false
       t.string :kettle_type, null: false
