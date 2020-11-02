@@ -5,6 +5,12 @@ class Api::V1::BrewsController < ApplicationController
     render json: brews
   end
 
+  def show
+    brew = Brew.find(params[:id])
+    user = brew.user
+    render json: { brew: brew, user: user }
+  end
+
   def create
     brew = Brew.new(brew_params)
     brew.user_id = current_user.id 

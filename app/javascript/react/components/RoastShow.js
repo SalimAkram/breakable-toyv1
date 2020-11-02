@@ -23,6 +23,7 @@ const RoastShow = (props) => {
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
+  
   return(
     <div>
       hi from the {roastShow.name} show page

@@ -6,6 +6,7 @@ import LandingContainer from './LandingContainer'
 import UserContainer from './UserContainer'
 import RoastShow from './RoastShow'
 import BrewContainer from './BrewContainer'
+import BrewShow from './BrewShow'
 
 export const App = (props) => {
   return (
@@ -17,6 +18,7 @@ export const App = (props) => {
           <Route exact path="/roasts/:id" component={RoastShow} />
           <Route exact path="/users/:id" component={UserContainer} />
           <Route exact path="/brews" component={BrewContainer} />
+          <Route exact path="/brews/:id" component={BrewShow} />
         </Switch>
       </BrowserRouter>
     </div>
