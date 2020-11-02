@@ -25,7 +25,8 @@ class Api::V1::BrewsController < ApplicationController
       :yield,
       :grind,
       :instructions,
-      :result_description,
+      :roast,
+      :roast_region,
     )  
   end
 end

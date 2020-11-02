@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :api do    
     namespace :v1 do      
       resources :roasts, only: [:index, :show, :create]
-      resources :landing, only: [:index]   
+      resources :landings, only: [:index]   
       resources :users, only: [:show]
       resources :brews, only: [:create, :show]
         
