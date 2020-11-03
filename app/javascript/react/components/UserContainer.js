@@ -79,9 +79,8 @@ const UserContainer = (props) => {
       />
     )
   })
-  // write the map function to display their brew methods from the database
-
-  return (
+  
+    return (
     <div className="">
       <h1>{errorList}</h1>
       <div className="cell small-12 text-center">
