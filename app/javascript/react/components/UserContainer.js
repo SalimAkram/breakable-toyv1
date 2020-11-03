@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import UserTile from './UserTile'
+import UserMethodTile from './UserMethodTile'
 import BrewMethodForm from './BrewMethodForm'
 
 const UserContainer = (props) => {
@@ -57,10 +58,29 @@ const UserContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
+  const  userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
+    
+    return(
+      <UserMethodTile 
+        key={userBrewMethod.id}
+        id={userBrewMethod.id}
+        method={userBrewMethod.method}
+        filter_type={userBrewMethod.filter_type}
+        brew_time={userBrewMethod.brew_time}
+        kettle_type={userBrewMethod.kettle_type}
+        water_temperature={userBrewMethod.water_temperature}
+        grams={userBrewMethod.grams}
+        ratio={userBrewMethod.ratio}
+        yield={userBrewMethod.yield}
+        grind={userBrewMethod.grind}
+        roast={userBrewMethod.roast}
+        roast_region={userBrewMethod.roast_region}
+        instructions={userBrewMethod.instructions}
+      />
+    )
+  })
   
-  // write the map function to display their brew methods from the database
-
-  return (
+    return (
     <div className="">
       <h1>{errorList}</h1>
       <div className="cell small-12 text-center">
@@ -77,11 +97,9 @@ const UserContainer = (props) => {
             addBrewMethodFromForm={addBrewMethodFromForm}
           />
         </div>
-        <div className="">
+        <div>
           brew methods here 
-          {/* <BrewMethodTile 
-            from mapping function above
-          /> */}
+         {userBrewMethodArray}
         </div>
       </div>
     </div>
