@@ -1,7 +1,7 @@
 import  React, { useEffect, useState } from 'react'
 
 import RoastTile from './RoastTile'
-import RoastForm from './RoastForm'
+// import RoastForm from './RoastForm'
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
@@ -24,31 +24,31 @@ const RoastContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  const addRoastFromForm = (userRoastData) => {
-    fetch('/api/v1/roasts', {
-      credentials: "same-origin",
-      method: "POST",
-      body: JSON.stringify(userRoastData),
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          const errorMessage = `${response.status} (${response.statusText})`;
-          const error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .then(response => response.json())
-      .then(responseBody => {
-        setRoastData([...roastData, responseBody])
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }
+  // const addRoastFromForm = (userRoastData) => {
+  //   fetch('/api/v1/roasts', {
+  //     credentials: "same-origin",
+  //     method: "POST",
+  //     body: JSON.stringify(userRoastData),
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //     .then(response => {
+  //       if (response.ok) {
+  //         return response;
+  //       } else {
+  //         const errorMessage = `${response.status} (${response.statusText})`;
+  //         const error = new Error(errorMessage);
+  //         throw error;
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then(responseBody => {
+  //       setRoastData([...roastData, responseBody])
+  //     })
+  //     .catch(error => console.error(`Error in fetch: ${error.message}`))
+  // }
 
 
   const roastTileArray = roastData.map((roast) =>{
@@ -76,9 +76,9 @@ const RoastContainer = (props) => {
   return(
     <div className="cell small-12 text-center">
       {roastTileArray}
-      <RoastForm 
+      {/* <RoastForm 
         addRoastFromForm={addRoastFromForm}
-      />
+      /> */}
     </div>
   )
 }

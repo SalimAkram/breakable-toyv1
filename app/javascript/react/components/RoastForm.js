@@ -27,7 +27,8 @@ const RoastForm = (props) =>{
 
   const handleSubmit = event =>{
     event.preventDefault()
-    props.addRoastFromForm(userRoastData)
+    // props.addRoastFromForm(userRoastData)
+    addRoastFromForm(userRoastData)
     clearForm()
   }
 
@@ -48,6 +49,32 @@ const RoastForm = (props) =>{
     })
   }
 
+  const addRoastFromForm = (userRoastData) => {
+    fetch('/api/v1/roasts', {
+      credentials: "same-origin",
+      method: "POST",
+      body: JSON.stringify(userRoastData),
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          const errorMessage = `${response.status} (${response.statusText})`;
+          const error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(responseBody => {
+        setRoastData([...roastData, responseBody])
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`))
+  }
+  
   return(
     <div className="flex-container align-center ">
       <form onSubmit={handleSubmit}>
