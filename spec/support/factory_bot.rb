@@ -28,3 +28,21 @@ FactoryBot.define do
     ethical_business_practices { true }
   end
 end
+
+FactoryBot.define do
+  factory :brew do
+    sequence(:method) { "chemex" }
+    filter_type { "natural paper" }
+    brew_time { 3 }
+    kettle_type { "electric" }
+    water_temperature { 185 } 
+    grams { 24 }
+    grind { "medium" }
+    instructions { "brew that stuff with water duh" }
+    ratio { "2/1" }
+    roast { "light" }
+    roast_region { "kenya" }
+
+    association :user, factory: :user
+  end
+end

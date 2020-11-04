@@ -7,7 +7,8 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
     let!(:roast_1) {FactoryBot.create(:roast)}
   
     it "return successful status and content type of json" do
-      get :index
+      get :index 
+      
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
     end

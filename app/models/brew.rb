@@ -7,7 +7,6 @@ class Brew < ApplicationRecord
   validates :grams, numericality: true
   validates :grind, presence: true
   validates :instructions, presence: true
-  validates :yield, numericality: true
   
   belongs_to :user
 end
