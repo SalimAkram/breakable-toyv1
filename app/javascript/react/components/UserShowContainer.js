@@ -26,11 +26,10 @@ const UserShowContainer = (props) => {
       })
       .then(response => response.json())
       .then(responseBody => {
-  
         if(responseBody.error == null) {
           setUsersData(responseBody)
           setBrewMethodsFromDataBase(responseBody.brews)
-        } else if (responseBody.error[0] === "Only admins have access to this feature") {
+        } else if (responseBody.error[0] === "You can only view your profile") {
           setshouldRedirect(true)
         } else if (responseBody.error) {
           setErrorList(responseBody.error)
@@ -39,9 +38,10 @@ const UserShowContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-    if (shouldRedirect) {
-      <Redirect to='/'/>
-    }
+  if (shouldRedirect) {
+    <Redirect to='/'/>
+  }
+  
   // const errorDisplayArray = errorList.map((error) => {
   // })
 
