@@ -1,4 +1,5 @@
 import  React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import RoastTile from './RoastTile'
 // import RoastForm from './RoastForm'
@@ -76,9 +77,9 @@ const RoastContainer = (props) => {
   return(
     <div className="cell small-12 text-center">
       {roastTileArray}
-      {/* <RoastForm 
-        addRoastFromForm={addRoastFromForm}
-      /> */}
+      <div>
+        <Link to="roasts/new">Add A New Roast</Link>
+      </div>
     </div>
   )
 }

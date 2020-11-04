@@ -15,7 +15,7 @@ class Api::V1::RoastsController < ApplicationController
     if roast.save
     render json: roast
     else 
-      rendr json: { error: roast.errors.full_messages }
+      render json: { error: roast.errors.full_messages }
     end
   end
 

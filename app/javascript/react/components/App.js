@@ -11,19 +11,17 @@ import BrewShow from './BrewShow'
 
 export const App = (props) => {
   return (
-    <div>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={LandingContainer} />
-          <Route exact path="/roasts" component={RoastContainer} />
-          <Route exact path="/roasts/:id" component={RoastShow} />
-          <Route exact path="/roasts/new" component={RoastForm} />
-          <Route exact path="/users/:id" component={UserContainer} />
-          <Route exact path="/brews" component={BrewContainer} />
-          <Route exact path="/brews/:id" component={BrewShow} />
-        </Switch>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={LandingContainer} />
+        <Route exact path="/roasts" component={RoastContainer} />
+        <Route exact path="/roasts/new" component={RoastForm} />
+        <Route exact path="/roasts/:id" component={RoastShow} />
+        <Route exact path="/users/:id" component={UserContainer} />
+        <Route exact path="/brews" component={BrewContainer} />
+        <Route exact path="/brews/:id" component={BrewShow} />
+      </Switch>
+    </BrowserRouter>
   )
 }
 

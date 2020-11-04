@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from "react-router-dom"
 
 const RoastForm = (props) =>{
 
+  const [shouldRedirect, setShouldRedirect] = useState(false)
   const [userRoastData, setUserRoastData] = useState({
     name: "", 
     brand: "", 
@@ -27,10 +29,10 @@ const RoastForm = (props) =>{
 
   const handleSubmit = event =>{
     event.preventDefault()
-    // props.addRoastFromForm(userRoastData)
     addRoastFromForm(userRoastData)
     clearForm()
   }
+   
 
   const clearForm = () =>{
     setUserRoastData({
@@ -38,7 +40,7 @@ const RoastForm = (props) =>{
       brand: "",
       region: "",
       notes: "",
-      process: "",
+      process: " ",
       producer: "",
       altitude: "",
       url: "",
@@ -71,161 +73,165 @@ const RoastForm = (props) =>{
       .then(response => response.json())
       .then(responseBody => {
         setRoastData([...roastData, responseBody])
+        setShouldRedirect(true)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
   
+  if (shouldRedirect) {
+    alert("roast added successfully!")
+   return <Redirect to='/roasts' />
+  }
+
   return(
-    <div className="flex-container align-center ">
+    <div className="translucent-form-overlay">
       <form onSubmit={handleSubmit}>
         <h4>Add Roast</h4>
-          <fieldset className="small-12 columns">
-            <ul className="menu vertical">
-              <li>
-                <label>Name: 
-                  <input
-                    name="name"
-                    id="name"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.name}
-                  />
-                </label> 
-              </li>
-              <li>
-                <label>Brand: 
-                  <input
-                    name="brand"
-                    id="brand"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.brand}
-                  />
-                </label> 
-              </li>
-              <li>
-                <label>Region: 
-                  <input
-                    name="region"
-                    id="region"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.region}
-                  />
-                </label> 
-              </li>
-              <li>
-                <label>Notes: 
-                  <input
-                    name="notes"
-                    id="notes"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.notes}
-                  />
-                </label> 
-              </li>
-              <li>
-                <label>Process: 
-                  <select onChange={handleInputChange} name="process" id="process">
-                    <option value="default">Select Process type:</option>
-                    <option value="washed">WASHED</option>
-                    <option value="tbd1">TBD1</option>
-                    <option value="tbd2">TBD2</option>
-                    <option value="tbd3">TBD3</option>
-                    <option value="tbd4">TBD4</option>
-                    <option value="tbd5">TBD5</option>
-                  </select>
-                </label> 
-              </li>
-              <li>
-                <label>Producer: 
-                  <input
-                    name="producer"
-                    id="producer"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.producer}
-                  />
-                </label> 
-              </li>
-              <li>
-                <label>Altitude:
-                  <input
-                    name="altitude"
-                    id="altitude"
-                    type="number"
-                    onChange={handleInputChange}
-                    value={userRoastData.altitude}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>URL:
-                  <input
-                    name="url"
-                    id="url"
-                    type="text"
-                    onChange={handleInputChange}
-                    value={userRoastData.url}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>Harvest Date:
-                  <input
-                    name="harvest_date"
-                    id="harvest_date"
-                    type="text"
-                    onChange={handleInputChange}
-                    value={userRoastData.harvest_date}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>Price:
-                   <input
-                      name="price"
-                      id="price"
-                      type="number"
-                      onChange={handleInputChange}
-                      value={userRoastData.price}
-                  />
-                </label>
-              </li>
-              <li>
-                <label>Rating: 
-                  <select onChange={handleInputChange} name="rating" id="rating">
-                    <option value="default">Select From The Following:</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </label> 
-              </li>
-              <li>
-                <label>Fair Trade: 
-                  <select onChange={handleInputChange} name="fair_trade" id="fair_trade">
-                    <option value="default">Select From The Following:</option>
-                    <option value="true">YES</option>
-                    <option value="false">NO</option>
-                  </select>
-                </label> 
-              </li>
-              <li>
-                <label>Ethnical Business Practices: 
-                  <select onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
-                    <option value="default">Select From The Following:</option>
-                    <option value="true">YES</option>
-                    <option value="false">NO</option>
-                  </select>
-                </label> 
-              </li>
-            </ul>
+          <fieldset className="">
+          <div className="row columns">
+            <label>Name: 
+              <input
+                name="name"
+                id="name"
+                type="text" 
+                onChange={handleInputChange}
+                value={userRoastData.name}
+              />
+            </label> 
+          </div>
+          <div className="row columns" >
+            <label>Brand: 
+              <input
+                name="brand"
+                id="brand"
+                type="text" 
+                onChange={handleInputChange}
+                value={userRoastData.brand}
+              />
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Region: 
+              <input
+                name="region"
+                id="region"
+                type="text" 
+                onChange={handleInputChange}
+                value={userRoastData.region}
+              />
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Notes: 
+              <input
+                name="notes"
+                id="notes"
+                type="text" 
+                onChange={handleInputChange}
+                value={userRoastData.notes}
+              />
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Process: 
+              <select onChange={handleInputChange} name="process" id="process" type="text">
+                <option value="default">Select a process</option>
+                <option value="washed">WASHED</option>
+                <option value="tbd1">TBD1</option>
+                <option value="tbd2">TBD2</option>
+                <option value="tbd3">TBD3</option>
+                <option value="tbd4">TBD4</option>
+                <option value="tbd5">TBD5</option>
+              </select>
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Producer: 
+              <input
+                name="producer"
+                id="producer"
+                type="text" 
+                onChange={handleInputChange}
+                value={userRoastData.producer}
+              />
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Altitude:
+              <input
+                name="altitude"
+                id="altitude"
+                type="number"
+                onChange={handleInputChange}
+                value={userRoastData.altitude}
+              />
+            </label>
+          </div>
+          <div className="row columns">
+            <label>URL:
+              <input
+                name="url"
+                id="url"
+                type="text"
+                onChange={handleInputChange}
+                value={userRoastData.url}
+              />
+            </label>
+          </div>
+          <div className="row columns">
+            <label>Harvest Date:
+              <input
+                name="harvest_date"
+                id="harvest_date"
+                type="text"
+                onChange={handleInputChange}
+                value={userRoastData.harvest_date}
+              />
+            </label>
+          </div>
+          <div className="row columns">
+            <label>Price:
+                <input
+                  name="price"
+                  id="price"
+                  type="number"
+                  onChange={handleInputChange}
+                  value={userRoastData.price}
+              />
+            </label>
+          </div>
+          <div className="row columns">
+            <label>Rating: 
+              <select onChange={handleInputChange} name="rating" id="rating">
+                <option value="default">Select From The Following:</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Fair Trade: 
+              <select onChange={handleInputChange} name="fair_trade" id="fair_trade">
+                <option value="default">Select From The Following:</option>
+                <option value="true">YES</option>
+                <option value="false">NO</option>
+              </select>
+            </label> 
+          </div>
+          <div className="row columns">
+            <label>Ethnical Business Practices: 
+              <select onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
+                <option value="default">Select From The Following:</option>
+                <option value="true">YES</option>
+                <option value="false">NO</option>
+              </select>
+            </label> 
+          </div>
           </fieldset>
-          <input  type="submit" value="Submit" className="button" />
+        <input type="submit" value="Submit" className="primary button expanded search-button"/>
       </form>
     </div>
   )
