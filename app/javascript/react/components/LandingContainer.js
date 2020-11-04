@@ -27,13 +27,14 @@ const LandingContainer = (props) => {
 
   if (landingDataFromDataBase === null) {
     path = 'users/sign_up' // work on redirecting to the sign up and login page or maybe some other error page
-  } else {
-    id = landingDataFromDataBase.id
-    path = `users/${id}`
-  }
+  } 
+  // else {
+  //   id = landingDataFromDataBase.id
+  //   path = `users/${id}`
+  // }
   return (
     <div className="cell small-12 text-center">
-      <li><Link to={path}> HOME </Link></li>
+      <li><Link to="/"> HOME </Link></li>
       <li><Link to="/brews">BREW METHODS HOME PAGE</Link></li>
       <li><Link to="/roasts">ROASTS HOME PAGE</Link></li>
     </div>
