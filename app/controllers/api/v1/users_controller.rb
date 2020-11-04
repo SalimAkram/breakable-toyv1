@@ -2,6 +2,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user #helper method for checking for current user vs params[:id]
 
   def show
+    binding.pry
     user = User.find(params[:id])
     render json: user, serializer: UserSerializer
   end
