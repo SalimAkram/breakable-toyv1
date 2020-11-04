@@ -24,7 +24,6 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
        expect(returned_json["process"]).to eq roast_1.process
        expect(returned_json["price"]).to eq roast_1.price
        expect(returned_json["rating"]).to eq roast_1.rating
-
     end
   end
 
@@ -73,6 +72,7 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
 
       post(:create, params: post_json, format: :json)
       returned_json = JSON.parse(response.body)
+      
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
       
@@ -87,4 +87,5 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
       expect(returned_json["rating"]).to eq 5
     end
   end
+
 end
