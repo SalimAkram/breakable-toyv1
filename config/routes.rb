@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   root 'homes#index'
   devise_for :users
 
+  get "/", to: "homes#index" 
+  get "/roasts", to: "homes#index" 
+  get "/roasts/new", to: "homes#index" 
+  get "/roasts/:id", to: "homes#index"
+  get "/users/:id", to: "homes#authenticated"
+  get "/brews", to: "homes#index"
+  get "/brews/:id", to: "homes#index"
+
+  # get '*page', to: 'homes#index'
+
   namespace :api do    
     namespace :v1 do      
       resources :roasts, only: [:index, :show, :create]
@@ -10,8 +20,4 @@ Rails.application.routes.draw do
       resources :brews, only: [:create, :index, :show]      
     end  
   end
-
-  resources :roasts , only: [:new]
-  get '*page', to: 'homes#index'
-
 end

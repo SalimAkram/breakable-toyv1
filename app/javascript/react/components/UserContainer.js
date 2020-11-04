@@ -36,6 +36,9 @@ const UserContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  // const errorDisplayArray = errorList.map((error) => {
+  // })
+
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     fetch('/api/v1/brews', {
       credentials: "same-origin",
