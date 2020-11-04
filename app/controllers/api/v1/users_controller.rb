@@ -10,6 +10,7 @@ class Api::V1::UsersController < ApplicationController
   def authenticate_user
     if !user_signed_in?
       render json: {error: ["You need to be signed in first"]}
+      # redirect_to user_session_path
     end
   end
 

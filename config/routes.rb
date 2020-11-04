@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get "/roasts", to: "homes#index" 
   get "/roasts/new", to: "homes#index" 
   get "/roasts/:id", to: "homes#index"
-  get "/users/:id", to: "homes#authenticated"
+  get "/users/:id", to: "homes#index"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
 
