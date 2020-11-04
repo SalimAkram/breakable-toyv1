@@ -28,4 +28,32 @@ RSpec.describe Api::V1::BrewsController, type: :controller do
       expect(returned_json["brew"]["user_id"]==nil?).to eq false
     end
   end
+
+  describe "POST#create" do
+    it "adds a new brew" do 
+
+      post_json = {
+        brew: {
+          method: "chemex",
+          filter_type: "natural paper",
+          brew_time: 3,
+          kettle_type: "electric" ,
+          water_temperature: 185,
+          grams: 24,
+          grind: "medium",
+          instructions: "brew that stuff with water duh",
+          ratio: "2/1",
+          yield: 12,
+          roast: "light",
+          roast_region: "kenya",
+          user_id: 23
+        }
+      }
+
+      prev_count = Roast.count
+      binding.pry
+      post(:create, params: post_json, format: :json)
+      expect(Roast.count).to eq(prev_count + 1)
+    end
+  end
 end

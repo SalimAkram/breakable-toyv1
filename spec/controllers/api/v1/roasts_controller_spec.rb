@@ -8,7 +8,7 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
   
     it "return successful status and content type of json" do
       get :index 
-      
+
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
     end
@@ -47,6 +47,7 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
           ethical_business_practices: true, 
         }
       }
+      
       prev_count = Roast.count
       post(:create, params: post_json, format: :json)
       expect(Roast.count).to eq(prev_count + 1)
