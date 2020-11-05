@@ -85,10 +85,9 @@ roast5 = Roast.create(
 
 creator = User.create(
   email: "salimakram123@gmail.com",
-  encrypted_password: "123456",
-  first_name: "salim",
-  last_name: "akram",
+  password: "asdfgh",
   username: "askablackdude",
+  profile_photo: File.open(Rails.root.join('public', 'uploads', 'seed', '000113300011.jpg'))
 )
 
  brew1 = Brew.create(
