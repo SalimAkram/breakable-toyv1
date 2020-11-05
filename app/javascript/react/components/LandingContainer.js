@@ -22,12 +22,12 @@ const LandingContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
   
-  let path;
-  let id;
+  // let path;
+  // let id;
 
-  if (landingDataFromDataBase === null) {
-    path = 'users/sign_up' // work on redirecting to the sign up and login page or maybe some other error page
-  } 
+  // if (landingDataFromDataBase === null) {
+  //   path = 'users/sign_up' // work on redirecting to the sign up and login page or maybe some other error page
+  // } 
   // else {
   //   id = landingDataFromDataBase.id
   //   path = `users/${id}`
