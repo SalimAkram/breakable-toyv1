@@ -57,4 +57,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'active_model_serializers'
 gem 'fog'
-
+gem 'nokogiri'
+gem 'httparty'
+gem 'byebug'
+gem 'open-uri'
