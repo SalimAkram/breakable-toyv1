@@ -16,7 +16,15 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if !user_signed_in?
-      render json: {error: ["You need to be signed in first"]}
+      flash[:notice] = "You need to be signed in first"
+      redirect_to new_user_session_path
+    end
+  end
+
+  def authorize_user
+    if current_user.id != params[:id].to_i
+      flash.now[:notice] = "You do not have access to this page."
+      redirect_to root_path
     end
   end
 end

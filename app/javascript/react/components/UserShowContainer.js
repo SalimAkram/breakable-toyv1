@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react'
 import UserTile from './UserTile'
 import UserMethodTile from './UserMethodTile'
 import BrewMethodForm from './BrewMethodForm'
+import { Redirect } from 'react-router-dom'
 
-const UserContainer = (props) => {
+const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
+  const [shouldRedirect, setshouldRedirect] = useState(false)
   const [errorList, setErrorList] = useState([])
 
   const id = props.match.params.id
@@ -27,8 +29,8 @@ const UserContainer = (props) => {
         if(responseBody.error == null) {
           setUsersData(responseBody)
           setBrewMethodsFromDataBase(responseBody.brews)
-        } else if (responseBody.error[0] === "You need to be signed in first") {
-          props.history.go("users/sign_in")
+        } else if (responseBody.error[0] === "You can only view your profile") {
+          setshouldRedirect(true)
         } else if (responseBody.error) {
           setErrorList(responseBody.error)
         }
@@ -36,6 +38,10 @@ const UserContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
+  if (shouldRedirect) {
+    <Redirect to='/'/>
+  }
+  
   // const errorDisplayArray = errorList.map((error) => {
   // })
 
@@ -110,4 +116,4 @@ const UserContainer = (props) => {
 
 }
 
-export default UserContainer
+export default UserShowContainer
