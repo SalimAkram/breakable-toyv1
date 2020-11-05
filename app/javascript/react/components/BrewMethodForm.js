@@ -190,10 +190,11 @@ const BrewMethodForm = (props) => {
               </div>
               <div className="cell">
                 <label>Instructions:
-                    <input
+                    <textarea
                       name="instructions"
                       id="instructions"
-                      type="text"
+                      rows="10"
+                      cols="30"
                       onChange={handleInputChange}
                       value={userBrewMethodData.instructions}
                   />

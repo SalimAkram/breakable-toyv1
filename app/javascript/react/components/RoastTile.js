@@ -4,21 +4,10 @@ import { Link } from 'react-router-dom'
 const RoastTile = (props) =>{
   return (
     <div className="roast-tile">
-      <ul>{props.name}
-        <li>
-          Brand: {props.brand}
-        </li>
-        <li>
-          Region: {props.region}
-        </li>
-        <li>
-          Notes: {props.notes}
-        </li>
-        <li>
-          Price: ${props.price}
-        </li>
+      <div>
+        {props.name}
+      </div>
         <Link to={`roasts/${props.id}`}>view this roast</Link>
-      </ul>
     </div>
   )
 }

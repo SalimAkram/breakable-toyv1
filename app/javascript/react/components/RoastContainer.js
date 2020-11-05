@@ -2,10 +2,11 @@ import  React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import RoastTile from './RoastTile'
-// import RoastForm from './RoastForm'
+import ScraperRoastTile from './ScraperRoastTile'
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
+  const [scraperData, setScraperData] = useState([])
 
   useEffect(() => {
     fetch('/api/v1/roasts')
@@ -20,36 +21,22 @@ const RoastContainer = (props) => {
       })
       .then(response => response.json())
       .then(responseBody => {
-        setRoastData(responseBody)
+        setRoastData(responseBody.roast)
+        setScraperData(responseBody.roasts_scraper)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }, [])
 
-  // const addRoastFromForm = (userRoastData) => {
-  //   fetch('/api/v1/roasts', {
-  //     credentials: "same-origin",
-  //     method: "POST",
-  //     body: JSON.stringify(userRoastData),
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //     .then(response => {
-  //       if (response.ok) {
-  //         return response;
-  //       } else {
-  //         const errorMessage = `${response.status} (${response.statusText})`;
-  //         const error = new Error(errorMessage);
-  //         throw error;
-  //       }
-  //     })
-  //     .then(response => response.json())
-  //     .then(responseBody => {
-  //       setRoastData([...roastData, responseBody])
-  //     })
-  //     .catch(error => console.error(`Error in fetch: ${error.message}`))
-  // }
+  const scraperTileArray = scraperData.map((scraper) => {
+    return (
+      <ScraperRoastTile
+      key={scraper.name}
+      name={scraper.name}
+      url={scraper.url}
+    />
+      
+    )
+  })
 
 
   const roastTileArray = roastData.map((roast) =>{
@@ -74,9 +61,11 @@ const RoastContainer = (props) => {
     )
   })
 
+
   return(
     <div className="cell small-12 text-center">
       {roastTileArray}
+      {scraperTileArray}
       <div>
         <Link to="roasts/new">Add A New Roast</Link>
       </div>
