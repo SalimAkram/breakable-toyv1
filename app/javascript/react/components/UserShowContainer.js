@@ -96,8 +96,6 @@ const UserShowContainer = (props) => {
         <UserTile
           key={usersData.id}
           id={usersData.id}
-          first_name={usersData.first_name}
-          last_name={usersData.last_name}
           username={usersData.username}
           email={usersData.email}
         />

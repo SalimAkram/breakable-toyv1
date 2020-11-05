@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 2020_11_01_141333) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
     t.string "username", null: false
     t.string "profile_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
