@@ -1,7 +1,15 @@
 class Api::V1::RoastsController < ApplicationController
   def index
     roasts = Roast.all 
-    render json: roasts
+    scraper = Roast.crawler
+    roasts_scraper_id = []
+
+    scraper.each do |roast|
+      roast[:id] = roasts_scraper_id.count + Roast.last.id + 1
+      roasts_scraper_id << roast
+    end
+
+    render json: { roast: roasts, roasts_scraper: roasts_scraper_id }
   end
 
   
