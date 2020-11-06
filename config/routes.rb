@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
-
+  get "testing", to: "homes#index"
   # get '*page', to: 'homes#index'
 
   namespace :api do    
