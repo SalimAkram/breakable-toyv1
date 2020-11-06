@@ -24,7 +24,11 @@ class Roast < ApplicationRecord
         url: "#{roast.css('form')[0].attributes["action"].value}",
         id: nil
       }
-      all_roasts << roast
+      if roast[:name].downcase.include?('subscriptions') || roast[:url].downcase.include?('subscription')
+        next
+      else
+        all_roasts << roast
+      end
     end
 
     url = 'http://www.vandykecoffeeroasters.com/store/c1/Featured_Products.html'
