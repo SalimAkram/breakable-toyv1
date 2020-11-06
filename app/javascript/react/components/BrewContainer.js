@@ -17,18 +17,18 @@ const BrewContainer = (props) => {
         }
       })
       .then(response => response.json())
-      .then(responseBody => { //send up users name with this info eventually
+      .then(responseBody => {
         setBrewData(responseBody)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+  },[])
 
   const brewTileArray = brewData.map((brew) => {
     return(
       <BrewTile
         key={brew.id}
         id={brew.id}
-        method={brew.method}
+        maker={brew.maker}
         filter_type={brew.filter_type}
         brew_time={brew.brew_time}
         kettle_type={brew.kettle_type}
@@ -40,7 +40,9 @@ const BrewContainer = (props) => {
         roast={brew.roast}
         roast_region={brew.roast_region}
         instructions={brew.instructions}
-        user={brew.user_id}
+        user_id={brew.user_id}
+        user={brew.user["username"]}
+        photo={brew.user["profile_photo"]["thumb"].url}
       />
     )
   })

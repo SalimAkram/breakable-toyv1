@@ -25,7 +25,7 @@ const RoastContainer = (props) => {
         setScraperData(responseBody.roasts_scraper)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+  },[])
 
   const scraperTileArray = scraperData.map((scraper) => {
     return (
@@ -34,10 +34,8 @@ const RoastContainer = (props) => {
       name={scraper.name}
       url={scraper.url}
     />
-      
     )
   })
-
 
   const roastTileArray = roastData.map((roast) =>{
     return (
@@ -61,14 +59,15 @@ const RoastContainer = (props) => {
     )
   })
 
-
   return(
-    <div className="cell small-12 text-center">
-      {roastTileArray}
-      {scraperTileArray}
-      <div>
-        <Link to="roasts/new">Add A New Roast</Link>
+    <div className="">
+      <div className="grid-x grid-padding-x">
+        {roastTileArray}
       </div>
+      <div className="grid-x grid-padding-x">
+        {scraperTileArray}
+      </div>
+      <Link to="roasts/new">Add A New Roast</Link>
     </div>
   )
 }

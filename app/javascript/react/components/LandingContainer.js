@@ -20,14 +20,18 @@ const LandingContainer = (props) => {
         setLandingDataFromDataBase(responseBody)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+  },[])
   
   let path = `/users/${landingDataFromDataBase.id}`;
+  let profile;
+  if (landingDataFromDataBase.length !== 0) {
+    profile = <Link to={path}> PROFILE </Link>
+  }
 
   return (
     <div className="cell small-12 text-center">
       <li><Link to="/"> HOME </Link></li>
-      <li><Link to={path}> PROFILE </Link></li>
+      <li>{profile}</li>
       <li><Link to="/brews">BREW METHODS HOME PAGE</Link></li>
       <li><Link to="/roasts">ROASTS HOME PAGE</Link></li>
     </div>

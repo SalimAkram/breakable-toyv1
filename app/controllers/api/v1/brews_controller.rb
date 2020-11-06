@@ -26,7 +26,7 @@ class Api::V1::BrewsController < ApplicationController
 
   def brew_params
     params.require(:brew).permit(
-      :method,
+      :maker,
       :filter_type,
       :brew_time,
       :kettle_type,

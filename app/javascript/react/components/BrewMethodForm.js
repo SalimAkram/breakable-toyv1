@@ -47,6 +47,7 @@ const BrewMethodForm = (props) => {
       roast_region: ""
     })
 }
+
   return(
     <div className="">
       <form onSubmit={handleSubmit}>
@@ -54,8 +55,8 @@ const BrewMethodForm = (props) => {
           <fieldset className="brewform">
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
-                <label>Brew Method: 
-                  <select onChange={handleInputChange} name="method" id="method">
+                <label>Maker: 
+                  <select onChange={handleInputChange} name="maker" id="maker">
                     <option value="default">Select your brew method</option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>

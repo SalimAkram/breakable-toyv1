@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import UserTile from './UserTile'
 import UserMethodTile from './UserMethodTile'
 import BrewMethodForm from './BrewMethodForm'
-import { Redirect } from 'react-router-dom'
 
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
@@ -36,15 +36,12 @@ const UserShowContainer = (props) => {
         }
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+  },[])
 
   if (shouldRedirect) {
     <Redirect to='/'/>
   }
   
-  // const errorDisplayArray = errorList.map((error) => {
-  // })
-
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     fetch('/api/v1/brews', {
       credentials: "same-origin",
@@ -68,7 +65,6 @@ const UserShowContainer = (props) => {
   }
 
   const  userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
-    
     return(
       <UserMethodTile 
         key={userBrewMethod.id}
@@ -89,6 +85,9 @@ const UserShowContainer = (props) => {
     )
   })
   
+  // const errorDisplayArray = errorList.map((error) => {
+  // })
+
     return (
       <div className="grid-x grid-margin-x">
       <h1>{errorList}</h1>

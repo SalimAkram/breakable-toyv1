@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :username
+  attributes :id, :email, :username, :profile_photo
   
-  has_many :brews #figure out how to send this data up optionally
+  has_many :brews
 end

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "profile photo" do
-  scenario "user uploads a profile photo" do
+  xscenario "user uploads a profile photo" do
     visit root_path
     click_link "Sign Up"
     

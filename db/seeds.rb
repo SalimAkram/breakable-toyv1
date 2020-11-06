@@ -91,7 +91,7 @@ creator = User.create(
 )
 
  brew1 = Brew.create(
-    method: "chemex",
+    maker: "chemex",
     filter_type: "metal",
     brew_time: 2,
     kettle_type: "electric",
@@ -107,7 +107,7 @@ creator = User.create(
  )
 
  brew2 = Brew.create(
-    method: "chemex",
+    maker: "chemex",
     filter_type: "natural paper",
     brew_time: 2,
     kettle_type: "electric",

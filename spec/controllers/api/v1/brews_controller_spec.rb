@@ -5,7 +5,7 @@ RSpec.describe Api::V1::BrewsController, type: :controller do
     
     let!(:brew_1) {FactoryBot.create(:brew)}
 
-    it "return succesful status and content type of json" do
+    xit "return succesful status and content type of json" do
       get :index
       
       expect(response.status).to eq 200
