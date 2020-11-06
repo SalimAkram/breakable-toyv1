@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 
+import ErrorList from "./ErrorList"
+
+
 const RoastForm = (props) =>{
 
   const [shouldRedirect, setShouldRedirect] = useState(false)
@@ -18,6 +21,23 @@ const RoastForm = (props) =>{
     fair_trade: "",
     ethical_business_practices: ""
   });
+
+
+  const validForSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["meal", "food"]
+    requiredFields.forEach(field => {
+      if (mealRecord[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
 
   const handleInputChange = event => {
     event.preventDefault()
@@ -85,7 +105,8 @@ const RoastForm = (props) =>{
 
   return(
     <div className="translucent-form-overlay">
-      <form onSubmit={handleSubmit}>
+      <form className="callout" onSubmit={handleSubmit}>
+        <ErrorList errors={errors} />
         <h4>Add Roast</h4>
           <fieldset className="">
           <div className="row columns">
