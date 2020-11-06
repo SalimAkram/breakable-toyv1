@@ -26,6 +26,19 @@ class Roast < ApplicationRecord
       }
       all_roasts << roast
     end
+
+    url = 'http://www.vandykecoffeeroasters.com/store/c1/Featured_Products.html'
+    parsed_page2 = Nokogiri::HTML(URI.open(url))
+    roasts2 = parsed_page2.css(".wsite-com-category-product")
+    
+    roasts2.each do |roast|
+      roast = { 
+        name: "#{roast.css("div a")[0].children[3].children[0].text.strip}",
+        url: "http://www.vandykecoffeeroasters.com#{roast.css("div a")[0].attributes["href"].value}",
+        id: nil
+      }
+      all_roasts << roast
+    end
     
     all_roasts
   end
