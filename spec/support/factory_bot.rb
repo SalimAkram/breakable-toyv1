@@ -29,7 +29,7 @@ end
 
 FactoryBot.define do
   factory :brew do
-    sequence(:method) { "chemex" }
+    sequence(:maker) { "chemex" }
     filter_type { "natural paper" }
     brew_time { 3 }
     kettle_type { "electric" }

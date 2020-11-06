@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_01_141333) do
   enable_extension "plpgsql"
 
   create_table "brews", force: :cascade do |t|
-    t.string "method", null: false
+    t.string "maker", null: false
     t.string "filter_type", null: false
     t.integer "brew_time", null: false
     t.string "kettle_type", null: false

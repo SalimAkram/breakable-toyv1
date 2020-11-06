@@ -2,6 +2,77 @@
 @import 'foundation';
 @import 'motion-ui/motion-ui';
 
+
+
+.card {
+  width: 350px;
+}
+
+.card-info {
+  padding: 1rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 2.5rem;
+      grid-template-rows: 1fr 2.5rem;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.card-title {
+  font-size: 2rem;
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+}
+
+.card-icon {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  justify-self: right;
+  width: 30px;
+  height: 30px;
+  background-color: LightBlue;
+  border-radius: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-column-align: center;
+      justify-items: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-author {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2;
+  -webkit-align-self: bottom;
+      -ms-flex-item-align: bottom;
+              -ms-grid-row-align: bottom;
+          align-self: bottom;
+}
+
+.card-stats {
+  -webkit-align-self: bottom;
+      -ms-flex-item-align: bottom;
+              -ms-grid-row-align: bottom;
+          align-self: bottom;
+  justify-self: right;
+}
+
+
+.work-feature-block {
+  padding: 10px 0;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+}
+
+.work-feature-block-image {
+  display: block;
+  margin: auto;
+  padding: 10px 0;
+}
+
+
+
 .body {
   background-color: #f0ead2;
 }
@@ -12,8 +83,6 @@ li {
 
 .roast-tile, .brew-tile, .user{
   background-color: #adc178 ;
-  max-height: 700px;
-  margin: 5rem 400px;
   box-shadow: 1px 1px 5px 1px;
   padding: 1rem;
   border-radius: 10px;
@@ -23,6 +92,9 @@ h1, .user {
   text-align: center;
 }
 
+// .roast-tile {
+//   border: solid black; 
+// }
 
 .top-bar {
   background-color: #adc178;
