@@ -1,11 +1,20 @@
 import React from 'react'
+import { Link, link } from 'react-router-dom'
 
 const UserTile = (props) => {
   return (
-    <div>
-      <h4>
-        {props.username} || {props.email}
-      </h4>
+    <div className="user">
+      <div>
+        username: {props.username} <br/> 
+        email: {props.email}
+      </div>
+      <div>
+        <Link to="/brews">Brews Page</Link>
+      </div>
+        <Link to="/roasts">Roasts Page</Link>
+      <div>
+        <Link to="/roasts/new">Add a New Roast</Link>
+      </div>
     </div>  
   )
 }

@@ -90,26 +90,25 @@ const UserShowContainer = (props) => {
   })
   
     return (
-    <div className="">
+      <div className="grid-x grid-margin-x">
       <h1>{errorList}</h1>
-      <div className="cell small-12 text-center">
-        <UserTile
-          key={usersData.id}
-          id={usersData.id}
-          username={usersData.username}
-          email={usersData.email}
-        />
-        <div className="">
+        <div>
+          <UserTile
+            key={usersData.id}
+            id={usersData.id}
+            username={usersData.username}
+            email={usersData.email}
+          />
+        </div>
+        <div className="small-12 cell">
           <BrewMethodForm
             addBrewMethodFromForm={addBrewMethodFromForm}
           />
         </div>
-        <div>
-          brew methods here 
-         {userBrewMethodArray}
+        <div className="large-12 cell">
+          {userBrewMethodArray}
         </div>
       </div>
-    </div>
   );
 
 }

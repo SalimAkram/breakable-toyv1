@@ -10,7 +10,7 @@ li {
   list-style: none;
 }
 
-.roast-tile, .brew-tile {
+.roast-tile, .brew-tile, .user{
   background-color: #adc178 ;
   max-height: 700px;
   margin: 5rem 400px;
@@ -19,7 +19,7 @@ li {
   border-radius: 10px;
 }
 
-h1 {
+h1, .user {
   text-align: center;
 }
 
