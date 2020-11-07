@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 2020_11_01_141333) do
 
   create_table "brews", force: :cascade do |t|
     t.string "maker", null: false
-    t.string "filter_type", null: false
-    t.integer "brew_time", null: false
-    t.string "kettle_type", null: false
-    t.integer "water_temperature", null: false
+    t.string "filter", null: false
+    t.integer "time", null: false
+    t.string "kettle", null: false
+    t.integer "temperature", null: false
     t.integer "grams", null: false
     t.string "grind", null: false
     t.text "instructions", null: false
     t.string "ratio"
     t.integer "yield"
     t.string "roast"
-    t.string "roast_region"
+    t.string "region"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 2020_11_01_141333) do
   create_table "roasts", force: :cascade do |t|
     t.string "name", null: false
     t.string "brand", null: false
-    t.string "region", null: false
-    t.string "notes", null: false
-    t.string "process", null: false
+    t.string "region"
+    t.string "notes"
+    t.string "process"
     t.string "producer"
     t.string "altitude"
-    t.string "url"
+    t.string "url", null: false
     t.integer "price", null: false
     t.integer "rating", null: false
     t.boolean "fair_trade"

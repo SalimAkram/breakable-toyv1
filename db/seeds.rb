@@ -92,32 +92,32 @@ creator = User.create(
 
  brew1 = Brew.create(
     maker: "chemex",
-    filter_type: "metal",
-    brew_time: 2,
-    kettle_type: "electric",
-    water_temperature: 202,
+    filter: "metal",
+    time: 2,
+    kettle: "electric",
+    temperature: 202,
     grams: 24,
     ratio: "1.6/2",
     yield: 12,
     grind: "coarse",
     instructions: "this is a test but just brew it!",
     roast: "light",
-    roast_region: "kenya",
+    region: "kenya",
     user_id: 1
  )
 
  brew2 = Brew.create(
     maker: "chemex",
-    filter_type: "natural paper",
-    brew_time: 2,
-    kettle_type: "electric",
-    water_temperature: 202,
+    filter: "natural paper",
+    time: 2,
+    kettle: "electric",
+    temperature: 202,
     grams: 32,
     ratio: "1.6/2",
     yield: 16,
     grind: "coarse",
     instructions: "this is another test but we will just brew it!",
     roast: "light",
-    roast_region: "ethiopian",
+    region: "ethiopian",
     user_id: 1
  )

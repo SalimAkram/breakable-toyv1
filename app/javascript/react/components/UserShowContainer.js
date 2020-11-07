@@ -69,17 +69,17 @@ const UserShowContainer = (props) => {
       <UserMethodTile 
         key={userBrewMethod.id}
         id={userBrewMethod.id}
-        method={userBrewMethod.method}
-        filter_type={userBrewMethod.filter_type}
-        brew_time={userBrewMethod.brew_time}
-        kettle_type={userBrewMethod.kettle_type}
-        water_temperature={userBrewMethod.water_temperature}
+        maker={userBrewMethod.maker}
+        filter={userBrewMethod.filter}
+        time={userBrewMethod.time}
+        kettle={userBrewMethod.kettle}
+        temperature={userBrewMethod.temperature}
         grams={userBrewMethod.grams}
         ratio={userBrewMethod.ratio}
         yield={userBrewMethod.yield}
         grind={userBrewMethod.grind}
         roast={userBrewMethod.roast}
-        roast_region={userBrewMethod.roast_region}
+        region={userBrewMethod.region}
         instructions={userBrewMethod.instructions}
       />
     )
@@ -90,7 +90,7 @@ const UserShowContainer = (props) => {
 
     return (
       <div className="grid-x grid-margin-x">
-      <h1>{errorList}</h1>
+        <h1>{errorList}</h1>
         <div>
           <UserTile
             key={usersData.id}
@@ -109,7 +109,6 @@ const UserShowContainer = (props) => {
         </div>
       </div>
   );
-
 }
 
 export default UserShowContainer

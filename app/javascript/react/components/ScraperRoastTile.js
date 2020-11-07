@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import image1 from '../../../assets/images/DSCF0745.JPG'
 
 const ScraperRoastTile = (props) => {
-  debugger
   return (
     // <div className="">
     //   <div>

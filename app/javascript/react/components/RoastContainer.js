@@ -67,7 +67,6 @@ const RoastContainer = (props) => {
       <div className="grid-x grid-padding-x">
         {scraperTileArray}
       </div>
-      <Link to="roasts/new">Add A New Roast</Link>
     </div>
   )
 }
