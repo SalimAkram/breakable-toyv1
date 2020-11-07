@@ -1,20 +1,25 @@
 import React, { useState } from 'react'
+import { Redirect } from "react-router-dom"
+
+import ErrorList from './ErrorList'
 
 const BrewMethodForm = (props) => {
 
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+  const [errors, setErrors] = useState({})
   const [userBrewMethodData, setUserBrewMethodData] = useState({
-    method: "",
-    filter_type: "",
-    brew_time: "",
-    kettle_type: "",
-    water_temperature: "",
+    maker: "",
+    filter: "",
+    time: "",
+    kettle: "",
+    temperature: "",
     grams: "",
     ratio: "",
     yield: "",
     grind: "",
     instructions: "",
     roast: "",
-    roast_region: ""
+    region: ""
   });
 
   const handleInputChange = event => {
@@ -27,30 +32,73 @@ const BrewMethodForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    props.addBrewMethodFromForm(userBrewMethodData)
+    if (validBrewForSubmission()) {
+      props.addBrewMethodFromForm(userBrewMethodData)
+      setShouldRedirect(true)
+    }
     clearForm()
   }
 
-  const clearForm = () => {
+  if (shouldRedirect) {
+    alert("brew added successfully!")
+    return <Redirect to='/brews' />
+  }
+
+  const validBrewForSubmission = () => {
+    let submitErrors = {}
+    const requiredFields = ["maker", "filter", "time", "kettle", "temperature", "grams", "grind", "instructions"]
+    requiredFields.forEach(field => {
+      if (userBrewMethodData[field].trim() === "") {
+        submitErrors = {
+          ...submitErrors,
+          [field]: "is blank"
+        }
+      }
+    })
+    setErrors(submitErrors)
+    return _.isEmpty(submitErrors)
+  }
+
+  const clear = (event) => {
+    event.preventDefault()
     setUserBrewMethodData ({
-      method: "",
-      filter_type: "",
-      brew_time: "",
-      kettle_type: "",
-      water_temperature: "",
+      maker: "",
+      filter: "",
+      time: "",
+      kettle: "",
+      temperature: "",
       grams: "",
       ratio: "",
       yield: "",
       grind: "",
       instructions: "",
       roast: "",
-      roast_region: ""
+      region: ""
+    })
+  setErrors({})
+}
+
+  const clearForm = () => {
+    setUserBrewMethodData ({
+      maker: "",
+      filter: "",
+      time: "",
+      kettle: "",
+      temperature: "",
+      grams: "",
+      ratio: "",
+      yield: "",
+      grind: "",
+      instructions: "",
+      roast: "",
+      region: ""
     })
 }
 
-  return(
+return(
     <div className="">
       <form onSubmit={handleSubmit}>
+        <ErrorList errors={errors} />
         <h4>Add a Brew Method</h4>
           <fieldset className="brewform">
             <div className="grid-x grid-padding-x">
@@ -69,7 +117,7 @@ const BrewMethodForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label>Filter Type: 
-                  <select onChange={handleInputChange} name="filter_type" id="filter_type">
+                  <select onChange={handleInputChange} name="filter" id="filter">
                     <option value="default">Select filter type:</option>
                     <option value="metal">METAL</option>
                     <option value="natural paper">NATURAL PAPER</option>
@@ -82,7 +130,7 @@ const BrewMethodForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label>Kettle Type: 
-                  <select onChange={handleInputChange} name="kettle_type" id="kettle_type">
+                  <select onChange={handleInputChange} name="kettle" id="kettle">
                     <option value="default">Select From The Following:</option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
@@ -115,7 +163,7 @@ const BrewMethodForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label>Roast Region:
-                      <select onChange={handleInputChange} name="roast_region" id="roast_region">
+                      <select onChange={handleInputChange} name="region" id="region">
                     <option value="default">Select From The Following:</option>
                     <option value="ethiopian">ETHIOPIAN</option>
                     <option value="costa rican">COSTA RICAN</option>
@@ -127,26 +175,26 @@ const BrewMethodForm = (props) => {
               <div className="small-6 cell">
                   <label>Brew Time:
                     <input 
-                      name="brew_time"
-                      id="brew_time"
+                      name="time"
+                      id="time"
                       type="number" 
                       min="1"
                       max="5"
                       onChange={handleInputChange} 
-                      value={userBrewMethodData.brew_time}
+                      value={userBrewMethodData.time}
                       />
                   </label>
               </div>
               <div className="small-6 cell">
                 <label>Water Temperature:
                     <input
-                      name="water_temperature"
-                      id="water_temperature"
+                      name="temperature"
+                      id="temperature"
                       type="number"
                       min="185"
                       max="212"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.water_temperature}
+                      value={userBrewMethodData.temperature}
                   />
                 </label>
               </div>
@@ -203,6 +251,9 @@ const BrewMethodForm = (props) => {
               </div>
             </div>  
           </fieldset>
+          <button className="button" onClick={clear}>
+            Clear
+          </button>
           <input  type="submit" value="Submit" className="button cell" />
       </form>
     </div>

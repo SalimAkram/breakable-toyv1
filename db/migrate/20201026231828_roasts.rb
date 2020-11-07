@@ -3,12 +3,12 @@ class Roasts < ActiveRecord::Migration[5.2]
     create_table :roasts do |t|
       t.string :name, null: false
       t.string :brand, null: false
-      t.string :region, null: false
-      t.string :notes, null: false
-      t.string :process, null: false
+      t.string :region
+      t.string :notes
+      t.string :process
       t.string :producer
       t.string :altitude
-      t.string :url
+      t.string :url, null: false
       t.integer :price, null: false
       t.integer :rating, null: false
       t.boolean :fair_trade
