@@ -48,8 +48,8 @@ const BrewContainer = (props) => {
   })
  
   return(
-    <div>
-      <div className="cell small-12 text-center">
+    <div className="grid-x grid-margin-x">
+      <div className="cell grid-x grid-margin-x">
         {brewTileArray}
       </div>
     </div>

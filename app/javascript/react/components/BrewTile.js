@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const BrewTile = (props) => {
   return(
-    <div className="brew-tile">
+    <div className="brew-tile small-12 medium-6">
       <div>
         {props.user}
       </div>
