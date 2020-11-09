@@ -30,15 +30,15 @@ const LandingContainer = (props) => {
 
   return (
     <div>
-      <div className="cell test">
+      <div className="cell">
         <li>{profile}</li>
       </div>
     <div className="grid-x grid-margin-x">
-      <div className="box cell test grid-margin-x small-12 medium-6">
+      <div className="box cell  grid-margin-x small-12 medium-6">
         <h1> GOOGLE MAP HERE</h1>
       </div>
-      <div className="box cell test grid-margin-x small-12 medium-6">
-        <h1>BLACK OWN BOX</h1>
+      <div className="box cell grid-margin-x small-12 medium-6">
+        <h1>LIST AND SEARCH BAR HERE</h1>
       </div>
     </div>
     </div>

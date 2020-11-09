@@ -100,7 +100,7 @@ return(
       <form onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <h4>Add a Brew Method</h4>
-          <fieldset className="brewform">
+          <fieldset className="">
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label>Maker: 

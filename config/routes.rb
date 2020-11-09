@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/users/:id", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
+  get "poc", to: "homes#index"
   get "testing", to: "homes#index"
   # get '*page', to: 'homes#index'
 
@@ -17,7 +18,8 @@ Rails.application.routes.draw do
       resources :roasts, only: [:index, :show, :create]
       resources :landings, only: [:index]   
       resources :users, only: [:show]
-      resources :brews, only: [:create, :index, :show]      
+      resources :brews, only: [:create, :index, :show]
+      resources :blackowned, only: [:index]      
     end  
   end
 end
