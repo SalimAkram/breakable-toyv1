@@ -96,29 +96,29 @@ const BrewMethodForm = (props) => {
 }
 
 return(
-    <div className="">
-      <form onSubmit={handleSubmit}>
+    <div className="grid-x">
+    <form className="brew-form" onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
-        <h4>Add a Brew Method</h4>
-          <fieldset className="">
-            <div className="">
-              <div className="">
-                <label>Maker: 
+        <h5>Add a Brew Method</h5>
+          <fieldset>
+            <div className="grid-x grid-padding-x">
+              <div className="small-6 cell">
+                <label>Maker 
                   <select onChange={handleInputChange} name="maker" id="maker">
                     <option value="default">Select your brew method</option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
                     <option value="V60">V60</option>
+                    <option value="aeropress">AEROPRESS</option>
                     <option value="tbd1">TBB1</option>
                     <option value="tbd2">TBD2</option>
-                    <option value="tbd3">TBD3</option>
                   </select>
                 </label> 
               </div>
               <div className="small-6 cell">
-                <label>Filter Type: 
+                <label>Filter Type 
                   <select onChange={handleInputChange} name="filter" id="filter">
-                    <option value="default">Select filter type:</option>
+                    <option value="default">Select filter type</option>
                     <option value="natural paper">NATURAL PAPER</option>
                     <option value="white paper">WHITE PAPER</option>
                     <option value="metal">METAL</option>
@@ -129,9 +129,9 @@ return(
                 </label> 
               </div>
               <div className="small-6 cell">
-                <label>Kettle Type: 
+                <label>Kettle Type 
                   <select onChange={handleInputChange} name="kettle" id="kettle">
-                    <option value="default">Select From The Following:</option>
+                    <option value="default">Select From The Following</option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
                     <option value="tbd1">OTHER</option>
@@ -140,9 +140,9 @@ return(
                 </label> 
               </div>
               <div className="small-6 cell">  
-                <label>Grind:
+                <label>Grind
                   <select onChange={handleInputChange} name="grind" id="grind">
-                    <option value="default">Select From The Following:</option>
+                    <option value="default">Select From The Following</option>
                     <option value="medium fine">MEDIUM FINE</option>
                     <option value="medium">MEDIUM</option>
                     <option value="medium-coarse">MEDIUM-COARSE</option>
@@ -151,9 +151,9 @@ return(
                 </label>
               </div>
               <div className="small-6 cell">  
-                <label>Roast:
-                      <select onChange={handleInputChange} name="roast" id="roast">
-                    <option value="default">Select From The Following:</option>
+                <label>Roast
+                  <select onChange={handleInputChange} name="roast" id="roast">
+                    <option value="default">Select From The Following</option>
                     <option value="light roast">LIGHT ROAST</option>
                     <option value="medium roast">MEDIUM ROAST</option>
                     <option value="dark roast">DARK ROAST</option>
@@ -162,22 +162,22 @@ return(
                 </label>
               </div>
               <div className="small-6 cell">
-                <label>Roast Region:
-                      <select onChange={handleInputChange} name="region" id="region">
-                    <option value="default">Select From The Following:</option>
+                <label>Roast Region
+                  <select onChange={handleInputChange} name="region" id="region">
+                    <option value="default">Select From The Following</option>
                     <option value="ethiopian">ETHIOPIA</option>
                     <option value="costa rican">COSTA RICA</option>
                     <option value="kenyan">KENYA</option>
                     <option value="rwanda">RWANDA</option>
                     <option value="hawaiian">HAWAIIAN</option>
                     <option value="other">OTHER</option>
-                    <option value="other">OTHER</option>
-                    <option value="other">OTHER</option>
                   </select>
                 </label>
               </div>
-              <div className="small-6 cell">
-                  <label>Brew Time:
+            </div>
+            <div className="grid-x grid-padding-x align-center">
+              <div className="small-2 cell text-center">
+                  <label>Brew Time
                     <input 
                       name="time"
                       id="time"
@@ -189,8 +189,8 @@ return(
                       />
                   </label>
               </div>
-              <div className="small-6 cell">
-                <label>Water Temperature:
+              <div className="small-2 medium-2 cell">
+                <label>Water Temperature
                     <input
                       name="temperature"
                       id="temperature"
@@ -202,8 +202,8 @@ return(
                   />
                 </label>
               </div>
-              <div className="small-6 cell">
-                <label>Grams:
+              <div className="small-2 medium-2 cell">
+                <label>Grams
                     <input
                       name="grams"
                       id="grams"
@@ -216,8 +216,8 @@ return(
                   />
                 </label>
               </div>
-              <div className="small-6 cell">
-                <label>Grams/Water Ratio:
+              <div className="small-2 medium-2 cell">
+                <label>Grams/Water Ratio
                     <input
                       name="ratio"
                       id="ratio"
@@ -227,8 +227,8 @@ return(
                   />
                 </label>
               </div>
-              <div className="cell">
-                <label>Coffee Yield:
+              <div className="small-2 medium-2 cell">
+                <label>Coffee Yield
                     <input
                       name="yield"
                       id="yield"
@@ -242,7 +242,7 @@ return(
                 </label>
               </div>
               <div className="cell">
-                <label>Instructions:
+                <label>Instructions
                     <textarea
                       name="instructions"
                       id="instructions"
@@ -253,7 +253,7 @@ return(
                   />
                 </label>
               </div>
-            </div>  
+            </div> 
           </fieldset>
           <button className="button" onClick={clear}>Clear</button>
           <input  type="submit" value="Submit" className="button" />

@@ -25,6 +25,7 @@ const BrewContainer = (props) => {
 
   const brewTileArray = brewData.map((brew) => {
     return(
+      <div className="cell small-12 medium-4 test">
       <BrewTile
         key={brew.id}
         id={brew.id}
@@ -44,13 +45,14 @@ const BrewContainer = (props) => {
         user={brew.user["username"]}
         photo={brew.user["profile_photo"]["thumb"].url}
       />
+      </div>
     )
   })
  
   return(
-    <div className="grid-x grid-margin-x">
-      <div className="cell grid-x grid-margin-x">
-        {brewTileArray}
+    <div className="grid-container test-two">
+      <div className="grid-x  grid-margin-x align-center">
+          {brewTileArray}
       </div>
     </div>
   )

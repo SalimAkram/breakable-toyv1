@@ -10,7 +10,8 @@ class Api::V1::LandingsController < ApplicationController
       long = params[:long]
     end
 
-    cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=")  #fixed key import tomorrow
+    cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=") 
+    # cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=#{ENV['key']}")
 
     if current_user == nil
      flash.now[:notice] = "You need to be signed in to view your profile"
@@ -21,3 +22,5 @@ class Api::V1::LandingsController < ApplicationController
       render json: { cafes: cafes, landing: landing }
   end
 end
+
+#{ENV['COCKTAIL_DB']}

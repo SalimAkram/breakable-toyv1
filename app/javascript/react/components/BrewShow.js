@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-const BrewShow = (props) =>{
-
+import chemex from '../../../assets/images/depositphotos_190894814-stock-photo-front-view-chemex-alternative-coffee.jpg'
+// import 
+const BrewShow = (props) => {
 const [brewShow, setBrewShow] = useState({});
 const [user, setUser] = useState({});
 
@@ -24,70 +25,51 @@ const id = props.match.params.id
         setBrewShow(responseBody.brew)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+    }, [])
 
+  let brewPhoto;
+  if (brewShow.maker == "chemex") {
+    brewPhoto = chemex
+  } else if (brewShow.maker == "travel") {
+    brewPhoto = travel
+  } else if (brewShow.maker == "v60") {
+    brewPhoto = v60
+  } else if (brewShow.maker == "aeropress") {
+    brewPhoto = aeropress
+  }
 
   return(
-    // <div>
-    //   hello from brews/{brewShow.id} show with user {user.username}
-    // </div>
-
-    // <div className="">
-    //   <div className="portfolio-resume-scrolling-container">
-    //     <div className="cell small-12 medium-4 portfolio-resume-overview">
-    //       <div className="portfolio-resume-overview-content">
-    //         <h3 className="portfolio-resume-name">Name</h3>
-    //         <p>I'm kind of awesome. No really.</p>
-    //         <a className="button primary expanded" href="#">Contact Me</a>
-    //       </div>
-    //     </div>
-    //     <div className="cell small-12 medium-4 portfolio-resume-scrolling">
-    //       <h3>SKILLS</h3>
-    //       <ul className="portfolio-resume-side-list">
-    //         <li>Foundation</li>
-    //         <li>Moar Foundation</li>
-    //         <li>SCSS</li>
-    //         <li>CSS</li>
-    //         <li>JavaScript</li>
-    //         <li>HTML</li>
-    //       </ul>
-    //       <h3>EXPERIENCE</h3>
-    //       <p>Look at all this amazing stuff that I've done!</p>
-    //       <ul>
-    //         <li>Just one damned thing</li>
-    //         <li>After another</li>
-    //         <li>Like history</li>
-    //         <li>One thing</li>
-    //         <li>After another</li>
-    //       </ul>
-    //       <h3>WORK</h3>
-    //       <p>I've done work too</p>
-    //       <ul>
-    //         <li>A Site</li>
-    //         <li>Another Site</li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="grid-x">
-      <div class="work-feature-block row">
-        <div class="columns medium-7">
-          <img class="work-feature-block-image" src="https://placehold.it/600x400" />
+    <div className="grid-container test-two">
+      <div className="grid-x align-center">
+        <div className="cell medium-6">
+          <img className="image" src={brewPhoto} />
         </div>
-        <div class="columns medium-5">
-          <h2 class="work-feature-block-header">Project Description</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
-          <h2>Project Details</h2>
+      </div>
+      <div className="grid-x grid-margin-y align-center">
+        <div className="cell small-12 medium-6">
+          <h2>{user.username}</h2>
+        </div>
+      </div>
+      <div className="cell grid-x align-center">
+        <div className="small-6 medium-6">
           <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
+            <li>KETTLE TYPE - {brewShow.kettle}</li>
+            <li>FILTER TYPER - {brewShow.filter}</li>
+            <li>BEAN GRIND - {brewShow.grind}</li>
+            <li>BEAN WEIGHT - {brewShow.grams}</li>
+            <li>RATIO - {brewShow.ratio}</li>
+          </ul>
+        </div>
+        <div className="small-6 medium-6">
+          <ul>
+            <li>TEMPERATURE - {brewShow.temperature}</li>
+            <li>BREW TIME -  {brewShow.time}</li>
+            <li>ROAST - {brewShow.roast}</li>
+            <li>REGION - {brewShow.region}</li>
+            <li>RATING:{brewShow.yield}</li> {/* change this to rating*/}
           </ul>
         </div>
       </div>
-
-
     </div>
   )
 }
