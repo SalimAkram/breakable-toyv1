@@ -5,16 +5,16 @@ const UserMethodTile = (props) =>{
     <div className="grid-x">
       <ul className="medium-12 cell test">Brew Method
         <li>
-          Method: {props.method} || Filter: {props.filter_type} || Kettle: {props.kettle_type}
+          Method: {props.maker} || Filter: {props.filter} || Kettle: {props.kettle}
         </li>
         <li>
-          Brew Time: {props.brew_time} minutes || Water Temperature: {props.water_temperature} degree
+          Brew Time: {props.time} minutes || Water Temperature: {props.temperature} degree
             </li>
         <li>
           Grams: {props.grams} || Ratio: {props.ratio} || Yield: {props.yield}
         </li>
         <li>
-          Grind: {props.grind} || Roast: {props.roast} || Region: {props.roast_region}
+          Grind: {props.grind} || Roast: {props.roast} || Region: {props.region}
         </li>
         <li>
           Instructions <br />

@@ -61,3 +61,6 @@ gem 'nokogiri'
 gem 'httparty'
 gem 'byebug'
 gem 'open-uri'
+gem 'geocoder'
+gem 'google_places'
+
