@@ -61,10 +61,10 @@ const RoastContainer = (props) => {
 
   return(
     <div className="">
-      <div className="grid-x grid-padding-x">
+      <div className="">
         {roastTileArray}
       </div>
-      <div className="grid-x grid-padding-x">
+      <div className="">
         {scraperTileArray}
       </div>
     </div>

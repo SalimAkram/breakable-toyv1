@@ -101,8 +101,8 @@ return(
         <ErrorList errors={errors} />
         <h4>Add a Brew Method</h4>
           <fieldset className="">
-            <div className="grid-x grid-padding-x">
-              <div className="small-6 cell">
+            <div className="">
+              <div className="">
                 <label>Maker: 
                   <select onChange={handleInputChange} name="maker" id="maker">
                     <option value="default">Select your brew method</option>
@@ -255,10 +255,8 @@ return(
               </div>
             </div>  
           </fieldset>
-          <button className="button" onClick={clear}>
-            Clear
-          </button>
-          <input  type="submit" value="Submit" className="button cell" />
+          <button className="button" onClick={clear}>Clear</button>
+          <input  type="submit" value="Submit" className="button" />
       </form>
     </div>
   )
