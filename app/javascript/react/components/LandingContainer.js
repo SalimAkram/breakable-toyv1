@@ -40,10 +40,8 @@ navigator.geolocation.getCurrentPosition(successCallback);
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
-  const cafeListArray = cafeList.map((cafe) =>{
-    // debugger
+  const cafeListArray = cafeList.map((cafe) => {
     return(
-      
      <CafeTile 
         key={cafe.place_id}
         id={cafe.place_id}
@@ -55,34 +53,21 @@ navigator.geolocation.getCurrentPosition(successCallback);
   })
   
   return (
-    <Fragment>
-      <div className="grid-x text-center">
-      </div>
-      <div className="/*square-box grid-y medium-grid-fame grid-padding-y .grid-margin-y*/">
-        {/* <SearchForm /> */}
-        <div className="grid-x">
-          <div className="cell medium-auto medium-cell-block-container">
-            <div className="grid-x grid-padding-x">
-              <div className="cell box medium-6 medium-cell-block-y">
-                {cafeListArray}
-              </div>
-              <div className="cell box medium-6 medium-cell-block-y">
-                LIST AND SEARCH BAR HERE
-              </div>
-            </div>
+    <div className="grid-container test-two">
+      <div className="grid-x grid-margin-x" >
+        <div className="cell box medium-6" style={{ height: "100%" }}>
+            {cafeListArray}
+        </div>
+        <div className="cell box grid-y medium-6" style={{ height: "50%" }}>
+          <div className="test cell medium-6 top">
+            <h1>Search Bar</h1>
+          </div>
+          <div className="test cell medium-6">
+            <h1>Black Owned</h1>
           </div>
         </div>
-
       </div>
-    {/* <div className="grid-x grid-margin-x">
-      <div className="box cell  grid-margin-x small-12 medium-6">
-        {cafeListArray}
-      </div>
-      <div className="box cell grid-margin-x small-12 medium-6">
-        <h1>LIST AND SEARCH BAR HERE</h1>
-      </div>
-    </div> */}
-    </Fragment>
+    </div>
   )
 }
 

@@ -89,9 +89,9 @@ const UserShowContainer = (props) => {
   // })
 
     return (
-      <div className="grid-x grid-margin-x">
+      <div className="grid-container test-two">
         <h1>{errorList}</h1>
-        <div>
+        <div className="cell grid-x align-center">
           <UserTile
             key={usersData.id}
             id={usersData.id}
@@ -99,12 +99,12 @@ const UserShowContainer = (props) => {
             email={usersData.email}
           />
         </div>
-        <div className="small-12 cell">
+        <div className="cell grid-x">
           <BrewMethodForm
             addBrewMethodFromForm={addBrewMethodFromForm}
           />
         </div>
-        <div className="large-12 cell">
+        <div className="grid-x grid-margin-x grid-margin-y">
           {userBrewMethodArray}
         </div>
       </div>

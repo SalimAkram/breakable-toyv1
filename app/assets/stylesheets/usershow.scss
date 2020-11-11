@@ -1,9 +1,18 @@
 @import 'settings';
 @import 'foundation';
+@import 'colors';
 @import 'motion-ui/motion-ui';
 
 
-.brewform {
-  // background-color: ;
+.brew-form {
+  margin-bottom: 20px;
 }
 
+.user-tile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.user-brew-tile {
+  padding: 10px;
+}
