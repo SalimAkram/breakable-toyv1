@@ -29,13 +29,18 @@ const LandingContainer = (props) => {
   }
 
   return (
-    <div className="grid-x">
-      <div className="box small-8 medium-4">
-        <h1> GOOGLE MAP HERE</h1>
-      </div>
-      <div className="cell small-12 text-center">
+    <div>
+      <div className="cell">
         <li>{profile}</li>
       </div>
+    <div className="grid-x grid-margin-x">
+      <div className="box cell  grid-margin-x small-12 medium-6">
+        <h1> GOOGLE MAP HERE</h1>
+      </div>
+      <div className="box cell grid-margin-x small-12 medium-6">
+        <h1>LIST AND SEARCH BAR HERE</h1>
+      </div>
+    </div>
     </div>
   )
 }

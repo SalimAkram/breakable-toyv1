@@ -100,7 +100,7 @@ return(
       <form onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <h4>Add a Brew Method</h4>
-          <fieldset className="brewform">
+          <fieldset className="">
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label>Maker: 
@@ -108,10 +108,10 @@ return(
                     <option value="default">Select your brew method</option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
-                    <option value="plastic">PLASTIC</option>
-                    <option value="plastic">OTHER</option>
+                    <option value="V60">V60</option>
                     <option value="tbd1">TBB1</option>
                     <option value="tbd2">TBD2</option>
+                    <option value="tbd3">TBD3</option>
                   </select>
                 </label> 
               </div>
@@ -119,12 +119,12 @@ return(
                 <label>Filter Type: 
                   <select onChange={handleInputChange} name="filter" id="filter">
                     <option value="default">Select filter type:</option>
-                    <option value="metal">METAL</option>
                     <option value="natural paper">NATURAL PAPER</option>
                     <option value="white paper">WHITE PAPER</option>
-                    <option value="tbd1">OTHER</option>
-                    <option value="tbd2">TBD1</option>
-                    <option value="tbd2">TBD2</option>
+                    <option value="metal">METAL</option>
+                    <option value="natural half moon">NATURAL HALF MOON</option>
+                    <option value="white half moon">WHITE HALF MOON</option>
+                    <option value="other">OTHER</option>
                   </select>
                 </label> 
               </div>
@@ -165,9 +165,13 @@ return(
                 <label>Roast Region:
                       <select onChange={handleInputChange} name="region" id="region">
                     <option value="default">Select From The Following:</option>
-                    <option value="ethiopian">ETHIOPIAN</option>
-                    <option value="costa rican">COSTA RICAN</option>
-                    <option value="kenyan">KENYAN</option>
+                    <option value="ethiopian">ETHIOPIA</option>
+                    <option value="costa rican">COSTA RICA</option>
+                    <option value="kenyan">KENYA</option>
+                    <option value="rwanda">RWANDA</option>
+                    <option value="hawaiian">HAWAIIAN</option>
+                    <option value="other">OTHER</option>
+                    <option value="other">OTHER</option>
                     <option value="other">OTHER</option>
                   </select>
                 </label>

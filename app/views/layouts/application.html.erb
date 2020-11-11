@@ -6,27 +6,31 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="body grid-container fluid">
+<body class="body grid-container">
   
-  <nav class="top-bar">
-    <h1><a href="/">Cup of Joe Pro</a></h1>
-    <div class="nav-links">
-      <a href="/">HOME</a>
-      <a href="/brews">BREWS</a>
-      <a href="/roasts">ROASTS</a>
-      <a href="/roasts/new">ADD A ROAST</a>
+  <nav class="nav-wrap grid-x grid-margin-y grid-padding-x grid-padding-y">
+    <div class=" nav-cells cell small-12 medium-12">
+      <h1><a href="/">Cup of Joe Pro</a></h1>
     </div>
-    <section class="top-bar-section">
-      <ul class="right">
-        <%- if current_user -%>
-          <li class="top-bar"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-            <%= image_tag current_user.profile_photo.url(:thumb) %>
-        <%- else -%>
-          <li class="top-bar"><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li class="top-bar"><%= link_to 'Sign In', new_user_session_path %></li>
-        <%- end -%>
-      </ul>
-    </section>
+    <div class="nav-cells cell small-12 medium-6 large-10">
+      <span>
+        <a class="nav-links" href="/">HOME</a>
+        <a class="nav-links" href="/brews">BREWS</a>
+        <a class="nav-links" href="/roasts">ROASTS</a>
+        <a class="nav-links" href="/roasts/new">ADD A ROAST</a>
+      </span>
+    </div>
+    <div class="nav-cells cell small-12 medium-6 large-2">
+      <%- if current_user -%>
+        <li>
+          <%= image_tag current_user.profile_photo.url(:thumb) %>
+        </li> 
+        <li id="profile-photo"class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+      <%- else -%>
+        <li class=""><%= link_to 'Sign Up', new_user_registration_path %></li>
+        <li class=""><%= link_to 'Sign In', new_user_session_path %></li>
+      <%- end -%>
+    </div>
   </nav>
 
   <%- flash.each do |key, value| -%>
@@ -50,5 +54,12 @@
   <%= javascript_pack_tag 'application' %>
   
   <%= yield :extra_footer %>
+  <footer class="footer grid-container">
+    <div class="footer grid-x grid-margin-y grid-padding-x grid-padding-y">
+      <div class="footer small-12 large-12">
+        <p>Cup of Jo Pro</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

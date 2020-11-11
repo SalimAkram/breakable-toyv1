@@ -3,7 +3,7 @@ import React from 'react'
 const UserMethodTile = (props) =>{
   return(
     <div className="grid-x">
-      <ul className="medium-6 cell align-center brew-tile">Brew Method
+      <ul className="medium-12 cell test">Brew Method
         <li>
           Method: {props.method} || Filter: {props.filter_type} || Kettle: {props.kettle_type}
         </li>
