@@ -6,32 +6,33 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="body grid-container">
-  
-  <nav class="nav-wrap grid-x grid-margin-y grid-padding-x grid-padding-y">
-    <div class=" nav-cells cell small-12 medium-12">
-      <h1><a href="/">Cup of Joe Pro</a></h1>
+<body class="body">
+  <header>
+    <div>
+      <ul>
+        <%- if current_user -%>
+          <li>
+            <%= image_tag current_user.profile_photo.url(:thumb) %>
+          </li> 
+          <li id="profile-photo"class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
+      </ul>
     </div>
-    <div class="nav-cells cell small-12 medium-6 large-10">
-      <span>
-        <a class="nav-links" href="/">HOME</a>
-        <a class="nav-links" href="/brews">BREWS</a>
-        <a class="nav-links" href="/roasts">ROASTS</a>
-        <a class="nav-links" href="/roasts/new">ADD A ROAST</a>
-      </span>
-    </div>
-    <div class="nav-cells cell small-12 medium-6 large-2">
-      <%- if current_user -%>
-        <li>
-          <%= image_tag current_user.profile_photo.url(:thumb) %>
-        </li> 
-        <li id="profile-photo"class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-      <%- else -%>
-        <li class=""><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <li class=""><%= link_to 'Sign In', new_user_session_path %></li>
-      <%- end -%>
-    </div>
-  </nav>
+    <nav>
+      <ul>
+        <%- if current_user -%>
+          <%= link_to 'PROFILE', "/users/#{current_user.id}", class: "button"%> 
+        <%- end -%>
+        <a class="nav-links" href="/"><button class="button"> HOME</button class="button"></a>
+        <a class="nav-links" href="/brews"><button class="button"> BREWS</button class="button"></a>
+        <a class="nav-links" href="/roasts"><button class="button">ROASTS</button class="button"></a>
+        <a class="nav-links" href="/roasts/new"><button class="button">ADD A ROAST</button class="button"></a> 
+      </ul>
+    </nav>
+  </header>
 
   <%- flash.each do |key, value| -%>
     <div class="alert flash flash-<%= key %>">
@@ -46,7 +47,7 @@
 
   <%= javascript_include_tag 'application' %>
   
-  <%- if Rails.env.development? || Rails.env.test? -%> 
+  <%- if Rails.env.development? || Rails.env.grid-x? -%> 
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
@@ -54,12 +55,12 @@
   <%= javascript_pack_tag 'application' %>
   
   <%= yield :extra_footer %>
-  <footer class="footer grid-container">
+  <%# <footer class="footer grid-container">
     <div class="footer grid-x grid-margin-y grid-padding-x grid-padding-y">
       <div class="footer small-12 large-12">
         <p>Cup of Jo Pro</p>
       </div>
     </div>
-  </footer>
+  </footer> %>
 </body>
 </html>
