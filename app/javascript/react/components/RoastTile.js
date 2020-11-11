@@ -16,4 +16,3 @@ const RoastTile = (props) =>{
 }
 
 export default RoastTile
-{/* <p className="card-author"> <Link to={`roasts/${props.url}`}>view this roast
