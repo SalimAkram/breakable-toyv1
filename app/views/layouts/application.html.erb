@@ -47,7 +47,7 @@
 
   <%= javascript_include_tag 'application' %>
   
-  <%- if Rails.env.development? || Rails.env.grid-x? -%> 
+  <%- if Rails.env.development? || Rails.env.test? -%> 
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
