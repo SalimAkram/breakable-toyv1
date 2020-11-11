@@ -1,4 +1,5 @@
 class Api::V1::RoastsController < ApplicationController
+
   def index
     roasts = Roast.all 
     scraper = Roast.crawler
@@ -15,11 +16,9 @@ class Api::V1::RoastsController < ApplicationController
         roasts_scraper_id << roast
       end
     end
-
     render json: { roast: roasts, roasts_scraper: roasts_scraper_id }
   end
 
-  
   def show
     roast = Roast.find(params[:id])
     render json: roast
