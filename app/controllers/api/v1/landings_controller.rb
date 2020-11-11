@@ -10,7 +10,7 @@ class Api::V1::LandingsController < ApplicationController
       long = params[:long]
     end
 
-    cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=") 
+    cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=AIzaSyDnRpRjXcS7CkWWHdmYxf9vZGTB8GW41Zg") 
     # cafes=HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=#{lat},#{long}&radius=8450&type=cafe&keyword=coffee_shop=&key=#{ENV['key']}")
 
     if current_user == nil

@@ -53,7 +53,7 @@ navigator.geolocation.getCurrentPosition(successCallback);
   })
   
   return (
-    <div className="grid-container test-two">
+    <div className="grid-container">
       <div className="grid-x grid-margin-x" >
         <div className="cell box medium-6" style={{ height: "100%" }}>
             {cafeListArray}

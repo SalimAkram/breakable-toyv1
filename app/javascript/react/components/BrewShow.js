@@ -39,7 +39,7 @@ const id = props.match.params.id
   }
 
   return(
-    <div className="grid-container test-two">
+    <div className="grid-container">
       <div className="grid-x align-center">
         <div className="cell medium-6">
           <img className="image" src={brewPhoto} />
