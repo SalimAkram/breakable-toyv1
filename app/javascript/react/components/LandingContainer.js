@@ -1,9 +1,12 @@
 import React, { useEffect, useState, Fragment } from 'react'
-import { Link } from 'react-router-dom'
 
-// import SearchForm from './SearchForm'
+import bo1 from '../../../assets/images/guji.jpg'
+import bo2 from '../../../assets/images/IMG_2861.jpg'
+import bo3 from '../../../assets/images/IMG_2862.jpg'
+// import bo4 from '../../../assets/images/IMG_2863.jpg'
+
+
 import CafeTile from './CafeTile'
-import SearchForm from './SearchForm'
 
 const LandingContainer = (props) => {
   const [landingDataFromDataBase, setLandingDataFromDataBase] = useState([])
@@ -55,31 +58,52 @@ navigator.geolocation.getCurrentPosition(successCallback);
   
   return (
     <div className="grid-container">
-      <div className="grid-x grid-margin-x" >
-        <div className="cell box medium-6" style={{ height: "100%" }}>
+      <div className="grid-x grid-margin-x">
+        <div className="page-columns cell medium-6 test" style={{ height: "100%" }}>
             {cafeListArray}
         </div>
-        <div className="cell box grid-y medium-2">
-          <div className="card-user-container" >
-            <div class="card-user-avatar">
-              <img src="https://placehold.it/350x350" alt="" class="user-image"></img>
-            </div>
-            <div class="card-user-social">
-              <ul class="menu">
-                <li class="fa fa-twitter"></li>
-                <li class="fa fa-dribbble"></li>
-                <li class="fa fa-instagram"></li>
-                <li class="fa fa-github"></li>
+        <div className="page-columns cell test medium-6 grid-x" style={{ height: "100%" }}>
+          <div className="cell small-6 medium-6">
+            <div className="product-image-gallery">
+              <a href="https://cxffeeblack.com/" target="blank">
+                <img className="pdp-product-image" id="main-product-image" src={bo1} alt=""/>
+              </a>
+              <ul className="menu product-thumbs align-center">
+                <a href="https://twitter.com/cxffeeblack?lang=en" target="blank"><li className="fa fa-twitter"></li></a>
+                <a href="https://www.instagram.com/cxffeeblack/?hl=en" target="blank"><li className="fa fa-instagram"></li></a>
               </ul>
             </div>
-            <div class="card-user-bio">
-              <h4>User Name</h4>
-              <p>UX/UI ,Front-end developer, Foundation interested. </p>
-              <span class="location"><span class="location-icon fa fa-map-marker"></span><span class="location-text">Makkah Al-Mukaramah</span></span>
-            </div>
-            <div class="card-user-button">
-            <a href="#" class="button">FOLLOW</a>
           </div>
+          <div className="cell small-6 medium-6">
+            <div className="product-image-gallery">
+              <a href="https://portrait.coffee/" target="blank">
+                <img className="pdp-product-image" id="main-product-image" src={bo2} alt=""/>
+              </a>
+              <ul className="menu product-thumbs align-center">
+                <a href="https://www.facebook.com/portraitcoffeeatl" target="blank"><li className="fa fa-facebook"></li></a>
+                <a href="https://www.instagram.com/portraitcoffee/" target="blank"><li className="fa fa-instagram"></li></a>
+              </ul>
+            </div>
+          </div>
+          <div className="cell small-6 medium-6">
+            <div className="product-image-gallery">
+              <a href="https://www.blackacrescoffee.com/" target="blank">
+                <img className="pdp-product-image" id="main-product-image" src={bo3} alt=""/>
+              </a>
+              <ul className="menu product-thumbs align-center">
+                <a href="https://www.facebook.com/BlackAcresRoastery/" target="blank"><li className="fa fa-facebook"></li></a>
+                <a href="https://www.instagram.com/blackacresroastery/" target="blank"><li className="fa fa-instagram"></li></a>
+              </ul>
+            </div>
+          </div>
+          <div className="cell small-6 medium-6">
+            <div className="product-image-gallery">
+              <img className="pdp-product-image" id="main-product-image" src="https://placehold.it/350x350?text=Image+1" alt=""/>
+              <ul className="menu product-thumbs align-center">
+                <li className="fa fa-twitter"></li>
+                <li className="fa fa-instagram"></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
