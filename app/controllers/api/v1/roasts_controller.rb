@@ -6,7 +6,7 @@ class Api::V1::RoastsController < ApplicationController
     
     roasts_scraper_id = []
     id = 0
-
+    
     scraper.each do |roast|
       if Roast.last.nil?
         roast[:id] = roasts_scraper_id.count + id + 1

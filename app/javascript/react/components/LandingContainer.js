@@ -33,21 +33,22 @@ navigator.geolocation.getCurrentPosition(successCallback);
       })
       .then(response => response.json())
       .then(responseBody => {
-        
-        setcafeList(responseBody.cafes.results)
+        // debugger
+        setcafeList(responseBody.cafes)
         setLandingDataFromDataBase(responseBody.landing)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
-
+// debugger
   const cafeListArray = cafeList.map((cafe) => {
+    // debugger
     return(
      <CafeTile 
-        key={cafe.place_id}
-        id={cafe.place_id}
-        name={cafe.name}
-        rating={cafe.rating}
-        userRatings={cafe.user_ratings_total}
+        key={cafe.result.place_id}
+        id={cafe.result.place_id}
+        name={cafe.result.name}
+        rating={cafe.result.rating}
+        url={cafe.result.url}
      />
     )
   })
