@@ -12,6 +12,7 @@ class Api::V1::BrewsController < ApplicationController
   end
 
   def create
+    binding.pry
     brew = Brew.new(brew_params)
     brew.user_id = current_user.id 
 

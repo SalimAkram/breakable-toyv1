@@ -19,7 +19,8 @@ Rails.application.routes.draw do
       resources :landings, only: [:index]   
       resources :users, only: [:show]
       resources :brews, only: [:create, :index, :show]
-      resources :blackowned, only: [:index]      
+      resources :blackowned, only: [:index]    
+      resources :favorites, only: [:create]  
     end  
   end
 end

@@ -30,7 +30,8 @@ const RoastContainer = (props) => {
   const scraperTileArray = scraperData.map((scraper) => {
     return (
       <ScraperRoastTile
-      key={scraper.name}
+      key={scraper.id}
+      id={scraper.id}
       name={scraper.name}
       url={scraper.url}
     />
