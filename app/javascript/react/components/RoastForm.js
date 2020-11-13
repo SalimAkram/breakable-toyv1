@@ -123,164 +123,167 @@ const RoastForm = (props) =>{
   }
   
   return(
-    <div className="translucent-form-overlay">
-      <form className="" onSubmit={handleSubmit}>
-        <ErrorList errors={errors} />
-        <h4>Add Roast</h4>
-          <fieldset className="">
-            <div className="left">
-              <div className="row columns">
-                <label>Name: 
-                  <input
-                    name="name"
-                    id="name"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.name}
-                  />
-                </label> 
-              </div>
-              <div className="row columns" >
-                <label>Brand: 
-                  <input
-                    name="brand"
-                    id="brand"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.brand}
-                  />
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Price:
+    <div className="roast-grid grid-container">
+      <div className="grid-x">
+        <form className="roast-form"onSubmit={handleSubmit}>
+          <ErrorList errors={errors} />
+          <h5>Add Roast</h5>
+            <fieldset>
+              <div className="grid-x grid-padding-x">
+                <div className="cell small-6 ">
+                  <label>Name 
                     <input
-                    name="price"
-                    id="price"
-                    type="number"
-                    onChange={handleInputChange}
-                    value={userRoastData.price}
-                  />
-                </label>
+                      name="name"
+                      id="name"
+                      type="text" 
+                      onChange={handleInputChange}
+                      value={userRoastData.name}
+                    />
+                  </label> 
+                </div>
+                <div className="cell small-6 " >
+                  <label>Brand 
+                    <input
+                      name="brand"
+                      id="brand"
+                      type="text" 
+                      onChange={handleInputChange}
+                      value={userRoastData.brand}
+                    />
+                  </label> 
+                </div>
+                <div className="cell small-6 ">
+                  <label>Notes
+                      <input
+                      name="notes"
+                      id="notes"
+                      type="text"
+                      onChange={handleInputChange}
+                      value={userRoastData.notes}
+                    />
+                  </label>
+                </div>
+                <div className="cell small-6 ">
+                  <label>Price
+                      <input
+                      name="price"
+                      id="price"
+                      type="number"
+                      onChange={handleInputChange}
+                      value={userRoastData.price}
+                    />
+                  </label>
+                </div>
+              </div>   
+              <div className="grid-x grid-padding-x">
+                <div className="cell small-12 medium-12 ">
+                  <label>URL
+                    <input
+                      name="url"
+                      id="url"
+                      type="text"
+                      onChange={handleInputChange}
+                      value={userRoastData.url}
+                    />
+                  </label>
+                </div>    
               </div>
-              <div className="row columns">
-                <label>URL:
-                  <input
-                    name="url"
-                    id="url"
-                    type="text"
-                    onChange={handleInputChange}
-                    value={userRoastData.url}
-                  />
-                </label>
+              <div className="grid-x grid-padding-x"> 
+                <div className="cell small-6">
+                  <label>Region 
+                    <input
+                      name="region"
+                      id="region"
+                      type="text" 
+                      onChange={handleInputChange}
+                      value={userRoastData.region}
+                    />
+                  </label> 
+                </div>
+                <div className="cell small-6">
+                  <label>Producer 
+                    <input
+                      name="producer"
+                      id="producer"
+                      type="text" 
+                      onChange={handleInputChange}
+                      value={userRoastData.producer}
+                    />
+                  </label> 
+                </div>          
+                <div className="cell small-6">
+                  <label>Process 
+                    <select onChange={handleInputChange} name="process" id="process" type="text">
+                      <option value=""> </option>
+                      <option value="washed">WASHED</option>
+                      <option value="tbd1">TBD1</option>
+                      <option value="tbd2">TBD2</option>
+                      <option value="tbd3">TBD3</option>
+                      <option value="tbd4">TBD4</option>
+                      <option value="tbd5">TBD5</option>
+                    </select>
+                  </label> 
+                </div>
+                <div className="cell small-6">
+                  <label>Altitude
+                        <input
+                      name="altitude"
+                      id="altitude"
+                      type="number"
+                      onChange={handleInputChange}
+                      value={userRoastData.altitude}
+                    />
+                  </label>
+                </div>
+                <div className="cell small-6">
+                  <label>Rating
+                      <select onChange={handleInputChange} name="rating" id="rating">
+                      <option value="default">Select From The Following</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </label>
+                </div>
+                <div className="cell small-6">
+                  <label>Harvest Date
+                    <input
+                      name="harvest_date"
+                      id="harvest_date"
+                      type="text"
+                      onChange={handleInputChange}
+                      value={userRoastData.harvest_date}
+                    />
+                  </label>
+                </div>
+                <div className="cell small-6">
+                  <label>Fair Trade 
+                    <select onChange={handleInputChange} name="fair_trade" id="fair_trade">
+                      <option value="default">Select From The Following</option>
+                      <option value="true">YES</option>
+                      <option value="false">NO</option>
+                    </select>
+                  </label> 
+                </div>
+                <div className="cell small-6">
+                  <label>Ethnical Business Practices 
+                    <select onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
+                      <option value="default">Select From The Following:</option>
+                      <option value="true">YES</option>
+                      <option value="false">NO</option>
+                    </select>
+                  </label> 
+                </div>
               </div>
-              <div className="row columns">
-                <label>Rating:
-                  <select onChange={handleInputChange} name="rating" id="rating">
-                    <option value="default">Select From The Following:</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                </label>
-              </div>
-            </div>
-            <div className="right">
-              <div className="row columns">
-                <label>Region: 
-                  <input
-                    name="region"
-                    id="region"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.region}
-                  />
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Notes: 
-                  <input
-                    name="notes"
-                    id="notes"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.notes}
-                  />
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Process: 
-                  <select onChange={handleInputChange} name="process" id="process" type="text">
-                    <option value=""> </option>
-                    <option value="washed">WASHED</option>
-                    <option value="tbd1">TBD1</option>
-                    <option value="tbd2">TBD2</option>
-                    <option value="tbd3">TBD3</option>
-                    <option value="tbd4">TBD4</option>
-                    <option value="tbd5">TBD5</option>
-                  </select>
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Producer: 
-                  <input
-                    name="producer"
-                    id="producer"
-                    type="text" 
-                    onChange={handleInputChange}
-                    value={userRoastData.producer}
-                  />
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Altitude:
-                  <input
-                    name="altitude"
-                    id="altitude"
-                    type="number"
-                    onChange={handleInputChange}
-                    value={userRoastData.altitude}
-                  />
-                </label>
-              </div>
-              <div className="row columns">
-                <label>Harvest Date:
-                  <input
-                    name="harvest_date"
-                    id="harvest_date"
-                    type="text"
-                    onChange={handleInputChange}
-                    value={userRoastData.harvest_date}
-                  />
-                </label>
-              </div>
-              <div className="row columns">
-                <label>Fair Trade: 
-                  <select onChange={handleInputChange} name="fair_trade" id="fair_trade">
-                    <option value="default">Select From The Following:</option>
-                    <option value="true">YES</option>
-                    <option value="false">NO</option>
-                  </select>
-                </label> 
-              </div>
-              <div className="row columns">
-                <label>Ethnical Business Practices: 
-                  <select onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
-                    <option value="default">Select From The Following:</option>
-                    <option value="true">YES</option>
-                    <option value="false">NO</option>
-                  </select>
-                </label> 
-              </div>
-            </div>
-          </fieldset>
-        <button className="button" onClick={clear}>
-          Clear
-        </button>
-        <input type="submit" value="Submit" className="primary button expanded search-button"/>
-      </form>
+            </fieldset>   
+            <button className="button" onClick={clear}>Clear</button>
+            <input type="submit" value="Submit" className="button"/>
+        </form>
+      </div>
     </div>
+    
   )
 }
 

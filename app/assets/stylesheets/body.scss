@@ -2,6 +2,7 @@
 @import 'colors';
 @import 'foundation';
 @import 'motion-ui/motion-ui';
+@import 'font-awesome';
 
 .body {
   background-color:#f0efeb;
@@ -38,6 +39,11 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+// We use this to control alert padding.
+
+
+
 // .alert {
 //   text-align: center;
 // }
