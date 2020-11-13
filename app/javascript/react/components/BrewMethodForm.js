@@ -104,7 +104,7 @@ return(
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label>Maker 
-                  <select onChange={handleInputChange} name="maker" id="maker">
+                  <select value={userBrewMethodData.maker} onChange={handleInputChange} name="maker" id="maker">
                     <option value="default">Select your brew method</option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
@@ -117,7 +117,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label>Filter Type 
-                  <select onChange={handleInputChange} name="filter" id="filter">
+                  <select value={userBrewMethodData.filter} onChange={handleInputChange} name="filter" id="filter">
                     <option value="default">Select filter type</option>
                     <option value="natural paper">NATURAL PAPER</option>
                     <option value="white paper">WHITE PAPER</option>
@@ -130,7 +130,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label>Kettle Type 
-                  <select onChange={handleInputChange} name="kettle" id="kettle">
+                  <select value={userBrewMethodData.kettle} onChange={handleInputChange} name="kettle" id="kettle">
                     <option value="default">Select From The Following</option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
@@ -141,7 +141,7 @@ return(
               </div>
               <div className="small-6 cell">  
                 <label>Grind
-                  <select onChange={handleInputChange} name="grind" id="grind">
+                  <select value={userBrewMethodData.grind} onChange={handleInputChange} name="grind" id="grind">
                     <option value="default">Select From The Following</option>
                     <option value="medium fine">MEDIUM FINE</option>
                     <option value="medium">MEDIUM</option>
@@ -152,7 +152,7 @@ return(
               </div>
               <div className="small-6 cell">  
                 <label>Roast
-                  <select onChange={handleInputChange} name="roast" id="roast">
+                  <select value={userBrewMethodData.roast} onChange={handleInputChange} name="roast" id="roast">
                     <option value="default">Select From The Following</option>
                     <option value="light roast">LIGHT ROAST</option>
                     <option value="medium roast">MEDIUM ROAST</option>
@@ -163,7 +163,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label>Roast Region
-                  <select onChange={handleInputChange} name="region" id="region">
+                  <select value={userBrewMethodData.region} onChange={handleInputChange} name="region" id="region">
                     <option value="default">Select From The Following</option>
                     <option value="ethiopian">ETHIOPIA</option>
                     <option value="costa rican">COSTA RICA</option>
