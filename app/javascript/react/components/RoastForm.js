@@ -74,7 +74,8 @@ const RoastForm = (props) =>{
       price: "",
       rating: "",
       fair_trade: "",
-      ethical_business_practices: ""
+      ethical_business_practices: "",
+      harvest_date: ""
     })
     setErrors({})
   }
@@ -92,7 +93,8 @@ const RoastForm = (props) =>{
       price: "",
       rating: "",
       fair_trade: "default",
-      ethical_business_practices: ""
+      ethical_business_practices: "",
+      harvest_date: ""
     })
   }
 
@@ -213,7 +215,7 @@ const RoastForm = (props) =>{
                 </div>          
                 <div className="cell small-6">
                   <label>Process 
-                    <select onChange={handleInputChange} name="process" id="process" type="text">
+                    <select value={userRoastData.process} onChange={handleInputChange} name="process" id="process" type="text">
                       <option value=""> </option>
                       <option value="washed">WASHED</option>
                       <option value="tbd1">TBD1</option>
@@ -237,7 +239,7 @@ const RoastForm = (props) =>{
                 </div>
                 <div className="cell small-6">
                   <label>Rating
-                      <select onChange={handleInputChange} name="rating" id="rating">
+                      <select value={userRoastData.rating} onChange={handleInputChange} name="rating" id="rating">
                       <option value="default">Select From The Following</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -260,7 +262,7 @@ const RoastForm = (props) =>{
                 </div>
                 <div className="cell small-6">
                   <label>Fair Trade 
-                    <select onChange={handleInputChange} name="fair_trade" id="fair_trade">
+                    <select value={userRoastData.fair_trade} onChange={handleInputChange} name="fair_trade" id="fair_trade">
                       <option value="default">Select From The Following</option>
                       <option value="true">YES</option>
                       <option value="false">NO</option>
@@ -269,7 +271,7 @@ const RoastForm = (props) =>{
                 </div>
                 <div className="cell small-6">
                   <label>Ethnical Business Practices 
-                    <select onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
+                    <select value={userRoastData.ethical_business_practices} onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
                       <option value="default">Select From The Following:</option>
                       <option value="true">YES</option>
                       <option value="false">NO</option>
@@ -277,9 +279,11 @@ const RoastForm = (props) =>{
                   </label> 
                 </div>
               </div>
+            <div className="cell small-6"> 
+              <input type="submit" value="Submit" className="button large expanded"/>
+              <button className="button large" onClick={clear}>clear</button>
+            </div>
             </fieldset>   
-            <button className="button" onClick={clear}>Clear</button>
-            <input type="submit" value="Submit" className="button"/>
         </form>
       </div>
     </div>

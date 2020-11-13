@@ -5,30 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web" rel="stylesheet">
 </head>
 <body class="body">
-  <header class="test">
+  <header >
     <div>
       <ul>
         <%- if current_user -%>
           <li>
             <%= image_tag current_user.profile_photo.url(:thumb) %>
           </li> 
-          <li id="profile-photo"class=""><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li id="profile-photo"><%= link_to 'Sign Out', destroy_user_session_path, class: "nav-links", method: :delete %></li>
         <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <li><%= link_to 'Sign Up', new_user_registration_path, class: "nav-links" %></li>
+          <li><%= link_to 'Sign In', new_user_session_path, class: "nav-links" %></li>
         <%- end -%>
       </ul>
     </div>
     <nav>
       <ul>
-        <a class="nav-links" href="/"><button class="button"> HOME</button class="button"></a>
-        <a class="nav-links" href="/brews"><button class="button"> BREWS</button class="button"></a>
-        <a class="nav-links" href="/roasts"><button class="button">ROASTS</button class="button"></a>
-        <a class="nav-links" href="/roasts/new"><button class="button">ADD A ROAST</button class="button"></a> 
+        <a class="nav-links" href="/"><button class="nav-links"> HOME</button></a>
+        <a class="nav-links" href="/brews"><button class="nav-links"> BREWS</button></a>
+        <a class="nav-links" href="/roasts"><button class="nav-links">ROASTS</button ></a>
+        <a class="nav-links" href="/roasts/new"><button class="nav-links">ADD A ROAST</button></a> 
         <%- if current_user -%>
-          <%= link_to 'PROFILE', "/users/#{current_user.id}", class: "button"%> 
+          <%= link_to 'PROFILE', "/users/#{current_user.id}", class: "nav-links"%> 
         <%- end -%>
       </ul>
     </nav>
