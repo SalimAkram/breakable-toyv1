@@ -1,0 +1,57 @@
+@import 'settings';
+@import 'colors';
+@import 'foundation';
+@import 'motion-ui/motion-ui';
+
+.brew-tile {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 400px;
+  width: 400px;
+}
+
+
+
+.product-image-gallery {
+  // background-color: #fefefe;
+  padding: 1.5rem;
+}
+
+.pdp-product-image {
+  margin-bottom: 20px;
+}
+
+.product-thumbs a {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0 !important;
+}
+
+.product-thumbs a img {
+  // display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+
+  margin-bottom: 1rem;
+  // border: solid 4px #fefefe;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  line-height: 0;
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  border: none;
+  
+}
+
+.user {
+  color: white;
+  background-color: $nav;
+  Font-Family: 'Dosis', Sans-Serif;
+  border-radius: 3px;
+}
