@@ -94,10 +94,10 @@ const BrewMethodForm = (props) => {
       region: ""
     })
 }
-
+ 
 return(
     <div className="grid-x">
-    <form className="brew-form" onSubmit={handleSubmit}>
+      <form className="brew-form" onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <h5>Add a Brew Method</h5>
           <fieldset>

@@ -11,6 +11,8 @@ class Roast < ApplicationRecord
 
   def self.crawler
     all_roasts = []
+    mad_cap = []
+    van_dyke = []
     url = 'https://madcapcoffee.com/madcap-coffee/coffee/'
     parsed_page = Nokogiri::HTML(URI.open(url))
     roasts1 = parsed_page.css(".av-inner-masonry-content")
@@ -18,13 +20,14 @@ class Roast < ApplicationRecord
     roasts1.each do |roast|
       roast = { 
         name: "#{roast.css("div h3")[0].children.text}",
+        brand: "mad cap",
         url: "#{roast.css('form')[0].attributes["action"].value}",
         id: nil
       }
       if roast[:name].downcase.include?('subscriptions') || roast[:url].downcase.include?('subscription')
         next
       else
-        all_roasts << roast
+        mad_cap << roast
       end
     end
 
@@ -35,12 +38,28 @@ class Roast < ApplicationRecord
     roasts2.each do |roast|
       roast = { 
         name: "#{roast.css("div a")[0].children[3].children[0].text.strip}",
+        brand: "van dyke",
         url: "http://www.vandykecoffeeroasters.com#{roast.css("div a")[0].attributes["href"].value}",
         id: nil
       }
-      all_roasts << roast
+      van_dyke << roast
     end
+
+    # url = 'https://pavementcoffeehouse.com/collections/coffee'
+    # parsed_page2 = Nokogiri::HTML(URI.open(url))
+    # roasts2 = parsed_page2.css(".wsite-com-category-product")
     
+    # roasts3.each do |roast|
+    #   roast = { 
+    #     name: "#{roast.css("div a")[0].children[3].children[0].text.strip}",
+    #     brand: "pavement",
+    #     url: "http://www.vandykecoffeeroasters.com#{roast.css("div a")[0].attributes["href"].value}",
+    #     id: nil
+    #   }
+    #   pavement << roast
+    # end
+    all_roasts = mad_cap.take(5) + van_dyke.take(5) #+ pavement.take(5)
     all_roasts
+    # binding.pry
   end
 end

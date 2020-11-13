@@ -89,7 +89,7 @@ const UserShowContainer = (props) => {
   // })
 
     return (
-      <div className="grid-container test-two">
+      <div className="user-grid grid-container">
         <h1>{errorList}</h1>
         <div className="cell grid-x align-center">
           <UserTile

@@ -1,20 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import image1 from '../../../assets/images/DSCF0745.JPG'
 
 const RoastTile = (props) =>{
   return (
-    <div className="small-4 cell text-center">
+    <div className="cell small-6 medium-2">
       <img className="card-img" src={image1} alt="header" />
       <div className="card-info">
-        <h1 className="card-title">{props.name}</h1>
+        <p className="card-title">{props.name}</p>
         <div className=""></div>
-        <p className="card-author"> <Link to={`roasts/${props.id}`}>view this roast</Link></p>
+        <p className="card-author"> <a href={props.url} target="blank">view this roast</a></p>
       </div>
     </div>
   )
 }
-
-
 
 export default RoastTile
