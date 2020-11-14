@@ -68,9 +68,9 @@ navigator.geolocation.getCurrentPosition(successCallback);
                   <img className="pdp-product-image" id="main-product-image" src={bo1} alt=""/>
                 </a>
                 <ul className="menu product-thumbs align-center">
-                  <a href="https://twitter.com/cxffeeblack?lang=en" target="blank"><li className="fa fa-twitter fa-2x"></li></a>
-                  <a href="https://www.facebook.com/pages/category/Education/Cxffeeblack-215834112589234/" target="blank"><li className="fa fa-facebook fa-2x"></li></a>
-                  <a href="https://www.instagram.com/cxffeeblack/?hl=en" target="blank"><li className="fa fa-instagram fa-2x"></li></a>
+                  <a className="fa-a"href="https://twitter.com/cxffeeblack?lang=en" target="blank"><li className="fa fa-twitter fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.facebook.com/pages/category/Education/Cxffeeblack-215834112589234/" target="blank"><li className="fa fa-facebook fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.instagram.com/cxffeeblack/?hl=en" target="blank"><li className="fa fa-instagram fa-2x "></li></a>
                 </ul>
               </div>
               <div className="product-image-gallery">
@@ -78,9 +78,9 @@ navigator.geolocation.getCurrentPosition(successCallback);
                   <img className="pdp-product-image" id="main-product-image" src={bo2} alt="" />
                 </a>
                 <ul className="menu product-thumbs align-center">
-                  <a href="https://twitter.com/PortraitCoffee" target="blank"><li className="fa fa-twitter fa-2x"></li></a>
-                  <a href="https://www.facebook.com/portraitcoffeeatl" target="blank"><li className="fa fa-facebook fa-2x"></li></a>
-                  <a href="https://www.instagram.com/portraitcoffee/" target="blank"><li className="fa fa-instagram fa-2x"></li></a>
+                  <a className="fa-a"href="https://twitter.com/PortraitCoffee" target="blank"><li className="fa fa-twitter fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.facebook.com/portraitcoffeeatl" target="blank"><li className="fa fa-facebook fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.instagram.com/portraitcoffee/" target="blank"><li className="fa fa-instagram fa-2x "></li></a>
                 </ul>
               </div>
               <div className="product-image-gallery">
@@ -88,8 +88,8 @@ navigator.geolocation.getCurrentPosition(successCallback);
                   <img className="pdp-product-image" id="main-product-image" src={bo3} alt="" />
                 </a>
                 <ul className="menu product-thumbs align-center">
-                  <a href="https://www.facebook.com/BlackAcresRoastery/" target="blank"><li className="fa fa-facebook fa-2x"></li></a>
-                  <a href="https://www.instagram.com/blackacresroastery/" target="blank"><li className="fa fa-instagram fa-2x"></li></a>
+                  <a className="fa-a"href="https://www.facebook.com/BlackAcresRoastery/" target="blank"><li className="fa fa-facebook fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.instagram.com/blackacresroastery/" target="blank"><li className="fa fa-instagram fa-2x "></li></a>
                 </ul>
               </div>
               <div className="product-image-gallery">
@@ -97,9 +97,9 @@ navigator.geolocation.getCurrentPosition(successCallback);
                   <img className="pdp-product-image" id="main-product-image" src={bo4} alt="" />
                 </a>
                 <ul className="menu product-thumbs align-center">
-                  <a href="https://twitter.com/kahawa1893" target="blank"><li className="fa fa-twitter fa-2x"></li></a>
-                  <a href="https://www.facebook.com/kahawa1893" target="blank"><li className="fa fa-facebook fa-2x"></li></a>
-                  <a href="https://www.instagram.com/kahawa1893/" target="blank"><li className="fa fa-instagram fa-2x"></li></a>
+                  <a className="fa-a"href="https://twitter.com/kahawa1893" target="blank"><li className="fa fa-twitter fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.facebook.com/kahawa1893" target="blank"><li className="fa fa-facebook fa-2x "></li></a>
+                  <a className="fa-a"href="https://www.instagram.com/kahawa1893/" target="blank"><li className="fa fa-instagram fa-2x "></li></a>
                 </ul>
               </div>
             </div>
