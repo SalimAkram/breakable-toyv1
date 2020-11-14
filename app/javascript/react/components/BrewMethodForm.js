@@ -96,7 +96,7 @@ const BrewMethodForm = (props) => {
 }
  
 return(
-    <div className="grid-x translucent-form-overlay">
+  <div className="grid-x translucent-form-overlay">
       <form className="brew-form " onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <div className="method-title field"> <h4>Add a Brew Method </h4></div> 
@@ -110,8 +110,6 @@ return(
                     <option value="travel">TRAVEL</option>
                     <option value="V60">V60</option>
                     <option value="aeropress">AEROPRESS</option>
-                    <option value="tbd1">TBB1</option>
-                    <option value="tbd2">TBD2</option>
                   </select>
                 </label> 
               </div>
@@ -119,11 +117,11 @@ return(
                 <label className="field">Filter Type 
                   <select value={userBrewMethodData.filter} onChange={handleInputChange} name="filter" id="filter">
                     <option value=""></option>
+                    <option value="natural half moon">NATURAL HALF MOON</option>
                     <option value="natural paper">NATURAL PAPER</option>
+                    <option value="white half moon">WHITE HALF MOON</option>
                     <option value="white paper">WHITE PAPER</option>
                     <option value="metal">METAL</option>
-                    <option value="natural half moon">NATURAL HALF MOON</option>
-                    <option value="white half moon">WHITE HALF MOON</option>
                     <option value="other">OTHER</option>
                   </select>
                 </label> 
@@ -161,14 +159,16 @@ return(
                 </label>
               </div>
               <div className="small-6 cell">
-                <label className="field">Roast Region
+                <label className="field">Region
                   <select value={userBrewMethodData.region} onChange={handleInputChange} name="region" id="region">
                     <option value=""></option>
-                    <option value="ethiopian">ETHIOPIA</option>
-                    <option value="costa rican">COSTA RICA</option>
-                    <option value="kenyan">KENYA</option>
-                    <option value="rwanda">RWANDA</option>
-                    <option value="hawaiian">HAWAIIAN</option>
+                    <option value="Ethiopian">ETHIOPIA</option>
+                    <option value="Costa Rican">COSTA RICA</option>
+                    <option value="Kenyan">KENYA</option>
+                    <option value="Rwanda">RWANDA</option>
+                    <option value="Guatemala">GUATEMALA</option>
+                    <option value="Columbia">COLUMBIA</option>
+                    <option value="Hawaiian">HAWAIIAN</option>
                     <option value="other">OTHER</option>
                   </select>
                 </label>
@@ -176,13 +176,14 @@ return(
             </div>
             <div className="grid-x grid-padding-x align-center brew-fields">
               <div className="small-4 medium-3 cell text-center">
-                  <label className="field">Time
+                  <label className="field">Time (mins)
                     <input 
+                      value="test"
                       name="time"
                       id="time"
                       type="number" 
                       min="1"
-                      max="5"
+                      max="10"
                       onChange={handleInputChange} 
                       value={userBrewMethodData.time}
                       />

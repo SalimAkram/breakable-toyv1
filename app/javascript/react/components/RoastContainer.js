@@ -117,37 +117,21 @@ const RoastContainer = (props) => {
 
   return(
     <Fragment>
-      <div className="square-box grid-y medium-grid-frame grid-padding-y .grid-margin-y">
-        <h1 className="title"> Cup Of Joe Pro</h1>
-        <div className="cell medium-auto medium-cell-block-container">
-          <div className="grid-x grid-padding-x align-center" >
-          
-            <div className="cell page-columns small-12 medium-5 medium-cell-block-y">
-              <h2 className="title"> user favorites</h2>
-              {roastTileArray}
-            </div>
-            <div className="cell page-columns small-12 medium-5 medium-cell-block-y">
-              <h2 className="title">creator suggestions</h2>
-              {scraperTileArray}
-            </div>
-          </div>
+      <div className="grid-container">
+        <div>
+          <h3 className="roast-title">User Favorites</h3>
+        </div>
+        <div className="grid-x grid-margin-x">
+          {roastTileArray}
+        </div>
+        <div>
+          <h3 className="roast-title">suggestions</h3>
+        </div>
+        <div className="grid-x grid-margin-x">
+          {scraperTileArray}
         </div>
       </div>
     </Fragment>
-    // <div className="grid-container">
-    //   <div className="cell">
-    //     <h5>User Favorites</h5>
-    //   </div>
-    //   <div className="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
-    //     {roastTileArray}
-    //   </div>
-    //     <div className="cell">
-    //       <h5>suggestions</h5>
-    //     </div>
-    //   <div className="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
-    //     {scraperTileArray}
-    //   </div>
-    // </div>
   )
 }
 

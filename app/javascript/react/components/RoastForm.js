@@ -131,8 +131,8 @@ const RoastForm = (props) =>{
           <ErrorList errors={errors} />
           <h5>Add Roast</h5>
             <fieldset>
-              <div className="grid-x grid-padding-x">
-                <div className="cell small-6 ">
+            <div className="grid-x grid-padding-x align-center">
+                <div className="cell small-6 medium-2">
                   <label>Name 
                     <input
                       name="name"
@@ -143,7 +143,7 @@ const RoastForm = (props) =>{
                     />
                   </label> 
                 </div>
-                <div className="cell small-6 " >
+                <div className="cell small-6 medium-2" >
                   <label>Brand 
                     <input
                       name="brand"
@@ -154,7 +154,7 @@ const RoastForm = (props) =>{
                     />
                   </label> 
                 </div>
-                <div className="cell small-6 ">
+                <div className="cell small-6 medium-2">
                   <label>Notes
                       <input
                       name="notes"
@@ -165,7 +165,7 @@ const RoastForm = (props) =>{
                     />
                   </label>
                 </div>
-                <div className="cell small-6 ">
+                <div className="cell small-6 medium-2">
                   <label>Price
                       <input
                       name="price"
@@ -178,7 +178,7 @@ const RoastForm = (props) =>{
                 </div>
               </div>   
               <div className="grid-x grid-padding-x">
-                <div className="cell small-12 medium-12 ">
+                <div className="cell small-1 medium-4 align-center2 medium-12 ">
                   <label>URL
                     <input
                       name="url"
@@ -191,7 +191,7 @@ const RoastForm = (props) =>{
                 </div>    
               </div>
               <div className="grid-x grid-padding-x"> 
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Region 
                     <input
                       name="region"
@@ -202,7 +202,7 @@ const RoastForm = (props) =>{
                     />
                   </label> 
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Producer 
                     <input
                       name="producer"
@@ -213,7 +213,7 @@ const RoastForm = (props) =>{
                     />
                   </label> 
                 </div>          
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Process 
                     <select value={userRoastData.process} onChange={handleInputChange} name="process" id="process" type="text">
                       <option value=""> </option>
@@ -226,7 +226,7 @@ const RoastForm = (props) =>{
                     </select>
                   </label> 
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Altitude
                         <input
                       name="altitude"
@@ -237,10 +237,10 @@ const RoastForm = (props) =>{
                     />
                   </label>
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Rating
                       <select value={userRoastData.rating} onChange={handleInputChange} name="rating" id="rating">
-                      <option value="default">Select From The Following</option>
+                      <option value=""></option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -249,7 +249,7 @@ const RoastForm = (props) =>{
                     </select>
                   </label>
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Harvest Date
                     <input
                       name="harvest_date"
@@ -260,26 +260,26 @@ const RoastForm = (props) =>{
                     />
                   </label>
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Fair Trade 
                     <select value={userRoastData.fair_trade} onChange={handleInputChange} name="fair_trade" id="fair_trade">
-                      <option value="default">Select From The Following</option>
+                      <option value=""></option>
                       <option value="true">YES</option>
                       <option value="false">NO</option>
                     </select>
                   </label> 
                 </div>
-                <div className="cell small-6">
+                <div className="cell small-6 medium-4 align-center">
                   <label>Ethnical Business Practices 
                     <select value={userRoastData.ethical_business_practices} onChange={handleInputChange} name="ethnical_business_practices" id="ethnical_business_practices">
-                      <option value="default">Select From The Following:</option>
+                      <option value=""></option>
                       <option value="true">YES</option>
                       <option value="false">NO</option>
                     </select>
                   </label> 
                 </div>
               </div>
-            <div className="cell small-6"> 
+            <div className="cell small-6 medium-4 align-center"> 
               <input type="submit" value="Submit" className="button large expanded"/>
               <button className="button large" onClick={clear}>clear</button>
             </div>
