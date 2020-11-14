@@ -34,7 +34,7 @@ class Api::V1::BrewsController < ApplicationController
       :temperature,
       :grams,
       :ratio,
-      :yield,
+      :rating,
       :grind,
       :instructions,
       :roast,

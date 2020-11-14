@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_040812) do
     t.string "grind", null: false
     t.text "instructions", null: false
     t.string "ratio"
-    t.integer "yield"
+    t.integer "rating"
     t.string "roast"
     t.string "region"
     t.bigint "user_id", null: false

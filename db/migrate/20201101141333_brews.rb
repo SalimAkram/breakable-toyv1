@@ -10,7 +10,7 @@ class Brews < ActiveRecord::Migration[5.2]
       t.string :grind, null: false
       t.text :instructions, null: false
       t.string :ratio
-      t.integer :yield
+      t.integer :rating
       t.string :roast
       t.string :region
 

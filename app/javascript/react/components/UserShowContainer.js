@@ -84,30 +84,27 @@ const UserShowContainer = (props) => {
       />
     )
   })
-  
-  // const errorDisplayArray = errorList.map((error) => {
-  // })
 
-    return (
-      <div className="user-grid grid-container">
-        <h1>{errorList}</h1>
-        <div className="cell grid-x align-center">
-          <UserTile
-            key={usersData.id}
-            id={usersData.id}
-            username={usersData.username}
-            email={usersData.email}
-          />
-        </div>
-        <div className="cell grid-x">
-          <BrewMethodForm
-            addBrewMethodFromForm={addBrewMethodFromForm}
-          />
-        </div>
-        <div className="grid-x grid-margin-x grid-margin-y">
-          {userBrewMethodArray}
-        </div>
+  return (
+    <div className="user-grid grid-container">
+      <h1>{errorList}</h1>
+      <div className="cell grid-x align-center">
+        <UserTile
+          key={usersData.id}
+          id={usersData.id}
+          username={usersData.username}
+          email={usersData.email}
+        />
       </div>
+      <div className="cell grid-x">
+        <BrewMethodForm
+          addBrewMethodFromForm={addBrewMethodFromForm}
+        />
+      </div>
+      <div className="grid-x grid-margin-x grid-margin-y">
+        {userBrewMethodArray}
+      </div>
+    </div>
   );
 }
 

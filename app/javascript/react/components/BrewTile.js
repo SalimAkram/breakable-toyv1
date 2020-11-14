@@ -5,16 +5,16 @@ import ph from "../../../assets/images/IMG_2428.jpg"
 const BrewTile = (props) => {
   return(
     <div className=" brew-tile cell small-12 medium-4">
-      <div className="row align-center">
+      <div className="cell">
         <div className="product-image-gallery">
           <Link to={`brews/${props.id}`}> 
           <img className="pdp-product-image" id="main-product-image" src={ph} alt=""/>
+            <div className="user">
+              @{props.user}
+            </div> 
           </Link>  
           <br/>
-          <div className="row user align-center">
-            <h5>
-              {props.user}
-            </h5> 
+          <div className="user">
           </div>
         </div>
       </div>        

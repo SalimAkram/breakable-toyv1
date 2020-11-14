@@ -2,6 +2,7 @@
 @import 'colors';
 @import 'foundation';
 @import 'motion-ui/motion-ui';
+// @import url("https://fonts.googleapis.com/css?family=Dosis|Titillium+Web");
 
 .brew-tile {
   margin-top: 20px;
@@ -15,10 +16,11 @@
   width: 400px;
 }
 
-
+.title {
+  color: $font;
+}
 
 .product-image-gallery {
-  // background-color: #fefefe;
   padding: 1.5rem;
 }
 
@@ -33,12 +35,9 @@
 }
 
 .product-thumbs a img {
-  // display: inline-block;
   max-width: 100%;
   max-height: 100%;
-
   margin-bottom: 1rem;
-  // border: solid 4px #fefefe;
   border-radius: 0;
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
   line-height: 0;
@@ -46,12 +45,38 @@
   width: 25px;
   height: 25px;
   border: none;
-  
 }
 
 .user {
-  color: white;
-  background-color: $nav;
-  Font-Family: 'Dosis', Sans-Serif;
+  color: #5D4A4A;
   border-radius: 3px;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.translucent-form-overlay {
+  width: 100%;
+  background-color: rgba(93, 74, 74, 0.1);
+  padding: 20px;
+  border-radius: 5px;
+  color: #5D4A4A;
+}
+
+.field, h4 {
+  font-size: large;
+  font-weight: bold;
+  color: #5D4A4A;
+}
+
+.method-title {
+  margin-bottom: 20px;
+}
+
+#main-product-image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 200px;
+  width: 200px;
+  border: solid 5px;
+  border-color: #39a2ae;
 }

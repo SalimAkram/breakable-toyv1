@@ -15,7 +15,7 @@ const BrewMethodForm = (props) => {
     temperature: "",
     grams: "",
     ratio: "",
-    yield: "",
+    rating: "",
     grind: "",
     instructions: "",
     roast: "",
@@ -69,7 +69,7 @@ const BrewMethodForm = (props) => {
       temperature: "",
       grams: "",
       ratio: "",
-      yield: "",
+      rating: "",
       grind: "",
       instructions: "",
       roast: "",
@@ -87,7 +87,7 @@ const BrewMethodForm = (props) => {
       temperature: "",
       grams: "",
       ratio: "",
-      yield: "",
+      rating: "",
       grind: "",
       instructions: "",
       roast: "",
@@ -96,16 +96,16 @@ const BrewMethodForm = (props) => {
 }
  
 return(
-    <div className="grid-x">
-      <form className="brew-form" onSubmit={handleSubmit}>
+    <div className="grid-x translucent-form-overlay">
+      <form className="brew-form " onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
-        <h5>Add a Brew Method</h5>
+        <div className="method-title field"> <h4>Add a Brew Method </h4></div> 
           <fieldset>
-            <div className="grid-x grid-padding-x">
+            <div className="grid-x grid-padding-x brew-fields">
               <div className="small-6 cell">
-                <label>Maker 
+                <label className="field">Maker 
                   <select value={userBrewMethodData.maker} onChange={handleInputChange} name="maker" id="maker">
-                    <option value="default">Select your brew method</option>
+                    <option value=""></option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
                     <option value="V60">V60</option>
@@ -116,9 +116,9 @@ return(
                 </label> 
               </div>
               <div className="small-6 cell">
-                <label>Filter Type 
+                <label className="field">Filter Type 
                   <select value={userBrewMethodData.filter} onChange={handleInputChange} name="filter" id="filter">
-                    <option value="default">Select filter type</option>
+                    <option value=""></option>
                     <option value="natural paper">NATURAL PAPER</option>
                     <option value="white paper">WHITE PAPER</option>
                     <option value="metal">METAL</option>
@@ -129,20 +129,19 @@ return(
                 </label> 
               </div>
               <div className="small-6 cell">
-                <label>Kettle Type 
+                <label className="field">Kettle Type 
                   <select value={userBrewMethodData.kettle} onChange={handleInputChange} name="kettle" id="kettle">
-                    <option value="default">Select From The Following</option>
+                    <option value=""></option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
                     <option value="tbd1">OTHER</option>
-                    <option value="tbd1">TBD1</option>
                   </select>
                 </label> 
               </div>
               <div className="small-6 cell">  
-                <label>Grind
+                <label className="field">Grind
                   <select value={userBrewMethodData.grind} onChange={handleInputChange} name="grind" id="grind">
-                    <option value="default">Select From The Following</option>
+                    <option value=""></option>
                     <option value="medium fine">MEDIUM FINE</option>
                     <option value="medium">MEDIUM</option>
                     <option value="medium-coarse">MEDIUM-COARSE</option>
@@ -151,9 +150,9 @@ return(
                 </label>
               </div>
               <div className="small-6 cell">  
-                <label>Roast
+                <label className="field">Roast
                   <select value={userBrewMethodData.roast} onChange={handleInputChange} name="roast" id="roast">
-                    <option value="default">Select From The Following</option>
+                    <option value=""></option>
                     <option value="light roast">LIGHT ROAST</option>
                     <option value="medium roast">MEDIUM ROAST</option>
                     <option value="dark roast">DARK ROAST</option>
@@ -162,9 +161,9 @@ return(
                 </label>
               </div>
               <div className="small-6 cell">
-                <label>Roast Region
+                <label className="field">Roast Region
                   <select value={userBrewMethodData.region} onChange={handleInputChange} name="region" id="region">
-                    <option value="default">Select From The Following</option>
+                    <option value=""></option>
                     <option value="ethiopian">ETHIOPIA</option>
                     <option value="costa rican">COSTA RICA</option>
                     <option value="kenyan">KENYA</option>
@@ -175,9 +174,9 @@ return(
                 </label>
               </div>
             </div>
-            <div className="grid-x grid-padding-x align-center">
-              <div className="small-2 cell text-center">
-                  <label>Brew Time
+            <div className="grid-x grid-padding-x align-center brew-fields">
+              <div className="small-4 medium-3 cell text-center">
+                  <label className="field">Time
                     <input 
                       name="time"
                       id="time"
@@ -189,21 +188,21 @@ return(
                       />
                   </label>
               </div>
-              <div className="small-2 medium-2 cell">
-                <label>Water Temperature
+              <div className="small-4 medium-3 cell">
+                <label className="field">Temp
                     <input
                       name="temperature"
                       id="temperature"
                       type="number"
-                      min="185"
+                      min="170"
                       max="212"
                       onChange={handleInputChange}
                       value={userBrewMethodData.temperature}
                   />
                 </label>
               </div>
-              <div className="small-2 medium-2 cell">
-                <label>Grams
+              <div className="small-4 medium-3 cell">
+                <label className="field">Grams
                     <input
                       name="grams"
                       id="grams"
@@ -217,7 +216,7 @@ return(
                 </label>
               </div>
               <div className="small-2 medium-2 cell">
-                <label>Grams/Water Ratio
+                <label className="field">Ratio
                     <input
                       name="ratio"
                       id="ratio"
@@ -227,27 +226,25 @@ return(
                   />
                 </label>
               </div>
-              <div className="small-2 medium-2 cell">
-                <label>Coffee Yield
+              <div className="small-2 medium-1 cell">
+                <label className="field">Rating
                     <input
-                      name="yield"
-                      id="yield"
+                      name="rating"
+                      id="rating"
                       type="number"
-                      min="8"
-                      max="20"
-                      step="2"
+                      min="1"
+                      max="10"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.yield}
+                      value={userBrewMethodData.rating}
                   />
                 </label>
               </div>
               <div className="cell">
-                <label>Instructions
+                <label className="field">Instructions
                     <textarea
                       name="instructions"
                       id="instructions"
                       rows="10"
-                      cols="30"
                       onChange={handleInputChange}
                       value={userBrewMethodData.instructions}
                   />

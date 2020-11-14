@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Fragment } from 'react'
 
 import BrewTile from './BrewTile'
 
@@ -48,11 +48,18 @@ const BrewContainer = (props) => {
   })
  
   return(
-    <div className="grid-container">
-      <div className="grid-x grid-margin-x align-center">
-          {brewTileArray}
+    <Fragment>
+      <div className="square-box grid-y medium-grid-frame grid-padding-y .grid-margin-y">
+        <h1 className="title">BREWS</h1>
+        <div className="cell medium-auto medium-cell-block-container">
+          <div className="grid-x align-center" >
+            <div className="small-8 medium-4 medium-cell-block-y">
+              {brewTileArray}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

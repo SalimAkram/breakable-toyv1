@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get "/roasts/new", to: "homes#index" 
   get "/roasts/:id", to: "homes#index"
   get "/users/:id", to: "homes#authorized"
-  get "/users/:id/add_favorite", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
   get "poc", to: "homes#index"
@@ -18,11 +17,7 @@ Rails.application.routes.draw do
     namespace :v1 do      
       resources :roasts, only: [:index, :show, :create]
       resources :landings, only: [:index]   
-      resources :users, only: [:show] do
-        member do
-          post :add_favorite
-        end
-      end
+      resources :users, only: [:show]
       resources :brews, only: [:create, :index, :show]
       resources :blackowned, only: [:index]    
       resources :favorites, only: [:create]  

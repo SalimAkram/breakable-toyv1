@@ -3,7 +3,7 @@ import React from 'react'
 import image1 from '../../../assets/images/DSCF0745.JPG'
 
 const RoastTile = (props) =>{
-  
+  // debugger
   return (
     <div className="cell small-6 medium-2">
       <img className="card-img" src={image1} alt="header" />

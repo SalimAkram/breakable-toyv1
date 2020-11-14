@@ -1,4 +1,4 @@
-import  React, { useEffect, useState } from 'react'
+import  React, { useEffect, useState, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 
 import RoastTile from './RoastTile'
@@ -10,57 +10,53 @@ const RoastContainer = (props) => {
   const [selectedAnswerId, setSelectedAnswerId] = useState(null)
 
   const id = props.match.params.id
-// debugger
-  useEffect(() => {
-    fetch('/api/v1/roasts')
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw (error);
-        }
-      })
-      .then(response => response.json())
-      .then(responseBody => {
-        setRoastData(responseBody.roast)
-        setScraperData(responseBody.roasts_scraper)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
-  },[])
+    useEffect(() => {
+      fetch('/api/v1/roasts')
+        .then(response => {
+          if (response.ok) {
+            return response
+          } else {
+            let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+            throw (error);
+          }
+        })
+        .then(response => response.json())
+        .then(responseBody => {
+          setRoastData(responseBody.roast)
+          setScraperData(responseBody.roasts_scraper)
+        })
+        .catch(error => console.error(`Error in fetch: ${error.message}`))
+    },[])
 
-  const addToFavorites = (selectedAnswerId) => {
-    // debugger
-    fetch(`/api/v1/users/:id/add_favorite`, {
+  const addToFavorites = (favoriteRoast) => {
+    fetch(`/api/v1/favorites`, {
       credentials: "same-origin",
       method: "POST",
-      body: JSON.stringify(selectedAnswerId),
+      body: JSON.stringify(favoriteRoast),
       headers: {
         'Accept': 'application/json',
         "Content-Type": "application/json"
       }
     })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          const errorMessage = `${response.status} (${response.statusText})`;
-          const error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    .then(response => {
+      if (response.ok) {
+        alert("added to favorites!")
+        return response;
+      } else {
+        const errorMessage = `${response.status} (${response.statusText})`;
+        const error = new Error(errorMessage);
+        throw error;
+      }
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`))
+
   }
-
-
 
   const scraperTileArray = scraperData.map((scraper) => {
 
     const handleClick = () => {
-      debugger
-      setSelectedAnswerId(scraper.id)
-      addToFavorites()
+      addToFavorites(scraper.id)
     }
 
     let selectedStatus = false
@@ -85,9 +81,8 @@ const RoastContainer = (props) => {
   const roastTileArray = roastData.map((roast) =>{
 
     const handleClick = () => {
-      debugger
-      setSelectedAnswerId(roast.id)
-      addToFavorites()
+
+      addToFavorites(roast.id)
     }
 
     let selectedStatus = false
@@ -121,12 +116,38 @@ const RoastContainer = (props) => {
   })
 
   return(
-    <div className="grid-container">
-      <div className="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
-        {roastTileArray}
-        {scraperTileArray}
+    <Fragment>
+      <div className="square-box grid-y medium-grid-frame grid-padding-y .grid-margin-y">
+        <h1 className="title"> Cup Of Joe Pro</h1>
+        <div className="cell medium-auto medium-cell-block-container">
+          <div className="grid-x grid-padding-x align-center" >
+          
+            <div className="cell page-columns small-12 medium-5 medium-cell-block-y">
+              <h2 className="title"> user favorites</h2>
+              {roastTileArray}
+            </div>
+            <div className="cell page-columns small-12 medium-5 medium-cell-block-y">
+              <h2 className="title">creator suggestions</h2>
+              {scraperTileArray}
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </Fragment>
+    // <div className="grid-container">
+    //   <div className="cell">
+    //     <h5>User Favorites</h5>
+    //   </div>
+    //   <div className="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
+    //     {roastTileArray}
+    //   </div>
+    //     <div className="cell">
+    //       <h5>suggestions</h5>
+    //     </div>
+    //   <div className="grid-x grid-margin-x grid-margin-y grid-padding-y grid-padding-x">
+    //     {scraperTileArray}
+    //   </div>
+    // </div>
   )
 }
 
