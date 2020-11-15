@@ -121,3 +121,4 @@ creator = User.create(
     region: "ethiopian",
     user_id: 1
  )
+
