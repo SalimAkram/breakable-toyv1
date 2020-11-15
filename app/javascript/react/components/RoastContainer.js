@@ -125,7 +125,7 @@ const RoastContainer = (props) => {
           {roastTileArray}
         </div>
         <div>
-          <h3 className="roast-title">suggestions</h3>
+          <h3 className="roast-title">Creator Suggestions</h3>
         </div>
         <div className="grid-x grid-margin-x">
           {scraperTileArray}

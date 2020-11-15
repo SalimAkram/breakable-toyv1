@@ -8,7 +8,7 @@ class Api::V1::LandingsController < ApplicationController
       lat = params[:lat]
       long = params[:long]  
     end
-binding.pry
+# binding.pry
 #     cafes = [{"html_attributions"=>[],
 #   "result"=>
 #    {"name"=>"Martin's Coffee Shop",
@@ -241,7 +241,7 @@ binding.pry
     cafe_search["results"].each do |cafe|
       
       cafe=HTTParty.get("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{cafe["place_id"]}&fields=url,name,place_id&key=#{ENV["GOOGLE_KEY"]}") 
-      binding.pry
+      # binding.pry
       if cafe["name"].downcase.include?('starbucks') || cafe["name"].downcase.include?('dunkin')
         next
       else
