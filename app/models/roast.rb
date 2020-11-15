@@ -9,6 +9,9 @@ class Roast < ApplicationRecord
   validates :price, numericality: true, presence: true
   validates :rating, presence: true, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 10 }
 
+  has_many :favorites
+  has_many :users, through: :favorites
+
   def self.crawler
     all_roasts = []
     mad_cap = []

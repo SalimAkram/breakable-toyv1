@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_11_13_010244) do
+=======
+ActiveRecord::Schema.define(version: 2020_11_13_040812) do
+>>>>>>> 412340b528b1c24e6116abad5bc2091a95dd3d52
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_11_13_010244) do
     t.string "grind", null: false
     t.text "instructions", null: false
     t.string "ratio"
-    t.integer "yield"
+    t.integer "rating"
     t.string "roast"
     t.string "region"
     t.bigint "user_id", null: false

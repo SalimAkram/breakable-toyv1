@@ -15,15 +15,15 @@ const UserShowContainer = (props) => {
 
   useEffect(() => {
     fetch(`/api/v1/users/${id}`)
-    .then(response => {
-      if (response.ok) {
-        return response
-      } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw (error);
-        }
-      })
+      .then(response => {
+        if (response.ok) {
+          return response
+        } else {
+            let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+            throw (error);
+          }
+        })
       .then(response => response.json())
       .then(responseBody => {
         if(responseBody.error == null) {
@@ -84,30 +84,27 @@ const UserShowContainer = (props) => {
       />
     )
   })
-  
-  // const errorDisplayArray = errorList.map((error) => {
-  // })
 
-    return (
-      <div className="user-grid grid-container">
-        <h1>{errorList}</h1>
-        <div className="cell grid-x align-center">
-          <UserTile
-            key={usersData.id}
-            id={usersData.id}
-            username={usersData.username}
-            email={usersData.email}
-          />
-        </div>
-        <div className="cell grid-x">
-          <BrewMethodForm
-            addBrewMethodFromForm={addBrewMethodFromForm}
-          />
-        </div>
-        <div className="grid-x grid-margin-x grid-margin-y">
-          {userBrewMethodArray}
-        </div>
+  return (
+    <div className="user-grid grid-container">
+      <h1>{errorList}</h1>
+      <div className="cell grid-x align-center">
+        <UserTile
+          key={usersData.id}
+          id={usersData.id}
+          username={usersData.username}
+          email={usersData.email}
+        />
       </div>
+      <div className="cell grid-x">
+        <BrewMethodForm
+          addBrewMethodFromForm={addBrewMethodFromForm}
+        />
+      </div>
+      <div className="grid-x grid-margin-x grid-margin-y">
+        {userBrewMethodArray}
+      </div>
+    </div>
   );
 }
 

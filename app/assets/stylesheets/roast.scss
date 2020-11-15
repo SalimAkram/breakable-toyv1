@@ -3,6 +3,7 @@
 @import 'foundation';
 @import 'motion-ui/motion-ui';
 
+//Roast form
 .roast-form {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -16,6 +17,148 @@
    margin: 20px;
    padding: 20px;
  }
+
  .right {
    margin-left: 20px;
  }
+
+// ROASTS INDEX PAGE
+
+.roast-title {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: $font;
+}
+.roast-tile-title{
+   color: $font;
+}
+ .card-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  border: solid 5px;
+  border-color: #39a2ae;
+ }
+
+.button-like {
+  background-color: transparent;
+  text-decoration: none;
+  // vertical-align: middle;
+  text-align: center;
+  // display: inline-block;
+  border-radius: 3rem;
+  color: #8a8a8a;
+  transition: all ease 0.4s;
+}
+
+.button-like span {
+  margin-left: 0.5rem;
+}
+
+.button-like .fa,
+.button-like span {
+  transition: all ease 0.4s;
+}
+
+.button-like:focus {
+  background-color: transparent;
+}
+
+.button-like:focus .fa,
+.button-like:focus span {
+  color: #8a8a8a;
+}
+
+.button-like:hover {
+  border-color: #cc4b37;
+  background-color: transparent;
+}
+
+.button-like:hover .fa,
+.button-like:hover span {
+  color: #cc4b37;
+}
+
+.liked {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked .fa,
+.liked span {
+  color: #fefefe;
+}
+
+.liked:focus {
+  background-color: #cc4b37;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+  color: #fefefe;
+}
+
+.liked:hover {
+  background-color: #cc4b37;
+  border-color: #cc4b37;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+  color: #fefefe;
+}
+
+
+.product-card {
+  background-color: #fefefe;
+  border: 1px solid #e6e6e6;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-card-thumbnail {
+  display: block;
+  position: relative;
+}
+
+.product-card-title {
+  font-family: 'Open sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.45rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.product-card-desc {
+  color: #8a8a8a;
+  display: block;
+  font-family: 'Open sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+.product-card-price {
+  color: #3e3e3e;
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
+}
+
+.product-card-sale {
+  display: inline-block;
+  font-size: 0.85rem;
+  margin-left: 0.3rem;
+}
+
+.product-card-colors {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.product-card-color-option {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+

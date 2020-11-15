@@ -8,13 +8,24 @@
   margin-bottom: 20px;
 }
 
-.user-tile {
+.callout.user-tile {
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 10px;
+  background-color: rgba(93, 74, 74, 0.1);
+  color: #5D4A4A;
+  font-weight: bolder;
+  border-style: unset;
+  
+  border-radius: 10px;
 }
 .user-brew-tile {
-  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(93, 74, 74, 0.1);
+  color: #5D4A4A;
+  font-weight: bolder;
+  border-style: unset; 
+  border-radius: 10px;     
 }
 
 .user-grid {

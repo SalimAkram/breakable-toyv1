@@ -8,32 +8,45 @@
   <link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web" rel="stylesheet">
 </head>
 <body class="body">
-  <header >
-    <div>
-      <ul>
-        <%- if current_user -%>
-          <li>
-            <%= image_tag current_user.profile_photo.url(:thumb) %>
-          </li> 
-          <li id="profile-photo"><%= link_to 'Sign Out', destroy_user_session_path, class: "nav-links", method: :delete %></li>
-        <%- else -%>
-          <li><%= link_to 'Sign Up', new_user_registration_path, class: "nav-links" %></li>
-          <li><%= link_to 'Sign In', new_user_session_path, class: "nav-links" %></li>
-        <%- end -%>
-      </ul>
+  <div data-sticky-container>
+  <div data-sticky data-options="marginTop:0;">
+
+    <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+      <div class="title-bar-title">Menu</div>
     </div>
-    <nav>
-      <ul>
-        <a class="nav-links" href="/"><button class="nav-links"> HOME</button></a>
-        <a class="nav-links" href="/brews"><button class="nav-links"> BREWS</button></a>
-        <a class="nav-links" href="/roasts"><button class="nav-links">ROASTS</button ></a>
-        <a class="nav-links" href="/roasts/new"><button class="nav-links">ADD A ROAST</button></a> 
-        <%- if current_user -%>
-          <%= link_to 'PROFILE', "/users/#{current_user.id}", class: "nav-links"%> 
-        <%- end -%>
-      </ul>
-    </nav>
-  </header>
+
+    <div class="top-bar" id="example-menu">
+        <div class="">
+          <ul class="vertical medium-horizontal dropdown menu" data-responsive-menu="accordion medium-dropdown">
+            <%- if current_user -%>
+              <li>
+                <%= image_tag current_user.profile_photo.url(:thumb), class: "profile-photo" %>
+              </li> 
+              <li ><%= link_to 'Sign Out', destroy_user_session_path, class: "button", method: :delete %></li>
+            <%- else -%>
+              <li><%= link_to 'Sign Up', new_user_registration_path, class: "button" %></li>
+              <li><%= link_to 'Sign In', new_user_session_path, class: "button" %></li>
+            <%- end -%>
+          </ul>
+        </div>
+        <nav>
+          <ul>
+            <a class="nav-links" href="/"><button class="nav-links"> Home</button></a>
+            <a class="nav-links" href="/brews"><button class="nav-links"> Brews</button></a>
+            <a class="nav-links" href="/roasts"><button class="nav-links">roasts</button ></a>
+            <a class="nav-links" href="/roasts/new"><button class="nav-links">Add a roast</button></a> 
+            <%- if current_user -%>
+              <%= link_to 'profile', "/users/#{current_user.id}", class: "button"%> 
+            <%- end -%>
+          </ul>
+        </nav>
+    </div>
+
+  </div>
+</div>
+
+
 
   <%- flash.each do |key, value| -%>
     <div class="alert flash flash-<%= key %>">

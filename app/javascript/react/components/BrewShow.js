@@ -31,11 +31,11 @@ const id = props.match.params.id
   if (brewShow.maker == "chemex") {
     brewPhoto = chemex
   } else if (brewShow.maker == "travel") {
-    brewPhoto = travel
+    brewPhoto = chemex //photo for travel
   } else if (brewShow.maker == "v60") {
-    brewPhoto = v60
+    brewPhoto = chemex //photo for v60
   } else if (brewShow.maker == "aeropress") {
-    brewPhoto = aeropress
+    brewPhoto = chemex // photo for aeropress
   }
 
   return(
