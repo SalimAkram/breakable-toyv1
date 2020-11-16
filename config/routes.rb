@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get "/brews/:id", to: "homes#index"
   get "poc", to: "homes#index"
   get "testing", to: "homes#index"
-  # get '*page', to: 'homes#index'
 
   namespace :api do    
     namespace :v1 do      

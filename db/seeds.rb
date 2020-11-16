@@ -62,7 +62,7 @@ roast4 = Roast.create(
   altitude: "1800",
   url: "https://madcapcoffee.com/shop/coffee/samueldegelo/",
   price: 18.25,
-  rating: 8,
+  rating: 7,
   harvest_date: nil,
   fair_trade: nil,
   ethical_business_practices: nil,
@@ -77,7 +77,7 @@ roast5 = Roast.create(
   altitude: nil,
   url: "http://www.2tencoffeeroasters.com/single-origin/guatemala",
   price: 15.00,
-  rating: 5,
+  rating: 7,
   harvest_date: nil,
   fair_trade: nil,
   ethical_business_practices: nil,
@@ -93,32 +93,34 @@ creator = User.create(
  brew1 = Brew.create(
     maker: "chemex",
     filter: "metal",
-    time: 2,
+    time: 4,
     kettle: "electric",
     temperature: 202,
     grams: 24,
-    ratio: "1.6/2",
+    ratio: "",
     rating: 9,
     grind: "coarse",
-    instructions: "this is a test but just brew it!",
+    instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
+    for the bloom.  Then 3 even pours of 100 grams of water for a total of 350 grams of water",
     roast: "light",
-    region: "kenya",
+    region: "columbia giesha",
     user_id: 1
  )
 
  brew2 = Brew.create(
     maker: "chemex",
     filter: "natural paper",
-    time: 2,
+    time: 4,
     kettle: "electric",
     temperature: 202,
     grams: 32,
-    ratio: "1.6/2",
+    ratio: "",
     rating: 9,
     grind: "coarse",
-    instructions: "this is another test but we will just brew it!",
+    instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
+    for the bloom.  Then 3 even pours of about 140 grams of water for a total of 475 grams",
     roast: "light",
-    region: "ethiopian",
+    region: "columbia giesha",
     user_id: 1
  )
 

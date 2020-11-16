@@ -63,6 +63,12 @@ a:hover {
   border-radius: 10px;
 }
 
+.roast-a:hover {
+ background-color: $nav;
+ border-radius: 10px;
+ margin-top: 10px;
+ padding: 2px 10px;
+}
 .forgot-link {
   margin-top: 10px;
 }
@@ -75,6 +81,7 @@ a:hover {
 }
 
 .alert {
+  align-items: center;
   padding: 20px;
   background-color: #eb6534;
   color: white;

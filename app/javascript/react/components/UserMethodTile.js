@@ -1,7 +1,6 @@
 import React from 'react'
 
 const UserMethodTile = (props) =>{
-  debugger
   return(
     <div className="article-row-section">
       <div className="article-row-section-inner">
@@ -35,8 +34,6 @@ const UserMethodTile = (props) =>{
         <p>{props.instructions}</p>
       </div>
     </div>
-
-
   )
 }
 

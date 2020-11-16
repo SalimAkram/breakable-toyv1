@@ -107,7 +107,7 @@ const UserShowContainer = (props) => {
   })
 
   return (
-    <div className="grid-x grid-containter align-center user-grid ">
+    <div className="grid-x grid-containter align-center user-grid">
       <div className="cell small-12 medium-8">
         <UserTile
           key={usersData.id}

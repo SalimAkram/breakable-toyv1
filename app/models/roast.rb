@@ -65,7 +65,7 @@ class Roast < ApplicationRecord
         pavement << roast
       end
     end
-    all_roasts = mad_cap.take(5) + van_dyke.take(5) + pavement.take(5)
+    all_roasts = mad_cap.take(6) + van_dyke.take(7) + pavement.take(7)
     all_roasts
   end
 end

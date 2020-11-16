@@ -40,7 +40,6 @@ const BrewMethodForm = (props) => {
   }
 
   if (shouldRedirect) {
-    alert("brew added successfully!")
     return <Redirect to='/brews' />
   }
 
@@ -101,7 +100,7 @@ return(
         <ErrorList errors={errors} />
         <div className="method-title field"> <h5>Add a Method </h5></div> 
           <fieldset>
-            <div className="grid-x grid-padding-x brew-fields">
+            <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label className="field">Maker 
                   <select value={userBrewMethodData.maker} onChange={handleInputChange} name="maker" id="maker">
@@ -174,7 +173,7 @@ return(
                 </label>
               </div>
             </div>
-            <div className="grid-x grid-padding-x align-center brew-fields">
+            <div className="grid-x grid-padding-x align-center">
               <div className="small-4 medium-2 cell text-center">
                   <label className="field">Time (mins)
                     <input 

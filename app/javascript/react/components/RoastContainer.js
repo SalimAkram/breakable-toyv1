@@ -1,5 +1,4 @@
 import  React, { useEffect, useState, Fragment } from 'react'
-import { Link } from 'react-router-dom'
 
 import RoastTile from './RoastTile'
 import ScraperRoastTile from './ScraperRoastTile'
@@ -7,7 +6,6 @@ import ScraperRoastTile from './ScraperRoastTile'
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
   const [scraperData, setScraperData] = useState([])
-  const [selectedAnswerId, setSelectedAnswerId] = useState(null)
 
   const id = props.match.params.id
     useEffect(() => {
@@ -54,42 +52,20 @@ const RoastContainer = (props) => {
   }
 
   const scraperTileArray = scraperData.map((scraper) => {
-
-    const handleClick = () => {
-      addToFavorites(scraper.id)
-    }
-
-    let selectedStatus = false
-    if (scraper.id === selectedAnswerId) {
-      selectedStatus = true
-    } else {
-      selectedStatus = false
-    }
-
     return (
       <ScraperRoastTile
-      key={scraper.id}
-      id={scraper.id}
-      name={scraper.name}
-      url={scraper.url}
-      handleClick={handleClick}
-      selectedStatus={selectedStatus}
-    />
+        key={scraper.id}
+        id={scraper.id}
+        name={scraper.name}
+        url={scraper.url}
+      />
     )
   })
 
   const roastTileArray = roastData.map((roast) =>{
 
     const handleClick = () => {
-
       addToFavorites(roast.id)
-    }
-
-    let selectedStatus = false
-    if (roast.id === selectedAnswerId) {
-      selectedStatus = true
-    } else {
-      selectedStatus = false
     }
 
     return (
@@ -110,7 +86,6 @@ const RoastContainer = (props) => {
         ethical_business_practices={roast.ethical_business_practices}
         harvest_date={roast.harvest_date}
         handleClick={handleClick}
-        selectedStatus={selectedStatus}
       />
     )
   })

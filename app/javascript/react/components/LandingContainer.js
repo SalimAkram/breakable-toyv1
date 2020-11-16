@@ -36,14 +36,12 @@ navigator.geolocation.getCurrentPosition(successCallback);
       })
       .then(response => response.json())
       .then(responseBody => { 
-        // debugger
         setcafeList(responseBody.cafes)
         setLandingDataFromDataBase(responseBody.landing)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
   const cafeListArray = cafeList.map((cafe) => {
-    // debugger
     return(
      <CafeTile 
         key={cafe.result.place_id}
