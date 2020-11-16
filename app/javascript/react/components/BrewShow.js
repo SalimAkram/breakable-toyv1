@@ -42,40 +42,44 @@ const id = props.match.params.id
   }
 
   return(
-    <div className="grid-container">
+    <div className="grid-x grid-container align-center">
+      <div className="cell small-12 medium-12">
       <div>
         <h3 className="title">{user.username}</h3>
-        <h4 className>rating {brewShow.rating}/10</h4>
       </div>
-      <div className="scrolling-container grid-x">
-        <div className="cell small-12 medium-6 overview">
-          <img className="brew-image" src={brewPhoto} />
-        </div>
-        <div className="cell small-12 medium-6 portfolio-resume-scrolling">
-        <ul className="portfolio-resume-side-list">
-          <h3>{brewShow.maker}</h3>
-          <li>{brewShow.kettle} kettle</li>
-          <li>{brewShow.filter} filter</li>
-        </ul>
-        <h3>beans</h3>
-        <ul>
-          <li>{brewShow.roast}</li>
-          <li>{brewShow.region}</li>
-          <li>{brewShow.grind} grind</li>
-        </ul>
-        <h3>math</h3>
-        <ul>
-          <li>{brewShow.grams} grams</li>
-          <li>{brewShow.temperature} degrees</li>
-          <li>{brewShow.time} minutes</li>
+      <div className="article-row-section">
+        <div className="article-row-section-inner">
+            <h4 className="article-row-section-header">rating {brewShow.rating}/10</h4>
+          <article className="article-row">
+            <div className="left">
+              <ul>
+                <li>{brewShow.maker}</li>
+                <li>{brewShow.filter} filter</li>
+                <li>{brewShow.kettle} kettle</li>
+              </ul>
+            </div>
+            <div className="center">
+              <ul>
+                <li>{brewShow.roast}</li>
+                <li>{brewShow.region}</li>
+                <li>{brewShow.grind} grind</li>
+              </ul>
+            </div>
+            <div className="right">
+              <ul>
+                <li>{brewShow.grams} grams</li>
+                <li>{brewShow.temperature} degrees</li>
+                <li>{brewShow.time} minutes</li>
+              </ul>
+            </div>
+          </article>
+        <div>
           <li>{brewShow.ratio} water ratio (optional)</li>
-        </ul>
-        <h3>instructions</h3>
-        <ul>
           <p>{brewShow.instructions}</p>
-        </ul>
+        </div>
+        </div>
       </div>
-      </div>
+    </div>
     </div>
   )
 }
