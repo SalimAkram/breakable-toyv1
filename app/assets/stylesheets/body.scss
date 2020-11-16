@@ -1,3 +1,4 @@
+
 @import 'settings';
 @import 'colors';
 @import 'foundation';
@@ -33,6 +34,14 @@ li {
   text-decoration: none;
   padding: .75rem .75rem;
   cursor: pointer;
+}
+
+.main-title {
+  Font-Family: 'Dosis', Sans-Serif;
+  font-size: 50px;
+  color: $fa;
+  margin-bottom: 10px;
+   -webkit-text-stroke: 1px $font;
 }
 
 .title {

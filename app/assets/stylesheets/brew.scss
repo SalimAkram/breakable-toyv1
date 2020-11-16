@@ -4,13 +4,18 @@
 @import 'motion-ui/motion-ui';
 
 //brew container css
+.brew-title {
+  margin-top: 30px;
+  color: $font;
+}
+
 
 //brew tile css
 .user {
   color: $user-brown;
   border-radius: 3px;
-  font-weight: bolder;
-  font-size: larger;
+  font-weight: 600;  
+  font-size: large;
 }
 
 //brew show css

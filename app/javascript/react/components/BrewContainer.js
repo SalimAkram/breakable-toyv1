@@ -50,7 +50,7 @@ const BrewContainer = (props) => {
   return(
     <Fragment>
       <div>
-        <h3 className="title">brews</h3>
+        <h4 className="brew-title">User Brews</h4>
         <div className="grid-x align-center" >
           <div className="small-12 medium-6">
             {brewTileArray}

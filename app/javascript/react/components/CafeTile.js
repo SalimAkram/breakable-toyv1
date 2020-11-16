@@ -2,9 +2,9 @@ import React from 'react'
 
 const CafeTile = (props) => {
   return(
-    <div>
-     <h5>{props.name}</h5> 
-     <a className="button  expanded" href={props.url} target="blank"> GO </a>
+    <div classNam="cafe-tile">
+     <h5 className="cafe-tile">{props.name}</h5> 
+     <a className="cafe-button button  expanded" href={props.url} target="blank"> GO </a>
     </div>
   )
 }
