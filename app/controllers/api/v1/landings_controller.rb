@@ -114,7 +114,7 @@ class Api::V1::LandingsController < ApplicationController
 #     "rating"=>4.3,
 #     "url"=>"https://maps.google.com/?cid=7766166411513596437"},
 #   "status"=>"OK"}]
-    cafes = []    
+    # cafes = []    
 
   cafes = [
     {"html_attributions"=>[],

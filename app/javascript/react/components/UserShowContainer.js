@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import UserTile from './UserTile'
+import FavoriteTile from './FavoriteTile'
 import UserMethodTile from './UserMethodTile'
 import BrewMethodForm from './BrewMethodForm'
 
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
+  const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
   const [shouldRedirect, setshouldRedirect] = useState(false)
-  const [errorList, setErrorList] = useState([])
 
   const id = props.match.params.id
 
@@ -27,7 +28,8 @@ const UserShowContainer = (props) => {
       .then(response => response.json())
       .then(responseBody => {
         if(responseBody.error == null) {
-          setUsersData(responseBody)
+          setUsersData(responseBody.user)
+          setFavorites(responseBody.favorites)
           setBrewMethodsFromDataBase(responseBody.brews)
         } else if (responseBody.error[0] === "You can only view your profile") {
           setshouldRedirect(true)
@@ -64,7 +66,7 @@ const UserShowContainer = (props) => {
       .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
 
-  const  userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
+  const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
     return(
       <UserMethodTile 
         key={userBrewMethod.id}
@@ -85,11 +87,27 @@ const UserShowContainer = (props) => {
     )
   })
 
+  const favoritesTileArray = favorites.map((favorite) => {
+    return (
+      <FavoriteTile
+        key={favorite.id}
+        id={favorite.id} 
+        name={favorite.name}
+        brand={favorite.brand}
+        region={favorite.region}
+        notes={favorite.notes}
+        process={favorite.process}
+        price={favorite.price}
+        rating={favorite.rating}
+        producer={favorite.producer}
+        altitude={favorite.altitude}
+        url={favorite.url}
+      />
+    )
+  })
+
   return (
     <div className="grid-x grid-containter align-center user-grid ">
-      <div className="errors">
-        <h1>{errorList}</h1>
-      </div>
       <div className="cell small-12 medium-8">
         <UserTile
           key={usersData.id}
@@ -103,14 +121,18 @@ const UserShowContainer = (props) => {
           addBrewMethodFromForm={addBrewMethodFromForm}
         />
       </div>
-      <div className="grid-x grid-containter">
-        <div className="cell small-12 medium-6">
-          this should be favorites
-        </div>
-        <div className="cell small-12 medium-6">
-         {userBrewMethodArray}
+    
+      <div className="cell small-12 medium-8">
+        <div>
+          {userBrewMethodArray}    
         </div>
       </div>
+      <div className="cell small-12 medium-8 test">
+        <div>
+          {favoritesTileArray}    
+        </div>
+      </div>
+      
     </div>
   );
 }

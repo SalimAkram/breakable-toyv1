@@ -1,32 +1,42 @@
 import React from 'react'
 
 const UserMethodTile = (props) =>{
+  debugger
   return(
-    <div className="">
-        <ul className="">
-          <h3>{props.maker}</h3>
-          <li>{props.kettle} kettle</li>
-          <li>{props.filter} filter</li>
-        </ul>
-        <h3>beans</h3>
-        <ul>
-          <li>{props.roast} roast</li>
-          <li>{props.region}</li>
-          <li>{props.grind} grind</li>
-        </ul>
-        <h3>math</h3>
-        <ul>
-          <li>{props.grams} grams</li>
-          <li>{props.temperature} degrees</li>
-          <li>{props.time} minutes</li>
-          <li>{props.ratio} water ratio (optional)</li>
-        </ul>
-        <h3>instructions</h3>
-        <ul>
-          <p>{props.instructions}</p>
-        </ul>
+    <div className="article-row-section">
+      <div className="article-row-section-inner">
+        <h4 className="article-row-section-header">method {props.id}</h4>
+          <article className="article-row">
+            <div className="left">
+              <ul> 
+                <li>{props.maker}</li>
+                <li>{props.filter} filter</li>
+                <li>{props.kettle} kettle</li>
+              </ul>
+            </div>
+            <div className="center">
+              <ul>
+                <li>{props.roast}</li>
+                <li>{props.region}</li>
+                <li>{props.grind} grind</li>
+              </ul>
+            </div>
+            <div className="right">
+              <ul>
+                <li>{props.grams} grams</li>
+                <li>{props.temperature} degrees</li>
+                <li>{props.time} minutes</li>
+              </ul>
+            </div>
+          </article>
+      </div>
+      <div>
+        <li>{props.ratio} water ratio (optional)</li>
+        <p>{props.instructions}</p>
+      </div>
     </div>
-    
+
+
   )
 }
 

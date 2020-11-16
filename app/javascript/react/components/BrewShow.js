@@ -59,7 +59,7 @@ const id = props.match.params.id
         </ul>
         <h3>beans</h3>
         <ul>
-          <li>{brewShow.roast} roast</li>
+          <li>{brewShow.roast}</li>
           <li>{brewShow.region}</li>
           <li>{brewShow.grind} grind</li>
         </ul>
