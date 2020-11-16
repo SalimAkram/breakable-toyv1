@@ -2,28 +2,31 @@ import React from 'react'
 
 const UserMethodTile = (props) =>{
   return(
-    <div className="cell small-6 medium-6">
-      <div className="user-brew-tile">
-        <ul>Brew Method
-          <li>
-            Method: {props.maker} || Filter: {props.filter} || Kettle: {props.kettle}
-          </li>
-          <li>
-            Brew Time: {props.time} minutes || Water Temperature: {props.temperature} degree
-              </li>
-          <li>
-            Grams: {props.grams} || Ratio: {props.ratio} || Yield: {props.yield}
-          </li>
-          <li>
-            Grind: {props.grind} || Roast: {props.roast} || Region: {props.region}
-          </li>
-          <li>
-            Instructions <br />
-            {props.instructions}
-          </li>
+    <div className="">
+        <ul className="">
+          <h3>{props.maker}</h3>
+          <li>{props.kettle} kettle</li>
+          <li>{props.filter} filter</li>
         </ul>
-      </div>
+        <h3>beans</h3>
+        <ul>
+          <li>{props.roast} roast</li>
+          <li>{props.region}</li>
+          <li>{props.grind} grind</li>
+        </ul>
+        <h3>math</h3>
+        <ul>
+          <li>{props.grams} grams</li>
+          <li>{props.temperature} degrees</li>
+          <li>{props.time} minutes</li>
+          <li>{props.ratio} water ratio (optional)</li>
+        </ul>
+        <h3>instructions</h3>
+        <ul>
+          <p>{props.instructions}</p>
+        </ul>
     </div>
+    
   )
 }
 

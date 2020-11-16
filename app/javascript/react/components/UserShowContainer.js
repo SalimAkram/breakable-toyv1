@@ -86,9 +86,11 @@ const UserShowContainer = (props) => {
   })
 
   return (
-    <div className="user-grid grid-container">
-      <h1>{errorList}</h1>
-      <div className="cell grid-x align-center">
+    <div className="grid-x grid-containter align-center user-grid ">
+      <div className="errors">
+        <h1>{errorList}</h1>
+      </div>
+      <div className="cell small-12 medium-8">
         <UserTile
           key={usersData.id}
           id={usersData.id}
@@ -96,13 +98,18 @@ const UserShowContainer = (props) => {
           email={usersData.email}
         />
       </div>
-      <div className="cell grid-x">
+      <div className="cell small-12 medium-8">
         <BrewMethodForm
           addBrewMethodFromForm={addBrewMethodFromForm}
         />
       </div>
-      <div className="grid-x grid-margin-x grid-margin-y">
-        {userBrewMethodArray}
+      <div className="grid-x grid-containter">
+        <div className="cell small-12 medium-6">
+          this should be favorites
+        </div>
+        <div className="cell small-12 medium-6">
+         {userBrewMethodArray}
+        </div>
       </div>
     </div>
   );

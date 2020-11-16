@@ -6,18 +6,22 @@
 
 .brew-form {
   margin-bottom: 20px;
-}
-
-.callout.user-tile {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: rgba(93, 74, 74, 0.1);
-  color: #5D4A4A;
-  font-weight: bolder;
-  border-style: unset;
-  
   border-radius: 10px;
 }
+
+.user-top-bar {
+  height: 50%;
+  background-color: #587b7f;
+  margin-top: 20px;
+  color: $page;
+  border-radius: 10px; 
+  vertical-align: middle;
+}
+
+.user-top-bar-text{
+  color: $page;
+}
+
 .user-brew-tile {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -30,4 +34,5 @@
 
 .user-grid {
   margin-top: 20px;
+  Font-Family: 'Dosis', Sans-Serif;
 }

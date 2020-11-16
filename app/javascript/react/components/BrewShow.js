@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
 import chemex from '../../../assets/images/depositphotos_190894814-stock-photo-front-view-chemex-alternative-coffee.jpg'
-// import 
+// import aeropress from '../../../assets/images/'
+// import v60 from '../../../assets/images/'
+// import travel from '../../../assets/images/'
+
 const BrewShow = (props) => {
 const [brewShow, setBrewShow] = useState({});
 const [user, setUser] = useState({});
@@ -40,35 +43,38 @@ const id = props.match.params.id
 
   return(
     <div className="grid-container">
-      <div className="grid-x align-center">
-        <div className="cell medium-6">
-          <img className="image" src={brewPhoto} />
-        </div>
+      <div>
+        <h3 className="title">{user.username}</h3>
+        <h4 className>rating {brewShow.rating}/10</h4>
       </div>
-      <div className="grid-x grid-margin-y align-center">
-        <div className="cell small-12 medium-6">
-          <h2>{user.username}</h2>
+      <div className="scrolling-container grid-x">
+        <div className="cell small-12 medium-6 overview">
+          <img className="brew-image" src={brewPhoto} />
         </div>
+        <div className="cell small-12 medium-6 portfolio-resume-scrolling">
+        <ul className="portfolio-resume-side-list">
+          <h3>{brewShow.maker}</h3>
+          <li>{brewShow.kettle} kettle</li>
+          <li>{brewShow.filter} filter</li>
+        </ul>
+        <h3>beans</h3>
+        <ul>
+          <li>{brewShow.roast} roast</li>
+          <li>{brewShow.region}</li>
+          <li>{brewShow.grind} grind</li>
+        </ul>
+        <h3>math</h3>
+        <ul>
+          <li>{brewShow.grams} grams</li>
+          <li>{brewShow.temperature} degrees</li>
+          <li>{brewShow.time} minutes</li>
+          <li>{brewShow.ratio} water ratio (optional)</li>
+        </ul>
+        <h3>instructions</h3>
+        <ul>
+          <p>{brewShow.instructions}</p>
+        </ul>
       </div>
-      <div className="cell grid-x align-center">
-        <div className="small-6 medium-6">
-          <ul>
-            <li>KETTLE TYPE - {brewShow.kettle}</li>
-            <li>FILTER TYPER - {brewShow.filter}</li>
-            <li>BEAN GRIND - {brewShow.grind}</li>
-            <li>BEAN WEIGHT - {brewShow.grams}</li>
-            <li>RATIO - {brewShow.ratio}</li>
-          </ul>
-        </div>
-        <div className="small-6 medium-6">
-          <ul>
-            <li>TEMPERATURE - {brewShow.temperature}</li>
-            <li>BREW TIME -  {brewShow.time}</li>
-            <li>ROAST - {brewShow.roast}</li>
-            <li>REGION - {brewShow.region}</li>
-            <li>RATING:{brewShow.yield}</li> {/* change this to rating*/}
-          </ul>
-        </div>
       </div>
     </div>
   )

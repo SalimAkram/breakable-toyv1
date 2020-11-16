@@ -2,10 +2,10 @@ import React from 'react'
 
 const UserTile = (props) => {
   return (
-    <div className="callout user-tile">
-      <h3> 
+    <div className="cell user-top-bar">
+      <h4 className="user-top-bar-text"> 
         {props.username}
-      </h3> 
+      </h4> 
     </div>
   )
 }
