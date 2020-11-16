@@ -49,13 +49,11 @@ const BrewContainer = (props) => {
  
   return(
     <Fragment>
-      <div className="square-box grid-y medium-grid-frame grid-padding-y .grid-margin-y">
-        <h1 className="title">BREWS</h1>
-        <div className="cell medium-auto medium-cell-block-container">
-          <div className="grid-x align-center" >
-            <div className="small-8 medium-4 medium-cell-block-y">
-              {brewTileArray}
-            </div>
+      <div>
+        <h3 className="title">brews</h3>
+        <div className="grid-x align-center" >
+          <div className="small-12 medium-6">
+            {brewTileArray}
           </div>
         </div>
       </div>

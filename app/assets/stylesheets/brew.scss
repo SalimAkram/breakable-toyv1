@@ -3,79 +3,61 @@
 @import 'foundation';
 @import 'motion-ui/motion-ui';
 
-.brew-tile {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+//brew container css
 
-.image {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 400px;
-  width: 400px;
-}
-
-.title {
-  color: $font;
-}
-
-.product-image-gallery {
-  padding: 1.5rem;
-}
-
-.pdp-product-image {
-  margin-bottom: 20px;
-}
-
-.product-thumbs a {
-  margin-left: 8px;
-  margin-right: 8px;
-  padding: 0 !important;
-}
-
-.product-thumbs a img {
-  max-width: 100%;
-  max-height: 100%;
-  margin-bottom: 1rem;
-  border-radius: 0;
-  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
-  line-height: 0;
-  border-radius: 3px;
-  width: 25px;
-  height: 25px;
-  border: none;
-}
-
+//brew tile css
 .user {
-  color: #5D4A4A;
+  color: $user-brown;
   border-radius: 3px;
   font-weight: bolder;
   font-size: larger;
 }
 
-.translucent-form-overlay {
+//brew show css
+.scrolling-container {
+  height: 400px;
+}
+
+.overview {
+  height: 400px;
+  display: -webkit-flex;
+  display: -ms-flexbox;   
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  opacity: 1;
+  z-index: 0;
+}
+
+.overview:after {
+  content: "";
   width: 100%;
-  background-color: rgba(93, 74, 74, 0.1);
-  padding: 20px;
-  border-radius: 5px;
-  color: #5D4A4A;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  z-index: 0;
 }
 
-.field, h4 {
-  font-size: large;
-  font-weight: bold;
-  color: #5D4A4A;
+.overview-content {
+  max-width: 300px;
+  z-index: 1;
 }
 
-.method-title {
-  margin-bottom: 20px;
+.portfolio-resume-scrolling {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#main-product-image {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  height: 200px;
-  width: 200px;
-  border: solid 5px;
-  border-color: #39a2ae;
+@media print, screen and (min-width: 40em) {
+  .portfolio-resume-scrolling {
+    height: 400px;
+    overflow-y: auto;
+  }
 }

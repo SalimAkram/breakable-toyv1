@@ -1,0 +1,36 @@
+@import 'settings';
+@import 'colors';
+@import 'foundation';
+@import 'motion-ui/motion-ui';
+
+.translucent-form-overlay {
+  width: 100%;
+  background-color: rgba(88, 123, 127, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  color: #5D4A4A;
+}
+
+.field {
+  font-size: medium;
+  font-weight: 500;
+  color: #5D4A4A;
+}
+
+.method-title, .roast-title {
+  margin-bottom: 20px;
+}
+
+.roast-form {
+  // margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ .right {
+   margin-left: 20px;
+ }
+
+.brew-form {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}

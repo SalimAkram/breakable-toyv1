@@ -1,0 +1,55 @@
+@import 'settings';
+@import 'colors';
+@import 'foundation';
+@import 'motion-ui/motion-ui';
+
+.product-image-gallery {
+  padding: 1.5rem;
+}
+
+.pdp-product-image {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+#main-product-image {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  height: 300px;
+  width: 300px;
+  border: solid 4px;
+  border-color: #39a2ae;
+}
+
+.product-thumbs a {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding: 0 !important;
+}
+
+.product-thumbs a img {
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.2);
+  line-height: 0;
+  border-radius: 3px;
+  width: 25px;
+  height: 25px;
+  border: none;
+}
+
+.brew-image {
+  width: 75%;
+  height: 75%;
+  position: absolute;
+  border-radius: 10px;
+}
+
+.image {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 400px;
+  width: 400px;
+}

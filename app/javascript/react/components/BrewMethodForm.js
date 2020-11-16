@@ -40,7 +40,6 @@ const BrewMethodForm = (props) => {
   }
 
   if (shouldRedirect) {
-    alert("brew added successfully!")
     return <Redirect to='/brews' />
   }
 
@@ -99,9 +98,9 @@ return(
   <div className="grid-x translucent-form-overlay">
       <form className="brew-form " onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
-        <div className="method-title field"> <h4>Add a Brew Method </h4></div> 
+        <div className="method-title field"> <h5>Add a Method </h5></div> 
           <fieldset>
-            <div className="grid-x grid-padding-x brew-fields">
+            <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label className="field">Maker 
                   <select value={userBrewMethodData.maker} onChange={handleInputChange} name="maker" id="maker">
@@ -174,8 +173,8 @@ return(
                 </label>
               </div>
             </div>
-            <div className="grid-x grid-padding-x align-center brew-fields">
-              <div className="small-4 medium-3 cell text-center">
+            <div className="grid-x grid-padding-x align-center">
+              <div className="small-4 medium-2 cell text-center">
                   <label className="field">Time (mins)
                     <input 
                       value="test"
@@ -189,7 +188,7 @@ return(
                       />
                   </label>
               </div>
-              <div className="small-4 medium-3 cell">
+              <div className="small-4 medium-2 cell">
                 <label className="field">Temp
                     <input
                       name="temperature"
@@ -202,7 +201,7 @@ return(
                   />
                 </label>
               </div>
-              <div className="small-4 medium-3 cell">
+              <div className="small-4 medium-2 cell">
                 <label className="field">Grams
                     <input
                       name="grams"
@@ -227,7 +226,7 @@ return(
                   />
                 </label>
               </div>
-              <div className="small-2 medium-1 cell">
+              <div className="small-2 medium-2 cell">
                 <label className="field">Rating
                     <input
                       name="rating"

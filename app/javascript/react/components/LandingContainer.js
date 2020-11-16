@@ -36,7 +36,6 @@ navigator.geolocation.getCurrentPosition(successCallback);
       })
       .then(response => response.json())
       .then(responseBody => { 
-        debugger
         setcafeList(responseBody.cafes)
         setLandingDataFromDataBase(responseBody.landing)
       })
@@ -45,11 +44,10 @@ navigator.geolocation.getCurrentPosition(successCallback);
   const cafeListArray = cafeList.map((cafe) => {
     return(
      <CafeTile 
-        key={cafe.place_id}
-        id={cafe.place_id}
-        name={cafe.name}
-        rating={cafe.rating}
-        url={cafe.url}
+        key={cafe.result.place_id}
+        id={cafe.result.place_id}
+        name={cafe.result.name}
+        url={cafe.result.url}
      />
     )
   })
