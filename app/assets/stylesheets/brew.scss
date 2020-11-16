@@ -19,6 +19,18 @@
 }
 
 //brew show css
+.rating {
+  color: $font;
+}
+
+.brew-left {
+  text-align: left;
+}
+
+.brew-right {
+  text-align: right;
+}
+
 .scrolling-container {
   height: 400px;
 }
@@ -66,3 +78,4 @@
     overflow-y: auto;
   }
 }
+

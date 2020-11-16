@@ -127,7 +127,7 @@ const UserShowContainer = (props) => {
           {userBrewMethodArray}    
         </div>
       </div>
-      <div className="cell small-12 medium-8 test">
+      <div className="cell small-12 medium-8">
         <div>
           {favoritesTileArray}    
         </div>

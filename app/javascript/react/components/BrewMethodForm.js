@@ -175,7 +175,7 @@ return(
             </div>
             <div className="grid-x grid-padding-x align-center">
               <div className="small-4 medium-2 cell text-center">
-                  <label className="field">Time (mins)
+                  <label className="field">Time
                     <input 
                       value="test"
                       name="time"
