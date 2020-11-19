@@ -64,8 +64,8 @@ roast4 = Roast.create(
   price: 18.25,
   rating: 7,
   harvest_date: nil,
-  fair_trade: nil,
-  ethical_business_practices: nil,
+  fair_trade: true,
+  ethical_business_practices: true,
 )
 roast5 = Roast.create(
   name: "Guatemala Chochujau",
@@ -79,14 +79,14 @@ roast5 = Roast.create(
   price: 15.00,
   rating: 7,
   harvest_date: nil,
-  fair_trade: nil,
-  ethical_business_practices: nil,
+  fair_trade: true,
+  ethical_business_practices: true,
 )
 
 creator = User.create(
   email: "salimakram123@gmail.com",
   password: "asdfgh",
-  username: "askablackdude",
+  username: "I Love Me Some Coffee",
   profile_photo: File.open(Rails.root.join('public', 'uploads', 'seed', '000113300011.jpg'))
 )
 

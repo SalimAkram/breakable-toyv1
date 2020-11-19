@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from 'react'
 
-import BrewTile from './BrewTile'
+import BrewTile from '../Tiles/BrewTile'
 
 const BrewContainer = (props) => {
   const [brewData, setBrewData] = useState([])

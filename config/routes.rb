@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
   get "poc", to: "homes#index"
-  get "testing", to: "homes#index"
 
   namespace :api do    
     namespace :v1 do      
@@ -18,7 +17,6 @@ Rails.application.routes.draw do
       resources :landings, only: [:index]   
       resources :users, only: [:show]
       resources :brews, only: [:create, :index, :show]
-      resources :blackowned, only: [:index]    
       resources :favorites, only: [:create]  
     end  
   end

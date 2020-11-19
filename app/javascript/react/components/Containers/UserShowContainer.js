@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import UserTile from './UserTile'
-import FavoriteTile from './FavoriteTile'
-import UserMethodTile from './UserMethodTile'
-import BrewMethodForm from './BrewMethodForm'
+import UserTile from '../Tiles/UserTile'
+import FavoriteTile from '../Tiles/FavoriteTile'
+import UserMethodTile from '../Tiles/UserMethodTile'
+import BrewMethodForm from '../Forms/BrewMethodForm'
 
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
@@ -121,7 +121,6 @@ const UserShowContainer = (props) => {
           addBrewMethodFromForm={addBrewMethodFromForm}
         />
       </div>
-    
       <div className="cell small-12 medium-8">
         <div>
           {userBrewMethodArray}    
@@ -132,9 +131,8 @@ const UserShowContainer = (props) => {
           {favoritesTileArray}    
         </div>
       </div>
-      
     </div>
-  );
+  )
 }
 
 export default UserShowContainer

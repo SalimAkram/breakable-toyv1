@@ -29,9 +29,9 @@ const ErrorList = props => {
       <Fragment>
         <h4>oops! you missed some stuff!</h4>
         <div className="alert">
-            <ul>
-              {listItems}
-            </ul>
+          <ul>
+            {listItems}
+          </ul>
         </div>
       </Fragment>
     )

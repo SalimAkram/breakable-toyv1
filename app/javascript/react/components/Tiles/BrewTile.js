@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import ph from "../../../assets/images/IMG_2428.jpg"
+import ph from "../../../../assets/images/IMG_2428.jpg"
 
 const BrewTile = (props) => {
   return(

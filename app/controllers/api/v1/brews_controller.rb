@@ -14,7 +14,6 @@ class Api::V1::BrewsController < ApplicationController
   def create
     brew = Brew.new(brew_params)
     brew.user_id = current_user.id 
-
     if brew.save
       render json: brew 
     else
@@ -38,6 +37,7 @@ class Api::V1::BrewsController < ApplicationController
       :instructions,
       :roast,
       :region,
+      :user_id
     )  
   end
 end

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Redirect } from "react-router-dom"
 
-import ErrorList from './ErrorList'
+import ErrorList from '../ErrorList'
 
 const BrewMethodForm = (props) => {
 

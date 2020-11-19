@@ -30,16 +30,16 @@ end
 FactoryBot.define do
   factory :brew do
     sequence(:maker) { "chemex" }
-    filter_type { "natural paper" }
-    brew_time { 3 }
-    kettle_type { "electric" }
-    water_temperature { 185 } 
+    filter { "natural paper" }
+    time { 3 }
+    kettle { "electric" }
+    temperature { 185 } 
     grams { 24 }
     grind { "medium" }
     instructions { "brew that stuff with water duh" }
     ratio { "2/1" }
     roast { "light" }
-    roast_region { "kenya" }
+    region { "kenya" }
 
     association :user, factory: :user
   end

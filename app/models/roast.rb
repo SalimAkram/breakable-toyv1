@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'httparty'
 
 class Roast < ApplicationRecord
   validates :name, presence: true

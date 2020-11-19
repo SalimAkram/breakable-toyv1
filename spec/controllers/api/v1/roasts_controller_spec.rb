@@ -6,14 +6,14 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
   
     let!(:roast_1) {FactoryBot.create(:roast)}
   
-    xit "return successful status and content type of json" do
+    it "return successful status and content type of json" do
       get :index 
 
       expect(response.status).to eq 200
       expect(response.content_type).to eq "application/json"
     end
     
-    xit "should return that individual roasts attributes count and null false constraints" do
+    it "should return that individual roasts attributes count and null false constraints" do
       get :show, params: { id: roast_1.id }
       returned_json = JSON.parse(response.body)
       
@@ -29,7 +29,7 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
   end
 
   describe "POST#create" do
-    xit "adds a new roast" do
+    it "adds a new roast" do
       post_json = {
         roast: {
           name: "roast", 
@@ -53,7 +53,7 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
       expect(Roast.count).to eq(prev_count + 1)
     end
 
-    xit "return the json of the newly posted roast" do
+    it "return the json of the newly posted roast" do
        post_json = {
         roast: {
           name: "heleana", 
@@ -89,5 +89,4 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
       expect(returned_json["rating"]).to eq 5
     end
   end
-
 end

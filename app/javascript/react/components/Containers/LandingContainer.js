@@ -1,12 +1,12 @@
 import React, { useEffect, useState, Fragment } from 'react'
 
-import bo1 from '../../../assets/images/IMG_2866.jpg'
-import bo2 from '../../../assets/images/IMG_2861.jpg'
-import bo3 from '../../../assets/images/IMG_2862.jpg'
-import bo4 from '../../../assets/images/IMG_2865.jpg'
+import bo1 from '../../../../assets/images/IMG_2866.jpg'
+import bo2 from '../../../../assets/images/IMG_2861.jpg'
+import bo3 from '../../../../assets/images/IMG_2862.jpg'
+import bo4 from '../../../../assets/images/IMG_2865.jpg'
 
 
-import CafeTile from './CafeTile'
+import CafeTile from '../Tiles/CafeTile'
 
 const LandingContainer = (props) => {
   const [landingDataFromDataBase, setLandingDataFromDataBase] = useState([])

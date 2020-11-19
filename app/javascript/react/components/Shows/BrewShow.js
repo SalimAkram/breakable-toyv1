@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-const BrewShow = (props) =>{
+import chemex from '../../../../assets/images/depositphotos_190894814-stock-photo-front-view-chemex-alternative-coffee.jpg'
+// import aeropress from '../../../assets/images/'
+// import v60 from '../../../assets/images/'
+// import travel from '../../../assets/images/'
 
+const BrewShow = (props) => {
 const [brewShow, setBrewShow] = useState({});
 const [user, setUser] = useState({});
 
@@ -24,70 +28,58 @@ const id = props.match.params.id
         setBrewShow(responseBody.brew)
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`))
-  }, [])
+    }, [])
 
+  let brewPhoto;
+  if (brewShow.maker == "chemex") {
+    brewPhoto = chemex
+  } else if (brewShow.maker == "travel") {
+    brewPhoto = chemex //photo for travel
+  } else if (brewShow.maker == "v60") {
+    brewPhoto = chemex //photo for v60
+  } else if (brewShow.maker == "aeropress") {
+    brewPhoto = chemex // photo for aeropress
+  }
 
   return(
-    // <div>
-    //   hello from brews/{brewShow.id} show with user {user.username}
-    // </div>
-
-    // <div className="">
-    //   <div className="portfolio-resume-scrolling-container">
-    //     <div className="cell small-12 medium-4 portfolio-resume-overview">
-    //       <div className="portfolio-resume-overview-content">
-    //         <h3 className="portfolio-resume-name">Name</h3>
-    //         <p>I'm kind of awesome. No really.</p>
-    //         <a className="button primary expanded" href="#">Contact Me</a>
-    //       </div>
-    //     </div>
-    //     <div className="cell small-12 medium-4 portfolio-resume-scrolling">
-    //       <h3>SKILLS</h3>
-    //       <ul className="portfolio-resume-side-list">
-    //         <li>Foundation</li>
-    //         <li>Moar Foundation</li>
-    //         <li>SCSS</li>
-    //         <li>CSS</li>
-    //         <li>JavaScript</li>
-    //         <li>HTML</li>
-    //       </ul>
-    //       <h3>EXPERIENCE</h3>
-    //       <p>Look at all this amazing stuff that I've done!</p>
-    //       <ul>
-    //         <li>Just one damned thing</li>
-    //         <li>After another</li>
-    //         <li>Like history</li>
-    //         <li>One thing</li>
-    //         <li>After another</li>
-    //       </ul>
-    //       <h3>WORK</h3>
-    //       <p>I've done work too</p>
-    //       <ul>
-    //         <li>A Site</li>
-    //         <li>Another Site</li>
-    //       </ul>
-    //     </div>
-    //   </div>
-    // </div>
-    <div className="grid-x">
-      <div class="work-feature-block row">
-        <div class="columns medium-7">
-          <img class="work-feature-block-image" src="https://placehold.it/600x400" />
+    <div className="grid-x grid-container align-center">
+      <div className="cell small-12 medium-12">
+        <div>
+          <h3 className="title">{user.username}</h3>
         </div>
-        <div class="columns medium-5">
-          <h2 class="work-feature-block-header">Project Description</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales diam ac hendrerit aliquet. Phasellus pretium libero vel molestie maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis est quam. Aenean blandit a urna laoreet tincidunt.</p>
-          <h2>Project Details</h2>
-          <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-          </ul>
+      <div className="article-row-section">
+        <div className="article-row-section-inner">
+          <h4 className="article-row-section-header">rating {brewShow.rating}/10</h4>
+          <article className="article-row">
+            <div className="left">
+              <ul>
+                <li>{brewShow.maker}</li>
+                <li>{brewShow.filter} filter</li>
+                <li>{brewShow.kettle} kettle</li>
+              </ul>
+            </div>
+            <div className="center">
+              <ul>
+                <li>{brewShow.roast}</li>
+                <li>{brewShow.region}</li>
+                <li>{brewShow.grind} grind</li>
+              </ul>
+            </div>
+            <div className="right">
+              <ul>
+                <li>{brewShow.grams} grams</li>
+                <li>{brewShow.temperature} degrees</li>
+                <li>{brewShow.time} minutes</li>
+              </ul>
+            </div>
+          </article>
+        <div>
+          <li>{brewShow.ratio} water ratio (optional)</li>
+          <p>{brewShow.instructions}</p>
+        </div>
         </div>
       </div>
-
-
+    </div>
     </div>
   )
 }

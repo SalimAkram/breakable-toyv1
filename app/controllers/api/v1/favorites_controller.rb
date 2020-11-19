@@ -1,5 +1,4 @@
 class Api::V1::FavoritesController < ApplicationController
-  # before_action :authenticate_user
 
   def create
     favorite = Favorite.new()

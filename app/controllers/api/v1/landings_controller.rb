@@ -2,9 +2,12 @@
 class Api::V1::LandingsController < ApplicationController
 
   def index   
+    lat = ""
+    long = ""
+
     if params[:lat] == "undefined" || params[:long] = "undefined" || current_user == nil
       lat = "42.3395328" 
-      long ="-71.1589888"
+      long ='-71.1589888'
     else 
       lat = params[:lat]
       long = params[:long]  

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import image1 from '../../../assets/images/DSCF0745.JPG'
+import image1 from '../../../../assets/images/DSCF0745.JPG'
 
 const ScraperRoastTile = (props) => {
 

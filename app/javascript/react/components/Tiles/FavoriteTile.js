@@ -36,7 +36,6 @@ const FavoriteTile = (props) => {
         <li>ethical business practices:{props.ethical_business_practices}</li>
       </div>
     </div>
-  
   )
 }
 

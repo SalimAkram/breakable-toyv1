@@ -2,7 +2,7 @@ import { set } from 'lodash'
 import React, { useState, useEffect } from 'react'
 import { Redirect } from "react-router-dom"
 
-import ErrorList from "./ErrorList"
+import ErrorList from "../ErrorList"
 
 const RoastForm = (props) =>{
 
@@ -281,7 +281,7 @@ const RoastForm = (props) =>{
               <button className="button" onClick={clear}>Clear</button>
               <input type="submit" value="Submit" className="button" />
           </form>
-      </div>
+        </div>
       </div>
     </div>
   )
