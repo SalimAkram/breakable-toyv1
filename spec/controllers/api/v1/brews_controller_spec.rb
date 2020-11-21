@@ -30,9 +30,11 @@ RSpec.describe Api::V1::BrewsController, type: :controller do
   end
 
   describe "POST#create" do
-    let!(:user) {FactoryBot.create(:user)}
-    xit "adds a new brew" do 
-
+    it "adds a new brew" do 
+      
+      user = FactoryBot.create(:user)
+      sign_in user
+  
       post_json = {
         brew: {
           maker: "chemex",
@@ -50,6 +52,7 @@ RSpec.describe Api::V1::BrewsController, type: :controller do
           user_id: user.id
         }
       }
+
       prev_count = Brew.count
       post(:create, params: post_json, format: :json)
       expect(Brew.count).to eq(prev_count + 1)

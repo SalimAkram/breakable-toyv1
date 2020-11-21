@@ -37,7 +37,6 @@ class Api::V1::BrewsController < ApplicationController
       :instructions,
       :roast,
       :region,
-      :user_id
     )  
   end
 end
