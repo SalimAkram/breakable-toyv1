@@ -160,8 +160,6 @@ class Api::V1::LandingsController < ApplicationController
       end
     end
 
-    binding.pry
-
     if current_user == nil
      flash.now[:notice] = "You need to be signed in to view your profile"
     else
