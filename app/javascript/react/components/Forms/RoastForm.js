@@ -1,8 +1,10 @@
-import { set } from 'lodash'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+
 import { Redirect } from "react-router-dom"
 
 import ErrorList from "../ErrorList"
+
+import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const RoastForm = (props) =>{
 
@@ -35,7 +37,7 @@ const RoastForm = (props) =>{
   const handleSubmit = event => {
     event.preventDefault()
     if (validRoastForSubmission()) {
-      addRoastFromForm(userRoastData)
+      cupOfJoeApi.addRoast(userRoastData)
       setShouldRedirect(true)
     }
     clearForm()
@@ -96,32 +98,6 @@ const RoastForm = (props) =>{
       ethical_business_practices: "",
       harvest_date: ""
     })
-  }
-
-  const addRoastFromForm = (userRoastData) => {
-    fetch('/api/v1/roasts', {
-      credentials: "same-origin",
-      method: "POST",
-      body: JSON.stringify(userRoastData),
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          const errorMessage = `${response.status} (${response.statusText})`;
-          const error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .then(response => response.json())
-      .then(responseBody => {
-        setRoastData([...roastData, responseBody])
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
   }
   
   return(

@@ -4,6 +4,7 @@ import getCafes from './functions/GetCafes'
 import getRoasts from './functions/GetRoasts'
 import getUsers from './functions/GetUsers'
 import addBrewMethod from './functions/AddBrewMethod'
+import addRoast from './functions/AddRoast'
 
 class cupOfJoeApi {
 
@@ -31,6 +32,9 @@ class cupOfJoeApi {
     return addToFavorites(favoriteRoast)
   }
 
+  static addRoast(roastData) {
+    return addRoast(roastData)
+  }
 }
 
 export default cupOfJoeApi
