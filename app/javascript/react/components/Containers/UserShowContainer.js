@@ -12,8 +12,7 @@ const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
   const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
-  const [shouldRedirect, setshouldRedirect] = useState(false)
-
+ 
   const id = props.match.params.id
 
   useEffect(() => {
@@ -24,10 +23,6 @@ const UserShowContainer = (props) => {
         setBrewMethodsFromDataBase(body.brews)
       })
   },[])
-
-  if (shouldRedirect) {
-    <Redirect to='/'/>
-  }
   
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)

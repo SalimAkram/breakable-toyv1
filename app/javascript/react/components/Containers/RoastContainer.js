@@ -30,7 +30,6 @@ const RoastContainer = (props) => {
   })
 
   const roastTileArray = roastData.map((roast) =>{
-
     const handleClick = () => {
       cupOfJoeApi.addToFavorites(roast.id)
     }
