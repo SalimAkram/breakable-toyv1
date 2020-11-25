@@ -6,6 +6,8 @@ import FavoriteTile from '../Tiles/FavoriteTile'
 import UserMethodTile from '../Tiles/UserMethodTile'
 import BrewMethodForm from '../Forms/BrewMethodForm'
 
+import cupOfJoeApi from '../../requests/CupOfJoeApi'
+
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
   const [favorites, setFavorites] = useState([])
@@ -15,29 +17,12 @@ const UserShowContainer = (props) => {
   const id = props.match.params.id
 
   useEffect(() => {
-    fetch(`/api/v1/users/${id}`)
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-            let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-            throw (error);
-          }
-        })
-      .then(response => response.json())
-      .then(responseBody => {
-        if(responseBody.error == null) {
-          setUsersData(responseBody.user)
-          setFavorites(responseBody.favorites)
-          setBrewMethodsFromDataBase(responseBody.brews)
-        } else if (responseBody.error[0] === "You can only view your profile") {
-          setshouldRedirect(true)
-        } else if (responseBody.error) {
-          setErrorList(responseBody.error)
-        }
+    cupOfJoeApi.getUsers(id)
+      .then(body => {
+        setUsersData(body.user)
+        setFavorites(body.favorites)
+        setBrewMethodsFromDataBase(body.brews)
       })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
   if (shouldRedirect) {
@@ -45,25 +30,7 @@ const UserShowContainer = (props) => {
   }
   
   const addBrewMethodFromForm = (brewMethodFromForm) => {
-    fetch('/api/v1/brews', {
-      credentials: "same-origin",
-      method: "POST",
-      body: JSON.stringify(brewMethodFromForm),
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          const errorMessage = `${response.status} (${response.statusText})`;
-          const error = new Error(errorMessage);
-          throw error;
-        }
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
+    cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
 
   const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{

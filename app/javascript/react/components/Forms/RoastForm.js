@@ -20,7 +20,8 @@ const RoastForm = (props) =>{
     price: "", 
     rating: "", 
     fair_trade: "",
-    ethical_business_practices: ""
+    ethical_business_practices: "",
+    harvest_date: ""
   });
 
   const handleInputChange = event => {
@@ -225,7 +226,7 @@ const RoastForm = (props) =>{
                   </div>
                   <div className="cell small-6 medium-3">
                     <label>Altitude
-                          <input
+                        <input
                         name="altitude"
                         id="altitude"
                         type="number"
