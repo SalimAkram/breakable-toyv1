@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   
   def authorize_user
     if current_user.id != params[:id].to_i
-      flash.now[:notice] = "You do not have access to this page."
+      flash[:notice] = "You do not have access to this page."
       redirect_to root_path
     end
   end

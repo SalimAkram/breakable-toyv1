@@ -3,53 +3,20 @@ import  React, { useEffect, useState, Fragment } from 'react'
 import RoastTile from '../Tiles/RoastTile'
 import ScraperRoastTile from '../Tiles/ScraperRoastTile'
 
+import cupOfJoeApi from '../../requests/CupOfJoeApi'
+
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])
   const [scraperData, setScraperData] = useState([])
 
   const id = props.match.params.id
     useEffect(() => {
-      fetch('/api/v1/roasts')
-        .then(response => {
-          if (response.ok) {
-            return response
-          } else {
-            let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-            throw (error);
-          }
+      cupOfJoeApi.getRoasts()
+        .then(body => {
+          setRoastData(body.roast)
+          setScraperData(body.roasts_scraper)
         })
-        .then(response => response.json())
-        .then(responseBody => {
-          setRoastData(responseBody.roast)
-          setScraperData(responseBody.roasts_scraper)
-        })
-        .catch(error => console.error(`Error in fetch: ${error.message}`))
     },[])
-
-  const addToFavorites = (favoriteRoast) => {
-    fetch(`/api/v1/favorites`, {
-      credentials: "same-origin",
-      method: "POST",
-      body: JSON.stringify(favoriteRoast),
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json"
-      }
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("added to favorites!")
-        return response;
-      } else {
-        const errorMessage = `${response.status} (${response.statusText})`;
-        const error = new Error(errorMessage);
-        throw error;
-      }
-    })
-    .catch(error => console.error(`Error in fetch: ${error.message}`))
-
-  }
 
   const scraperTileArray = scraperData.map((scraper) => {
     return (
@@ -63,9 +30,8 @@ const RoastContainer = (props) => {
   })
 
   const roastTileArray = roastData.map((roast) =>{
-
     const handleClick = () => {
-      addToFavorites(roast.id)
+      cupOfJoeApi.addToFavorites(roast.id)
     }
 
     return (

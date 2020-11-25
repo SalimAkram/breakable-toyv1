@@ -2,25 +2,16 @@ import React, { useEffect, useState, Fragment } from 'react'
 
 import BrewTile from '../Tiles/BrewTile'
 
+import cupOfJoeApi from '../../requests/CupOfJoeApi'
+
 const BrewContainer = (props) => {
   const [brewData, setBrewData] = useState([])
 
   useEffect(() => {
-    fetch('/api/v1/brews')
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw (error);
-        }
+    cupOfJoeApi.getBrews()
+      .then(body => {
+        setBrewData(body)
       })
-      .then(response => response.json())
-      .then(responseBody => {
-        setBrewData(responseBody)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
 
   const brewTileArray = brewData.map((brew) => {

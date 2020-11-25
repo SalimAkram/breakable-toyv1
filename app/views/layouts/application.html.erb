@@ -35,8 +35,8 @@
             <a class="nav-links" href="/"><button class="nav-links"> Home</button></a>
             <a class="nav-links" href="/brews"><button class="nav-links"> Brews</button></a>
             <a class="nav-links" href="/roasts"><button class="nav-links">Roasts</button ></a>
-            <a class="nav-links" href="/roasts/new"><button class="nav-links">Add a roast</button></a> 
             <%- if current_user -%>
+              <a class="nav-links" href="/roasts/new"><button class="nav-links">Add a roast</button></a> 
               <%= link_to 'Profile', "/users/#{current_user.id}", class: "button"%> 
             <%- end -%>
           </ul>
