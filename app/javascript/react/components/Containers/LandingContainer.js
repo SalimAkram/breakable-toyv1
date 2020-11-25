@@ -5,42 +5,19 @@ import bo2 from '../../../../assets/images/IMG_2861.jpg'
 import bo3 from '../../../../assets/images/IMG_2862.jpg'
 import bo4 from '../../../../assets/images/IMG_2865.jpg'
 
-
 import CafeTile from '../Tiles/CafeTile'
+import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {
-  const [landingDataFromDataBase, setLandingDataFromDataBase] = useState([])
-  const [cafeList, setcafeList] = useState([])
-
-  let lat;
-  let long;
-
-  const successCallback = (position) => {
-    lat = position.coords.latitude 
-    long = position.coords.longitude
-    console.log(position)
-  }
-navigator.geolocation.getCurrentPosition(successCallback);
+  const [cafeList, setCafeList] = useState([])
 
   useEffect(() => {
-
-    fetch(`/api/v1/landings?lat=${lat}&long=${long}`)
-      .then(response => {
-        if (response.ok) {
-          return response
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-            error = new Error(errorMessage);
-          throw (error);
-        }
+    cupOfJoeApi.getCafes()
+      .then(body => {
+        setCafeList(body)
       })
-      .then(response => response.json())
-      .then(responseBody => { 
-        setcafeList(responseBody.cafes)
-        setLandingDataFromDataBase(responseBody.landing)
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`))
   },[])
+
   const cafeListArray = cafeList.map((cafe) => {
     return(
      <CafeTile 
