@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-roast1 = Roast.create(
+Roast.create(
   name: "Samuel Degelo",
   brand: "Mad Cap Coffee Company",
   region: "Ethiopia",
@@ -21,7 +21,8 @@ roast1 = Roast.create(
   fair_trade: false,
   ethical_business_practices: true
 )
-roast2 = Roast.create(
+
+Roast.create(
   name: "The Answer",
   brand: "Menotti's",
   region: "Ethiopia/Columbia",
@@ -29,14 +30,14 @@ roast2 = Roast.create(
   process: "Natural, Washed",
   producer: "Various",
   altitude: "1,100-1,900",
-  url: "https://menottis.com/collections/all-beans/products/answer?variant=32578006417471",
+  url: "https://menottis.com/collections/all-beans/products/answer?v2578006417471",
   price: 20.00,
   rating: 8,
   harvest_date: nil,
   fair_trade: true,
   ethical_business_practices: true
 )
-roast3 = Roast.create(
+Roast.create(
   name: "Ethiopia Ardi",
   brand: "Van Dyke Coffee Roasters",
   region: "Ethiopia",
@@ -52,7 +53,7 @@ roast3 = Roast.create(
   ethical_business_practices: true
 )
 
-roast4 = Roast.create(
+Roast.create(
   name: "Gahahe Natural",
   brand: "Pavement Coffeehouse",
   region: "Kayanza, Burundi",
@@ -67,7 +68,8 @@ roast4 = Roast.create(
   fair_trade: true,
   ethical_business_practices: true,
 )
-roast5 = Roast.create(
+
+Roast.create(
   name: "Guatemala Chochujau",
   brand: "2ten Coffee Roasters",
   region: "Guatemalan",
@@ -83,44 +85,116 @@ roast5 = Roast.create(
   ethical_business_practices: true,
 )
 
-creator = User.create(
+User.create(
   email: "salimakram123@gmail.com",
   password: "asdfgh",
   username: "I Love Me Some Coffee",
   profile_photo: File.open(Rails.root.join('public', 'uploads', 'seed', '000113300011.jpg'))
 )
 
- brew1 = Brew.create(
-    maker: "chemex",
-    filter: "metal",
-    time: 4,
-    kettle: "electric",
-    temperature: 202,
-    grams: 24,
-    ratio: "",
-    rating: 9,
-    grind: "coarse",
-    instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
-    for the bloom.  Then 3 even pours of 100 grams of water for a total of 350 grams of water",
-    roast: "light",
-    region: "columbia giesha",
-    user_id: 1
- )
+Brew.create(
+  maker: "chemex",
+  filter: "metal",
+  time: 4,
+  kettle: "electric",
+  temperature: 202,
+  grams: 24,
+  ratio: "",
+  rating: 9,
+  grind: "coarse",
+  instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
+  for the bloom.  Then 3 even pours of 100 grams of water for a total of 350 grams of water",
+  roast: "light",
+  region: "columbia giesha",
+  user_id: 1
+)
 
- brew2 = Brew.create(
-    maker: "chemex",
-    filter: "natural paper",
-    time: 4,
-    kettle: "electric",
-    temperature: 202,
-    grams: 32,
-    ratio: "",
-    rating: 9,
-    grind: "coarse",
-    instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
-    for the bloom.  Then 3 even pours of about 140 grams of water for a total of 475 grams",
-    roast: "light",
-    region: "columbia giesha",
-    user_id: 1
- )
+Brew.create(
+  maker: "chemex",
+  filter: "natural paper",
+  time: 4,
+  kettle: "electric",
+  temperature: 202,
+  grams: 32,
+  ratio: "",
+  rating: 9,
+  grind: "coarse",
+  instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
+  for the bloom.  Then 3 even pours of about 140 grams of water for a total of 475 grams",
+  roast: "light",
+  region: "columbia giesha",
+  user_id: 1
+)
+
+Shop.create(
+  name: "Martin's Coffee Shop",
+  address:  "35 Harvard St, Brookline, MA 02445, USA",
+  url: "https://maps.google.com/?cid=17747575680367744338"
+)
+
+Shop.create(
+  name: "Pavement Coffeehouse",
+  address: "1243 Commonwealth Avenue, Allston, MA 02134, USA",
+  url: "https://maps.google.com/?cid=1554427021927455303",
+)
+
+Shop.create(
+  name: "George Howell Coffee",
+  address: "311 Walnut St, Newtonville, MA 02460, USA",
+  url: "https://maps.google.com/?cid=17424202334636979625"
+)
+
+Shop.create(
+  name: "Dolce Vita Cafe",
+  address: "1698 Commonwealth Avenue, Boston, MA 02135, USA",
+  url: "https://maps.google.com/?cid=13984849741491150956"
+)
+
+Shop.create(
+  name: "Darwin’s Ltd.",
+  address: "148 Mt Auburn St, Cambridge, MA 02138, USA",
+  url: "https://maps.google.com/?cid=1523503161269342372"
+)
+
+Shop.create(
+  name: "Galit's Treats Café & Bakery",
+  address: "749 Beacon St, Newton Centre, MA 02459, USA",
+  url: "https://maps.google.com/?cid=11843259874620780352"
+)
+
+Shop.create(
+  name: "Kohi Coffee Company",
+  address: "130 Guest St, Boston, MA 02135, USA",
+  url: "https://maps.google.com/?cid=14861209797862648810"
+)
+
+Shop.create(
+  name: "Espresso Yourself",
+  address: "767 Centre St, Jamaica Plain, MA 02130, USA",
+  url: "https://maps.google.com/?cid=11841677958758533348"
+)
+
+Shop.create(
+  name: "4A Coffee",
+  address: "419 Harvard St, Brookline, MA 02446, USA",
+  url: "https://maps.google.com/?cid=6162779896047165034"
+)
+
+Shop.create(
+  name: "Caffè Nero",
+  address: "1 Harvard St, Brookline, MA 02445, USA",
+  url: "https://maps.google.com/?cid=13800148533081942671"
+)
+
+Shop.create(
+  name: "Intelligentsia Coffee Watertown Coffeebar",
+  address: "810 Mt Auburn St, Watertown, MA 02472, USA",
+  url: "https://maps.google.com/?cid=3322027306672406068"
+)
+
+Shop.create(
+  name: "WFM Coffee Bar",
+  address: "15 Washington St, Brighton, MA 02135, USA",
+  url: "https://maps.google.com/?cid=15126175665932703121"
+)
 
