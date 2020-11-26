@@ -3,7 +3,6 @@ class Api::V1::UsersController < ApplicationController
   before_action :authorize_user
 
   def show
-  
     user = User.find(params[:id])
     
     user_favorites = user.favorites
