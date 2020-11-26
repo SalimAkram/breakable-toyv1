@@ -30,6 +30,10 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
 
   describe "POST#create" do
     it "adds a new roast" do
+    
+    user = FactoryBot.create(:user)
+    sign_in user
+
       post_json = {
         roast: {
           name: "roast", 
@@ -54,7 +58,11 @@ RSpec.describe Api::V1::RoastsController, type: :controller do
     end
 
     it "return the json of the newly posted roast" do
-       post_json = {
+
+      user = FactoryBot.create(:user)
+      sign_in user
+
+        post_json = {
         roast: {
           name: "heleana", 
           brand: "map cap",

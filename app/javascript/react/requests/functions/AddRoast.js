@@ -17,6 +17,7 @@ const addRoast= (userRoastData) => {
         throw (error);
       }
     })
+    .then((response) => response.json())
     .catch(error => console.error(`Error in fetch: ${error.message}`))
 }
 export default addRoast
