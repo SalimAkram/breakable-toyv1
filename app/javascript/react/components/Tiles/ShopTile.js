@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CafeTile = (props) => {
+const ShopTile = (props) => {
   return(
     <div className="cafe-tile">
      <h5 className="cafe-tile">{props.name}</h5> 
@@ -9,4 +9,4 @@ const CafeTile = (props) => {
   )
 }
 
-export default CafeTile
+export default ShopTile

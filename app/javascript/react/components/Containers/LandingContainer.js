@@ -5,27 +5,27 @@ import bo2 from '../../../../assets/images/IMG_2861.jpg'
 import bo3 from '../../../../assets/images/IMG_2862.jpg'
 import bo4 from '../../../../assets/images/IMG_2865.jpg'
 
-import CafeTile from '../Tiles/CafeTile'
+import ShopTile from '../Tiles/ShopTile'
 
 import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {
-  const [cafeList, setCafeList] = useState([])
+  const [shopList, setShopList] = useState([])
 
   useEffect(() => {
     cupOfJoeApi.getCafes()
       .then(body => {
-        setCafeList(body)
+        setShopList(body)
       })
   },[])
 
-  const cafeListArray = cafeList.map((cafe) => {
+  const shopListArray = shopList.map((shop) => {
     return(
-     <CafeTile 
-        key={cafe.result.place_id}
-        id={cafe.result.place_id}
-        name={cafe.result.name}
-        url={cafe.result.url}
+     <ShopTile 
+        key={shop.id}
+        id={shop.id}
+        name={shop.name}
+        url={shop.url}
      />
     )
   })
@@ -37,7 +37,7 @@ const LandingContainer = (props) => {
         <div className="cell medium-auto medium-cell-block-container">
           <div className="grid-x grid-padding-x align-center" >
             <div className="cell small-12 medium-5 medium-cell-block-y">
-              {cafeListArray}
+              {shopListArray}
             </div>
             <div className="cell small-12 medium-5 medium-cell-block-y">
               <div className="product-image-gallery">
