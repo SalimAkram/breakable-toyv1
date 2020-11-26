@@ -3,21 +3,10 @@ class Api::V1::RoastsController < ApplicationController
 
   def index
     roasts = Roast.all 
-    scraper = Roast.crawler
-    
-    roasts_scraper_id = []
-    id = 0
-    
-    scraper.each do |roast|
-      if Roast.last.nil?
-        roast[:id] = roasts_scraper_id.count + id + 1
-        roasts_scraper_id << roast
-      else
-        roast[:id] = roasts_scraper_id.count + Roast.last.id + 1
-        roasts_scraper_id << roast
-      end
-    end
-    render json: { roast: roasts, roasts_scraper: roasts_scraper_id }
+    scraper = Scraper.crawler
+    roasts_scraper = Scraper.set_id(scraper)
+
+    render json: { roast: roasts, roasts_scraper: roasts_scraper }
   end
 
   def show
