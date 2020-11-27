@@ -37,6 +37,7 @@ Roast.create(
   fair_trade: true,
   ethical_business_practices: true
 )
+
 Roast.create(
   name: "Ethiopia Ardi",
   brand: "Van Dyke Coffee Roasters",
@@ -61,8 +62,8 @@ Roast.create(
   process: "Natural Sundried",
   producer: "Greenco",
   altitude: "1800",
-  url: "https://madcapcoffee.com/shop/coffee/samueldegelo/",
-  price: 18.25,
+  url: "https://pavementcoffeehouse.com/collections/coffee/products/gahahe-natural-kayanza-burundi",
+  price: 18.99,
   rating: 7,
   harvest_date: nil,
   fair_trade: true,
@@ -151,18 +152,6 @@ Shop.create(
 )
 
 Shop.create(
-  name: "Darwin’s Ltd.",
-  address: "148 Mt Auburn St, Cambridge, MA 02138, USA",
-  url: "https://maps.google.com/?cid=1523503161269342372"
-)
-
-Shop.create(
-  name: "Galit's Treats Café & Bakery",
-  address: "749 Beacon St, Newton Centre, MA 02459, USA",
-  url: "https://maps.google.com/?cid=11843259874620780352"
-)
-
-Shop.create(
   name: "Kohi Coffee Company",
   address: "130 Guest St, Boston, MA 02135, USA",
   url: "https://maps.google.com/?cid=14861209797862648810"
@@ -181,20 +170,7 @@ Shop.create(
 )
 
 Shop.create(
-  name: "Caffè Nero",
-  address: "1 Harvard St, Brookline, MA 02445, USA",
-  url: "https://maps.google.com/?cid=13800148533081942671"
-)
-
-Shop.create(
   name: "Intelligentsia Coffee Watertown Coffeebar",
   address: "810 Mt Auburn St, Watertown, MA 02472, USA",
   url: "https://maps.google.com/?cid=3322027306672406068"
 )
-
-Shop.create(
-  name: "WFM Coffee Bar",
-  address: "15 Washington St, Brighton, MA 02135, USA",
-  url: "https://maps.google.com/?cid=15126175665932703121"
-)
-
