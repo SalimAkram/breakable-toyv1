@@ -1,6 +1,6 @@
 import React from 'react'
 
-import image1 from '../../../../assets/images/DSCF0745.JPG'
+import getPhoto from '../../requests/functions/GetPhoto'
 
 const RoastTile = (props) =>{
   return (
@@ -9,7 +9,7 @@ const RoastTile = (props) =>{
         <h5 className="roast-tile-title">{props.name}</h5>
       </div>
       <div className="roast-thumbnail">
-        <a href={props.url} target="blank"><img className="card-img" src={image1} /></a>
+        <a href={props.url} target="blank"><img className="card-img" src={getPhoto()} /></a>
       </div>
       <div className="product-card-colors">
         <button onClick={props.handleClick} className="button-like">
