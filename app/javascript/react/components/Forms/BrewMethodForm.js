@@ -35,8 +35,8 @@ const BrewMethodForm = (props) => {
     if (validBrewForSubmission()) {
       props.addBrewMethodFromForm(userBrewMethodData)
       setShouldRedirect(true)
+      clearForm()
     }
-    clearForm()
   }
 
   if (shouldRedirect) {

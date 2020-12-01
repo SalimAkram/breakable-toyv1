@@ -39,8 +39,8 @@ const RoastForm = (props) =>{
     if (validRoastForSubmission()) {
       cupOfJoeApi.addRoast(userRoastData)
       setShouldRedirect(true)
+      clearForm()
     }
-    clearForm()
   }
 
   if (shouldRedirect) {
