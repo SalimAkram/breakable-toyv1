@@ -21,11 +21,32 @@ const LandingContainer = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault()
+    cupOfJoeApi.cafeSearch(searchBarQuery)
+      .then(body => {
+        setShopList(body)
+      })
+    // if(validSearch()) {
 
-    //   // cupOfJoeApi.addRoast(userRoastData)
+    // }
     //   // setShouldRedirect(true)
     // clearForm()
   }
+
+  // const validSearch = () => {
+  //   let submitErrors = {}
+  //   const requiredFields = [""]
+  //   requiredFields.forEach(field => {
+  //     if (searchBarQuery[field].trim() === "") {
+  //       submitErrors = {
+  //         ...submitErrors,
+  //         [field]: "is blank"
+  //       }
+  //     }
+  //   })
+  //   setErrors(submitErrors)
+  //   return _.isEmpty(submitErrors)
+  // }
+
   useEffect(() => {
     cupOfJoeApi.getCafes()
       .then(body => {
@@ -36,8 +57,8 @@ const LandingContainer = (props) => {
   const shopListArray = shopList.map((shop) => {
     return(
      <ShopTile 
-        key={shop.id}
-        id={shop.id}
+        key={shop.place_id}
+        id={shop.place_id}
         name={shop.name}
         url={shop.url}
      />
@@ -51,9 +72,14 @@ const LandingContainer = (props) => {
         <form onSubmit={handleSubmit}>
           <div className="align-right align-bottom grid-padding-x">
             <div className="medium-7 cell">
-              <label>City
-            <input onChange={handleInputChange} type="text" placeholder="For ex Boston, MA" />
-              </label>
+            <label>City
+              <input
+                name="search"
+                id="search"
+                type="text"
+                placeholder="For ex Boston, MA"
+                onChange={handleInputChange} />
+            </label>
             </div>
           </div>
             <div className="medium-3 cell">

@@ -130,47 +130,56 @@ Brew.create(
 Shop.create(
   name: "Martin's Coffee Shop",
   address:  "35 Harvard St, Brookline, MA 02445, USA",
-  url: "https://maps.google.com/?cid=17747575680367744338"
+  url: "https://maps.google.com/?cid=17747575680367744338",
+  place_id: 1
+  
 )
 
 Shop.create(
   name: "Pavement Coffeehouse",
   address: "1243 Commonwealth Avenue, Allston, MA 02134, USA",
   url: "https://maps.google.com/?cid=1554427021927455303",
+  place_id: 2
 )
 
 Shop.create(
   name: "George Howell Coffee",
   address: "311 Walnut St, Newtonville, MA 02460, USA",
-  url: "https://maps.google.com/?cid=17424202334636979625"
+  url: "https://maps.google.com/?cid=17424202334636979625",
+  place_id: 3
 )
 
 Shop.create(
   name: "Dolce Vita Cafe",
   address: "1698 Commonwealth Avenue, Boston, MA 02135, USA",
-  url: "https://maps.google.com/?cid=13984849741491150956"
+  url: "https://maps.google.com/?cid=13984849741491150956",
+  place_id: 4
 )
 
 Shop.create(
   name: "Kohi Coffee Company",
   address: "130 Guest St, Boston, MA 02135, USA",
-  url: "https://maps.google.com/?cid=14861209797862648810"
+  url: "https://maps.google.com/?cid=14861209797862648810",
+  place_id: 5
 )
 
 Shop.create(
   name: "Espresso Yourself",
   address: "767 Centre St, Jamaica Plain, MA 02130, USA",
-  url: "https://maps.google.com/?cid=11841677958758533348"
+  url: "https://maps.google.com/?cid=11841677958758533348",
+  place_id: 6
 )
 
 Shop.create(
   name: "4A Coffee",
   address: "419 Harvard St, Brookline, MA 02446, USA",
-  url: "https://maps.google.com/?cid=6162779896047165034"
+  url: "https://maps.google.com/?cid=6162779896047165034",
+  place_id: 7
 )
 
 Shop.create(
   name: "Intelligentsia Coffee Watertown Coffeebar",
   address: "810 Mt Auburn St, Watertown, MA 02472, USA",
-  url: "https://maps.google.com/?cid=3322027306672406068"
+  url: "https://maps.google.com/?cid=3322027306672406068",
+  place_id: 8
 )

@@ -1,6 +1,6 @@
-const getCafes = () => {
+const getCafes = (search) => {
  return(
-   fetch('/api/v1/landings')
+   fetch(`/api/v1/landings?location=${search}`)
      .then((response) => {
        if (response.ok) {
          return response;
