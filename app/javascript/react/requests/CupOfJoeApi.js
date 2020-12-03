@@ -9,8 +9,8 @@ import addRoast from './functions/AddRoast'
 
 class cupOfJoeApi {
 
-  static getCafes(search) {
-    return getCafes(search)
+  static getCafes() {
+    return getCafes()
   }
   
   static getBrews() {

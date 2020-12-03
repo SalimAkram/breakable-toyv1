@@ -1,6 +1,14 @@
 const cafeSearch = (search) => {
   return (
-    fetch(`/api/v1/landings?location=${search}`)
+    fetch(`/api/v1/searches?location=${search}`, {
+      credentials: "same-origin",
+      method: "POST",
+      body: JSON.stringify(search),
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+      }
+    })
       .then((response) => {
         if (response.ok) {
           return response;

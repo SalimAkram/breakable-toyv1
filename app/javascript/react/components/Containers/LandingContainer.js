@@ -11,6 +11,7 @@ import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {
   const [shopList, setShopList] = useState([])
+  const [searchList, setSearchList] = useState([])
   const [searchBarQuery, setSearchBarQuery] = useState("");
 
   const handleInputChange = event => {
@@ -22,30 +23,11 @@ const LandingContainer = (props) => {
   const handleSubmit = event => {
     event.preventDefault()
     cupOfJoeApi.cafeSearch(searchBarQuery)
-      .then(body => {
-        setShopList(body)
-      })
-    // if(validSearch()) {
-
-    // }
-    //   // setShouldRedirect(true)
-    // clearForm()
+    .then(body => {
+      setSearchList(body)
+    })
   }
-
-  // const validSearch = () => {
-  //   let submitErrors = {}
-  //   const requiredFields = [""]
-  //   requiredFields.forEach(field => {
-  //     if (searchBarQuery[field].trim() === "") {
-  //       submitErrors = {
-  //         ...submitErrors,
-  //         [field]: "is blank"
-  //       }
-  //     }
-  //   })
-  //   setErrors(submitErrors)
-  //   return _.isEmpty(submitErrors)
-  // }
+  
 
   useEffect(() => {
     cupOfJoeApi.getCafes()
@@ -64,6 +46,18 @@ const LandingContainer = (props) => {
      />
     )
   })
+
+  const searchListArray = searchList.map((shop) => {
+  
+    return(
+     <ShopTile 
+        key={shop.result.place_id}
+        id={shop.result.place_id}
+        name={shop.result.name}
+        url={shop.result.url}
+     />
+    )
+  })
   
   return (
     <Fragment>
@@ -78,7 +72,8 @@ const LandingContainer = (props) => {
                 id="search"
                 type="text"
                 placeholder="For ex Boston, MA"
-                onChange={handleInputChange} />
+                onChange={handleInputChange} 
+               />
             </label>
             </div>
           </div>
@@ -89,6 +84,7 @@ const LandingContainer = (props) => {
         <div className="cell medium-auto medium-cell-block-container">
           <div className="grid-x grid-padding-x align-center" >
             <div className="cell small-12 medium-5 medium-cell-block-y">
+              {searchListArray}
               {shopListArray}
             </div>
             <div className="cell small-12 medium-5 medium-cell-block-y">
