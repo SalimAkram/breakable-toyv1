@@ -1,8 +1,9 @@
-import addToFavorites from './functions/AddToFavorites'
 import getBrews from './functions/GetBrews'
 import getCafes from './functions/GetCafes'
 import getRoasts from './functions/GetRoasts'
 import getUsers from './functions/GetUsers'
+import cafeSearch from './functions/CafeSearch'
+import addToFavorites from './functions/AddToFavorites'
 import addBrewMethod from './functions/AddBrewMethod'
 import addRoast from './functions/AddRoast'
 
@@ -22,6 +23,10 @@ class cupOfJoeApi {
 
   static getUsers(id) {
     return getUsers(id)
+  }
+
+  static cafeSearch(search) {
+    return cafeSearch(search)
   }
 
   static addBrewMethod(brewMethodFromForm) {

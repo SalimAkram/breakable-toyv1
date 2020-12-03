@@ -9,15 +9,16 @@ Rails.application.routes.draw do
   get "/users/:id", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
-  get "poc", to: "homes#index"
+
 
   namespace :api do    
     namespace :v1 do      
       resources :roasts, only: [:index, :show, :create]
-      resources :landings, only: [:index]   
+      resources :landings, only: [:index]
+      resources :searches, only: [:create]
       resources :users, only: [:show]
       resources :brews, only: [:create, :index, :show]
       resources :favorites, only: [:create]  
-    end  
+    end   
   end
 end

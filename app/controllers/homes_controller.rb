@@ -8,6 +8,6 @@ class HomesController < ApplicationController
   def authenticated
   end
 
-   def authorized  
+  def authorized  
   end
 end

@@ -1,4 +1,4 @@
-const getCafes = () => {
+const getCafes = (search) => {
  return(
    fetch('/api/v1/landings')
      .then((response) => {
