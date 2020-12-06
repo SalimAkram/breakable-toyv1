@@ -26,7 +26,7 @@ const SearchForm = props => {
         })
     }
   }
-
+ 
   const searchListArray = searchList.map((shop) => {
     return (
       <ShopTile
@@ -57,7 +57,8 @@ const SearchForm = props => {
                   id="search"
                   type="text"
                   placeholder="BOSTON, MA, ZIP, ADDRESS"
-                  onChange={handleInputChange}
+                  onChange={handleInputChange} 
+                  // value = "" <-- this need to be set in order for the for to clear
               />
             </label>
           </div>
