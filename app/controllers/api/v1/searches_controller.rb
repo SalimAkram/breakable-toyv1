@@ -1,13 +1,13 @@
 class Api::V1::SearchesController < ApplicationController
   def create
-    if params[:location] == "undefined"
-       flash[:notice] = "you didnt submit a location"
+    if params[:location] == ""
+      render json: "cant be blank"
     else
       coords = Coords.coords(params[:location])
       lat = coords[0]
       long = coords[1]
-      shops = Cafe.cafe_search(lat, long) # <-- this is the API response object
-    end
+      shops = Cafe.cafe_search(lat, long)
+    end 
     render json: shops
   end
 end 

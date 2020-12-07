@@ -8,6 +8,7 @@ import RoastShow from './Shows/RoastShow'
 import RoastForm from './Forms/RoastForm'
 import BrewContainer from './Containers/BrewContainer'
 import BrewShow from './Shows/BrewShow'
+import SearchForm from './Forms/SearchForm'
 
 export const App = (props) => {
   return (
@@ -20,6 +21,7 @@ export const App = (props) => {
         <Route exact path="/users/:id" component={UserShowContainer} />
         <Route exact path="/brews" component={BrewContainer} />
         <Route exact path="/brews/:id" component={BrewShow} />
+        <Route exact path="/search" component={SearchForm} />
       </Switch>
     </BrowserRouter>
   )

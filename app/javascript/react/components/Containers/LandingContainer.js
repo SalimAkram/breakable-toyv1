@@ -11,23 +11,6 @@ import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {
   const [shopList, setShopList] = useState([])
-  const [searchList, setSearchList] = useState([])
-  const [searchBarQuery, setSearchBarQuery] = useState("");
-
-  const handleInputChange = event => {
-    event.preventDefault();
-    const value = event.currentTarget.value;
-    setSearchBarQuery(value);
-  }
-
-  const handleSubmit = event => {
-    event.preventDefault()
-    cupOfJoeApi.cafeSearch(searchBarQuery)
-    .then(body => {
-      setSearchList(body)
-    })
-  }
-  
 
   useEffect(() => {
     cupOfJoeApi.getCafes()
@@ -46,45 +29,14 @@ const LandingContainer = (props) => {
      />
     )
   })
-
-  const searchListArray = searchList.map((shop) => {
-  
-    return(
-     <ShopTile 
-        key={shop.result.place_id}
-        id={shop.result.place_id}
-        name={shop.result.name}
-        url={shop.result.url}
-     />
-    )
-  })
   
   return (
     <Fragment>
       <div className="square-box grid-y medium-grid-frame grid-padding-y .grid-margin-y"> 
         <h1 className="main-title"> Cup Of Joe Pro</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="align-right align-bottom grid-padding-x">
-            <div className="medium-7 cell">
-            <label>City
-              <input
-                name="search"
-                id="search"
-                type="text"
-                placeholder="For ex Boston, MA"
-                onChange={handleInputChange} 
-               />
-            </label>
-            </div>
-          </div>
-            <div className="medium-3 cell">
-              <input type="submit" className="button" value="Submit" />
-            </div>
-        </form>
         <div className="cell medium-auto medium-cell-block-container">
           <div className="grid-x grid-padding-x align-center" >
             <div className="cell small-12 medium-5 medium-cell-block-y">
-              {searchListArray}
               {shopListArray}
             </div>
             <div className="cell small-12 medium-5 medium-cell-block-y">
