@@ -63,4 +63,5 @@ gem 'byebug'
 gem 'open-uri'
 gem 'geocoder'
 gem 'google_places'
+gem 'dalli', '~> 2.7', '>= 2.7.6'
 
