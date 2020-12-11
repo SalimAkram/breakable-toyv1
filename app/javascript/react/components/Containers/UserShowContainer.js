@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import UserTile from '../Tiles/UserTile'
 import FavoriteTile from '../Tiles/FavoriteTile'
@@ -27,6 +27,14 @@ const UserShowContainer = (props) => {
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
+
+  const updateHandler = (event) => {
+    debugger
+    event.preventDefault()
+    let formData = "test"
+    cupOfJoeApi.UpdateUser(id, formData)
+  }
+
 
   const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
     return(
@@ -70,6 +78,7 @@ const UserShowContainer = (props) => {
 
   return (
     <div className="grid-x grid-containter align-center user-grid">
+      <a onClick={updateHandler} type="submit">update profile</a>
       <div className="cell small-12 medium-8">
         <UserTile
           key={usersData.id}

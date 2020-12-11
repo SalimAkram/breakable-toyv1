@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :roasts, only: [:index, :show, :create]
       resources :landings, only: [:index]
       resources :searches, only: [:create]
-      resources :users, only: [:show]
+      resources :users, only: [:show, :update]
       resources :brews, only: [:create, :index, :show]
       resources :favorites, only: [:create]  
     end   

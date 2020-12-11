@@ -6,6 +6,7 @@ import cafeSearch from './functions/CafeSearch'
 import addToFavorites from './functions/AddToFavorites'
 import addBrewMethod from './functions/AddBrewMethod'
 import addRoast from './functions/AddRoast'
+import UpdateUser from './functions/UpdateUser'
 
 class cupOfJoeApi {
 
@@ -39,6 +40,10 @@ class cupOfJoeApi {
 
   static addRoast(roastData) {
     return addRoast(roastData)
+  }
+
+  static UpdateUser(id, formData) {
+    return UpdateUser(id, formData)
   }
 }
 

@@ -17,6 +17,10 @@ class Api::V1::UsersController < ApplicationController
   
     render json: { favorites: favorites, user: user, brews: brews }
   end
+
+  def update
+    binding.pry
+  end
 end
 
 
