@@ -6,8 +6,8 @@ import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const SearchForm = props => {
   const [errors, setErrors] = useState("");
-  const [searchList, setSearchList] = useState([])
   const [searchBarQuery, setSearchBarQuery] = useState("");
+  const [searchList, setSearchList] = useState([])
 
   const handleInputChange = event => {
     event.preventDefault();
@@ -22,8 +22,15 @@ const SearchForm = props => {
     } else {
       cupOfJoeApi.cafeSearch(searchBarQuery)
         .then(body => {
-          setSearchList(body)
+          if (body.error === "hmm....that search was weird try it one more time") {
+            setErrors(body.error)
+            setSearchList([])
+          } else {
+            setSearchList(body.shops)
+          }
         })
+        setSearchBarQuery("")
+        setErrors("")
     }
   }
  
@@ -39,7 +46,7 @@ const SearchForm = props => {
   })
 
   let error;
-  if(errors === "search can't be blank") {
+  if (errors === "search can't be blank" || errors === "hmm....that search was weird try it one more time") {
     error = <div className="alert">{errors}</div>
   }
 
@@ -58,7 +65,7 @@ const SearchForm = props => {
                   type="text"
                   placeholder="BOSTON, MA, ZIP, ADDRESS"
                   onChange={handleInputChange} 
-                  // value = "" <-- this need to be set in order for the for to clear
+                  value = {searchBarQuery}
               />
             </label>
           </div>
