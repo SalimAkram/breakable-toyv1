@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { Redirect } from 'react-router-dom'
 
 const UserMethodTile = (props) =>{
+  
+  const [shouldRedirect, setShouldRedirect] = useState(false)
+
+  const editOnClick = (event) => {
+    event.preventDefault()
+    setShouldRedirect(true)
+  }
+
+  if (shouldRedirect) {
+    return <Redirect to={`/brews/${props.id}/edit`} />
+  }
+
   return(
     <div className="article-row-section">
       <div className="article-row-section-inner">
@@ -32,6 +46,9 @@ const UserMethodTile = (props) =>{
       <div>
         <li>{props.ratio} water ratio (optional)</li>
         <p>{props.instructions}</p>
+      </div>
+      <div>
+        <button className="button" onClick={editOnClick}>edit</button>
       </div>
     </div>
   )

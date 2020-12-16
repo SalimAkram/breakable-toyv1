@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/roasts/new", to: "homes#authenticated" 
   get "/roasts/:id", to: "homes#index"
   get "/users/:id", to: "homes#authorized"
+  get "/users/edit", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
   get "/search", to: "homes#index"
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
       resources :landings, only: [:index]
       resources :searches, only: [:create]
       resources :users, only: [:show, :update]
-      resources :brews, only: [:create, :index, :show]
+      resources :brews, only: [:create, :index, :show, :update]
       resources :favorites, only: [:create]  
     end   
   end

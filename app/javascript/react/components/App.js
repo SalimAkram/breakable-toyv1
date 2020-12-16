@@ -3,6 +3,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import LandingContainer from './Containers/LandingContainer'
 import UserShowContainer from './Containers/UserShowContainer'
+import UserMethodEditContainer from './Containers/UserMethodEditContainer'
 import RoastContainer from './Containers/RoastContainer'
 import RoastShow from './Shows/RoastShow'
 import RoastForm from './Forms/RoastForm'
@@ -21,6 +22,7 @@ export const App = (props) => {
         <Route exact path="/users/:id" component={UserShowContainer} />
         <Route exact path="/brews" component={BrewContainer} />
         <Route exact path="/brews/:id" component={BrewShow} />
+        <Route exact path="/brews/:id/edit" component={UserMethodEditContainer} />
         <Route exact path="/search" component={SearchForm} />
       </Switch>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import UserTile from '../Tiles/UserTile'
 import FavoriteTile from '../Tiles/FavoriteTile'
@@ -28,13 +28,11 @@ const UserShowContainer = (props) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
 
-  const updateHandler = (event) => {
+  const profileUpdateHandler = (event) => {
     debugger
-    event.preventDefault()
-    let formData = "test"
-    cupOfJoeApi.UpdateUser(id, formData)
+    event.preventDefault();
+    <Redirect to='/users/edit' />
   }
-
 
   const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
     return(
@@ -77,29 +75,32 @@ const UserShowContainer = (props) => {
   })
 
   return (
-    <div className="grid-x grid-containter align-center user-grid">
-      <a onClick={updateHandler} type="submit">update profile</a>
-      <div className="cell small-12 medium-8">
-        <UserTile
-          key={usersData.id}
-          id={usersData.id}
-          username={usersData.username}
-          email={usersData.email}
-        />
-      </div>
-      <div className="cell small-12 medium-8">
-        <BrewMethodForm
-          addBrewMethodFromForm={addBrewMethodFromForm}
-        />
-      </div>
-      <div className="cell small-12 medium-8">
-        <div>
-          {userBrewMethodArray}    
+    <div>
+      <a href="/users/edit" type="submit">update profile</a>
+      <div className="grid-x grid-containter align-center user-grid">
+        
+        <div className="cell small-12 medium-8">
+          <UserTile
+            key={usersData.id}
+            id={usersData.id}
+            username={usersData.username}
+            email={usersData.email}
+          />
         </div>
-      </div>
-      <div className="cell small-12 medium-8">
-        <div>
-          {favoritesTileArray}    
+        <div className="cell small-12 medium-8">
+          <BrewMethodForm
+            addBrewMethodFromForm={addBrewMethodFromForm}
+          />
+        </div>
+        <div className="cell small-12 medium-8">
+          <div>
+            {userBrewMethodArray}    
+          </div>
+        </div>
+        <div className="cell small-12 medium-8">
+          <div>
+            {favoritesTileArray}    
+          </div>
         </div>
       </div>
     </div>

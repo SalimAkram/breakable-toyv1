@@ -22,6 +22,10 @@ class Api::V1::RoastsController < ApplicationController
     end
   end
 
+  def update
+    binding.pry    
+  end
+
   private
 
   def roast_params
