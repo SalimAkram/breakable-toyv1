@@ -4,7 +4,7 @@
 
 Cup of Joe Pro enables users to maintain all of the variables of their own coffee making methods as well as view other users' methods. It was built with Ruby on Rails, Javascript React and PostgresSQL.  The user finding the closest coffee shops was implemented using the google places API and Javascript React for the search bar functionality. The “creator suggestions” on the roasts index page is populated by a custom built web scraper using the Nokogiri and Open URI ruby gems. All of the heavy lifting for user sign-up/in was handled by the Devise, Carrierwave and Fog Ruby gems, while AWS SW3 buckets housing the cloud storage for profile photos! All of the forms are built using Javascript React. The website styling, design/layout was customized using Foundation and CSS.
 
-[check it out at ->](https://cup-of-joe-pro.herokuapp.com/)
+[check out Cup of Joe Pro at](https://cup-of-joe-pro.herokuapp.com/)
 
 ## Developed By
 - Salim Akram
