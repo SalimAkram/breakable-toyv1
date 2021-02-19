@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 
 class Scraper
-
+  
   def self.crawler
     all_roasts = []
     mad_cap = []
