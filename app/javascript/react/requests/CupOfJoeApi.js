@@ -6,9 +6,10 @@ import cafeSearch from './Functions/CafeSearch'
 import addToFavorites from './Functions/AddToFavorites'
 import addBrewMethod from './Functions/AddBrewMethod'
 import addRoast from './Functions/AddRoast'
+import editBrew from './Functions/EditBrew'
+import deleteBrew from './Functions/DeleteBrew'
 
 class cupOfJoeApi {
-
   static getCafes() {
     return getCafes()
   }
@@ -39,6 +40,14 @@ class cupOfJoeApi {
 
   static addRoast(roastData) {
     return addRoast(roastData)
+  }
+
+  static editBrew(id) {
+    return editBrew(id)
+  }
+
+  static deleteBrew(id) {
+    return deleteBrew(id)
   }
 }
 

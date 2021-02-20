@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Redirect } from "react-router-dom"
 
 import ErrorList from "../ErrorList"
-import Button from '../UI/button/Button'
 import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const RoastForm = (props) =>{
@@ -254,7 +253,7 @@ const RoastForm = (props) =>{
                   </div>
                 </div>
               </fieldset>   
-              <Button className="button" clicked={clear}>Clear</Button>
+              <button className="button" onClick={clear}>Clear</button>
               <input type="submit" value="Submit" className="button" />
           </form>
         </div>
