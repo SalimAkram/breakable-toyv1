@@ -23,6 +23,7 @@
     "react": "~16.8.0",
     "react-dom": "~16.8.0",
     "react-router-dom": "5.0.0",
+    "react-script": "^1.0.13",
     "redbox-react": "1.6.0"
   },
   "devDependencies": {
@@ -36,6 +37,7 @@
   },
   "scripts": {
     "start": "./bin/webpack-dev-server",
+    "eject": "react-scripts eject",
     "test": "node_modules/.bin/jest",
     "test:dev": "node_modules/.bin/jest --notify --watch"
   },
