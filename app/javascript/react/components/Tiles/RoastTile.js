@@ -1,6 +1,6 @@
 import React from 'react'
 
-import getPhoto from '../../requests/functions/GetPhoto'
+import getPhoto from '../../requests/Functions/GetPhoto'
 
 const RoastTile = (props) =>{
   return (

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, Fragment } from 'react'
 
-import BrewTile from '../Tiles/BrewTile'
+import BrewTile from '../components/Tiles/BrewTile'
 
-import cupOfJoeApi from '../../requests/CupOfJoeApi'
+import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const BrewContainer = (props) => {
   const [brewData, setBrewData] = useState([])

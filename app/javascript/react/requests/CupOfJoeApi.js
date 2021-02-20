@@ -1,11 +1,11 @@
-import getBrews from './functions/GetBrews'
-import getCafes from './functions/GetCafes'
-import getRoasts from './functions/GetRoasts'
-import getUsers from './functions/GetUsers'
-import cafeSearch from './functions/CafeSearch'
-import addToFavorites from './functions/AddToFavorites'
-import addBrewMethod from './functions/AddBrewMethod'
-import addRoast from './functions/AddRoast'
+import getBrews from './Functions/GetBrews'
+import getCafes from './Functions/GetCafes'
+import getRoasts from './Functions/GetRoasts'
+import getUsers from './Functions/GetUsers'
+import cafeSearch from './Functions/CafeSearch'
+import addToFavorites from './Functions/AddToFavorites'
+import addBrewMethod from './Functions/AddBrewMethod'
+import addRoast from './Functions/AddRoast'
 
 class cupOfJoeApi {
 

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Route, Switch, BrowserRouter } from "react-router-dom"
 
-import LandingContainer from './Containers/LandingContainer'
-import UserShowContainer from './Containers/UserShowContainer'
-import RoastContainer from './Containers/RoastContainer'
+import LandingContainer from '../containers/LandingContainer'
+import UserShowContainer from '../containers/UserShowContainer'
+import RoastContainer from '../containers/RoastContainer'
 import RoastShow from './Shows/RoastShow'
 import RoastForm from './Forms/RoastForm'
-import BrewContainer from './Containers/BrewContainer'
+import BrewContainer from '../containers/BrewContainer'
 import BrewShow from './Shows/BrewShow'
 import SearchForm from './Forms/SearchForm'
 

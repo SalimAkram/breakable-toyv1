@@ -1,9 +1,9 @@
 import  React, { useEffect, useState, Fragment } from 'react'
 
-import RoastTile from '../Tiles/RoastTile'
-import ScraperRoastTile from '../Tiles/ScraperRoastTile'
+import RoastTile from '../components/Tiles/RoastTile'
+import ScraperRoastTile from '../components/Tiles/ScraperRoastTile'
 
-import cupOfJoeApi from '../../requests/CupOfJoeApi'
+import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const RoastContainer = (props) => {
   const [roastData, setRoastData] = useState ([])

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import UserTile from '../Tiles/UserTile'
-import FavoriteTile from '../Tiles/FavoriteTile'
-import UserMethodTile from '../Tiles/UserMethodTile'
-import BrewMethodForm from '../Forms/BrewMethodForm'
+import UserTile from '../components/Tiles/UserTile'
+import FavoriteTile from '../components/Tiles/FavoriteTile'
+import UserMethodTile from '../components/Tiles/UserMethodTile'
+import BrewMethodForm from '../components/Forms/BrewMethodForm'
 
-import cupOfJoeApi from '../../requests/CupOfJoeApi'
+import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
