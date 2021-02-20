@@ -13,7 +13,7 @@ Cup of Joe Pro enables users to maintain all of the variables of their own coffe
 - [React.js](https://reactjs.org/docs/getting-started.html)
 - [PostgreSQL](https://www.postgresql.org/docs/13/index.html)
 ## Run Locally (versions)
-- Ruby 2.6.5
+- Ruby 2.6.3
 - Rails 5.2.3
 - PostgreSQL 13
 ###### Clone the Repo
