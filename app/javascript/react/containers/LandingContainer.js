@@ -6,7 +6,6 @@ import bo3 from '../../../assets/images/IMG_2862.jpg'
 import bo4 from '../../../assets/images/IMG_2865.jpg'
 
 import ShopTile from '../components/Tiles/ShopTile'
-
 import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {

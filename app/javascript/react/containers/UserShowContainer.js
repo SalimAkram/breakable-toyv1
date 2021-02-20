@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
 
-import UserTile from '../components/Tiles/UserTile'
-import FavoriteTile from '../components/Tiles/FavoriteTile'
-import UserMethodTile from '../components/Tiles/UserMethodTile'
-import BrewMethodForm from '../components/Forms/BrewMethodForm'
+import UserTile from '../components/Tiles/UserTile';
+import FavoriteTile from '../components/Tiles/FavoriteTile';
+import UserMethodTile from '../components/Tiles/UserMethodTile';
+import BrewMethodForm from '../components/Forms/BrewMethodForm';
+import Button from '../components/UI/button/Button'
 
-import cupOfJoeApi from '../requests/CupOfJoeApi'
+import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const UserShowContainer = (props) => {
   const [usersData, setUsersData] = useState({})
@@ -28,24 +28,28 @@ const UserShowContainer = (props) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
 
-  const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=>{
+  const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=> {
     return(
-      <UserMethodTile 
-        key={userBrewMethod.id}
-        id={userBrewMethod.id}
-        maker={userBrewMethod.maker}
-        filter={userBrewMethod.filter}
-        time={userBrewMethod.time}
-        kettle={userBrewMethod.kettle}
-        temperature={userBrewMethod.temperature}
-        grams={userBrewMethod.grams}
-        ratio={userBrewMethod.ratio}
-        yield={userBrewMethod.yield}
-        grind={userBrewMethod.grind}
-        roast={userBrewMethod.roast}
-        region={userBrewMethod.region}
-        instructions={userBrewMethod.instructions}
-      />
+      <div key={userBrewMethod.id}>
+        <UserMethodTile 
+          key={userBrewMethod.id}
+          id={userBrewMethod.id}
+          maker={userBrewMethod.maker}
+          filter={userBrewMethod.filter}
+          time={userBrewMethod.time}
+          kettle={userBrewMethod.kettle}
+          temperature={userBrewMethod.temperature}
+          grams={userBrewMethod.grams}
+          ratio={userBrewMethod.ratio}
+          yield={userBrewMethod.yield}
+          grind={userBrewMethod.grind}
+          roast={userBrewMethod.roast}
+          region={userBrewMethod.region}
+          instructions={userBrewMethod.instructions}
+          />
+          <Button>EDIT</Button>
+          <Button>DELETE</Button>
+      </div>
     )
   })
 
@@ -95,6 +99,6 @@ const UserShowContainer = (props) => {
       </div>
     </div>
   )
-}
+};
 
-export default UserShowContainer
+export default UserShowContainer;
