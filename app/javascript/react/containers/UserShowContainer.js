@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom'
 
 import Aux from '../hoc/Aux/Aux'
 import UserTile from '../components/Tiles/UserTile';
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
+import EditBrewMethodForm from '../components/Forms/EditBrewMethodForm';
+import Modal from '../components/UI/modal/Modal'
 
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
@@ -13,6 +16,9 @@ const UserShowContainer = (props) => {
   const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
   const [brewId, setBrewId] = useState([])
+  const [brewUpdate, setBrewUpate] = useState({})
+  const [error, setError] = useState({})
+  const [showModal, setShowModal] = useState(false)
 
   const id = props.match.params.id
 
@@ -25,12 +31,22 @@ const UserShowContainer = (props) => {
       })
   },[]);
   
+  const closeEditForm = () => {
+    setShowModal(false)
+  }
+  const showEditForm = () => {
+    setShowModal(true)
+  }
+
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
   
    const editBrew = (id) => {
     cupOfJoeApi.editBrew(id)
+    .then(body => {
+      setBrewUpate(body)
+    });
   }
 
   const deleteBrew = (id) => {
@@ -106,6 +122,12 @@ const UserShowContainer = (props) => {
           addBrewMethodFromForm={addBrewMethodFromForm}
         />
       </div>
+      <div>
+        <Modal show={showEditForm} modalClosed={closeEditForm}>
+          {/* <EditBrewMethodForm/> */}
+        </Modal>
+
+      </div>
       <div className="cell small-12 medium-8">
           {userBrewMethodArray}    
       </div>
@@ -117,3 +139,5 @@ const UserShowContainer = (props) => {
 };
 
 export default UserShowContainer;
+
+//want to render a modal with the form the edit a brew method

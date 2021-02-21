@@ -1,110 +1,32 @@
-import React, { useState } from 'react'
-import { Redirect } from "react-router-dom"
+import React from 'react'
 
-import ErrorList from '../ErrorList'
+import Aux from '../../hoc/Aux/Aux'
 
-const BrewMethodForm = (props) => {
+const EditBrewMethodForm = (props) => {
 
-  const [shouldRedirect, setShouldRedirect] = useState(false)
-  const [errors, setErrors] = useState({})
-  const [userBrewMethodData, setUserBrewMethodData] = useState({
-    maker: "",
-    filter: "",
-    time: "",
-    kettle: "",
-    temperature: "",
-    grams: "",
-    ratio: "",
-    rating: "",
-    grind: "",
-    instructions: "",
-    roast: "",
-    region: ""
-  });
+  const handleSubmit = () => {
 
-  const handleInputChange = event => {
-    event.preventDefault()
-    setUserBrewMethodData({
-      ...userBrewMethodData,
-      [event.currentTarget.name]: event.currentTarget.value
-    })
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    if (validBrewForSubmission()) {
-      props.addBrewMethodFromForm(userBrewMethodData)
-      setShouldRedirect(true)
-      clearForm()
-    }
+  const handleInputChange = () => {
+
   }
 
-  if (shouldRedirect) {
-    return <Redirect to='/brews' />
+  const clear = () => {
+
   }
 
-  const validBrewForSubmission = () => {
-    let submitErrors = {}
-    const requiredFields = ["maker", "filter", "time", "kettle", "temperature", "grams", "grind", "instructions"]
-    requiredFields.forEach(field => {
-      if (userBrewMethodData[field].trim() === "") {
-        submitErrors = {
-          ...submitErrors,
-          [field]: "is blank"
-        }
-      }
-    })
-    setErrors(submitErrors)
-    return _.isEmpty(submitErrors)
-  }
-
-  const clear = (event) => {
-    event.preventDefault()
-    setUserBrewMethodData ({
-      maker: "",
-      filter: "",
-      time: "",
-      kettle: "",
-      temperature: "",
-      grams: "",
-      ratio: "",
-      rating: "",
-      grind: "",
-      instructions: "",
-      roast: "",
-      region: ""
-    })
-  setErrors({})
-}
-
-  const clearForm = () => {
-    setUserBrewMethodData ({
-      maker: "",
-      filter: "",
-      time: "",
-      kettle: "",
-      temperature: "",
-      grams: "",
-      ratio: "",
-      rating: "",
-      grind: "",
-      instructions: "",
-      roast: "",
-      region: ""
-    })
-}
- 
-return(
-  <div className="grid-x translucent-form-overlay">
+  return (
+    <Aux>
+      <div className="grid-x translucent-form-overlay">
       <form className="brew-form " onSubmit={handleSubmit}>
-        <ErrorList errors={errors} />
-        <div className="method-title field"> <h5>Add a Method </h5></div> 
+        <div className="method-title field"> <h5>Edit</h5></div> 
           <fieldset>
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label className="field">Maker 
-                  <select value={userBrewMethodData.maker} onChange={handleInputChange} name="maker" id="maker">
-                    <option value=""></option>
+                  <select value={props.maker} onChange={handleInputChange} name="maker" id="maker">
+                    <option value={props.maker}>{props.maker}</option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
                     <option value="V60">V60</option>
@@ -114,7 +36,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label className="field">Filter Type 
-                  <select value={userBrewMethodData.filter} onChange={handleInputChange} name="filter" id="filter">
+                  <select value={props.filter} onChange={handleInputChange} name="filter" id="filter">
                     <option value=""></option>
                     <option value="natural half moon">NATURAL HALF MOON</option>
                     <option value="natural paper">NATURAL PAPER</option>
@@ -127,7 +49,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label className="field">Kettle Type 
-                  <select value={userBrewMethodData.kettle} onChange={handleInputChange} name="kettle" id="kettle">
+                  <select value={props.kettle} onChange={handleInputChange} name="kettle" id="kettle">
                     <option value=""></option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
@@ -137,7 +59,7 @@ return(
               </div>
               <div className="small-6 cell">  
                 <label className="field">Grind
-                  <select value={userBrewMethodData.grind} onChange={handleInputChange} name="grind" id="grind">
+                  <select value={props.grind} onChange={handleInputChange} name="grind" id="grind">
                     <option value=""></option>
                     <option value="medium fine">MEDIUM FINE</option>
                     <option value="medium">MEDIUM</option>
@@ -148,7 +70,7 @@ return(
               </div>
               <div className="small-6 cell">  
                 <label className="field">Roast
-                  <select value={userBrewMethodData.roast} onChange={handleInputChange} name="roast" id="roast">
+                  <select value={props.roast} onChange={handleInputChange} name="roast" id="roast">
                     <option value=""></option>
                     <option value="light roast">LIGHT ROAST</option>
                     <option value="medium roast">MEDIUM ROAST</option>
@@ -159,7 +81,7 @@ return(
               </div>
               <div className="small-6 cell">
                 <label className="field">Region
-                  <select value={userBrewMethodData.region} onChange={handleInputChange} name="region" id="region">
+                  <select value={props.region} onChange={handleInputChange} name="region" id="region">
                     <option value=""></option>
                     <option value="Ethiopian">ETHIOPIA</option>
                     <option value="Costa Rican">COSTA RICA</option>
@@ -184,7 +106,7 @@ return(
                       min="1"
                       max="10"
                       onChange={handleInputChange} 
-                      value={userBrewMethodData.time}
+                      value={props.time}
                       />
                   </label>
               </div>
@@ -197,7 +119,7 @@ return(
                       min="170"
                       max="212"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.temperature}
+                      value={props.temperature}
                   />
                 </label>
               </div>
@@ -211,7 +133,7 @@ return(
                       max="40"
                       step="4"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.grams}
+                      value={props.grams}
                   />
                 </label>
               </div>
@@ -222,7 +144,7 @@ return(
                       id="ratio"
                       type="text"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.ratio}
+                      value={props.ratio}
                   />
                 </label>
               </div>
@@ -235,7 +157,7 @@ return(
                       min="1"
                       max="10"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.rating}
+                      value={props.rating}
                   />
                 </label>
               </div>
@@ -246,7 +168,7 @@ return(
                       id="instructions"
                       rows="10"
                       onChange={handleInputChange}
-                      value={userBrewMethodData.instructions}
+                      value={props.instructions}
                   />
                 </label>
               </div>
@@ -256,7 +178,8 @@ return(
           <input  type="submit" value="Submit" className="button" />
       </form>
     </div>
-  )
-}
+    </Aux>
+  );
+};
 
-export default BrewMethodForm;
+export default EditBrewMethodForm;

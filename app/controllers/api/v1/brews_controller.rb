@@ -21,6 +21,16 @@ class Api::V1::BrewsController < ApplicationController
     end
   end
 
+  def edit_brew
+    brew = Brew.find(params[:brew_id])
+    if brew.user_id == current_user.id
+      render json: brew
+    else
+      render json: { error: "hmmm...something is wierd" }
+    end
+  end
+
+
   private
 
   def brew_params
