@@ -1,5 +1,4 @@
 const updateBrew = (updatedData) => {
-  debugger
   return(
     fetch(`/api/v1/brews/${updatedData.id}`, {
       credentials: "same-origin",

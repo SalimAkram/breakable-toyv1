@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import ErrorList from '../ErrorList'
 
 const BrewMethodForm = (props) => {
-
+  console.log(('brew method form', props));
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [errors, setErrors] = useState({})
   const [userBrewMethodData, setUserBrewMethodData] = useState({
@@ -177,7 +177,6 @@ return(
               <div className="small-4 medium-2 cell text-center">
                   <label className="field">Time
                     <input 
-                      value="test"
                       name="time"
                       id="time"
                       type="number" 

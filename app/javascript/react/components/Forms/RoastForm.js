@@ -5,7 +5,7 @@ import ErrorList from "../ErrorList"
 import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const RoastForm = (props) =>{
-
+  console.log('roast form');
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [errors, setErrors] = useState({})
   const [userRoastData, setUserRoastData] = useState({

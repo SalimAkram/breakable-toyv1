@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
-import EditBrewForm from '../components/Forms/EditBrewForm'
+import React, { useState } from 'react';
 
-import Aux from '../hoc/Aux/Aux'
-import cupOfJoeApi from '../requests/CupOfJoeApi'
+import ErrorList from '../components/ErrorList';
+import EditBrewForm from '../components/Forms/EditBrewForm';
+import Aux from '../hoc/Aux/Aux';
+import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const EditBrewMethodForm = (props) => {
   const [errors, setErrors] = useState({})
-  const [brewData, setBrewData] = useState ({
+  const [brew, setBrew] = useState ({
     maker: props.brew.maker,
     filter: props.brew.filter,
     kettle: props.brew.kettle,
@@ -24,38 +25,39 @@ const EditBrewMethodForm = (props) => {
 
   const handleEditSubmit = (event) => {
     event.preventDefault()
-    cupOfJoeApi.updateBrew(brewData)
-    .then(body => {
-      debugger
-      if (body.ok) {
-        props.success()
-      } 
-    })
+    if(validBrewForSubmission()) {
+      cupOfJoeApi.updateBrew(brew)
+      .then(body => {
+        if (body.ok) {
+          props.success()
+        } 
+      })
+    } else {
 
-
+    }
   }
 
   const handleInputChange = (event) => {
     event.preventDefault()
-    setBrewData({
-      ...brewData,
+    setBrew({
+      ...brew,
       [event.currentTarget.name]: event.currentTarget.value
     })
   }
 
   const validBrewForSubmission = () => {
-    let submitErrors = {}
-    const requiredFields = ["maker", "filter", "time", "kettle", "temperature", "grams", "grind", "instructions"]
+    let errors = {}
+    const requiredFields = ["maker", "filter", "kettle", "time", "temperature", "grams", "grind", "instructions"]
     requiredFields.forEach(field => {
-      if (brewData[field].trim() === "") {
-        submitErrors = {
-          ...submitErrors,
+      if (brew[field] === "") {
+        errors = {
+          ...errors,
           [field]: "is blank"
         }
       }
     })
-    setErrors(submitErrors)
-    return _.isEmpty(submitErrors)
+    setErrors(errors)
+    return _.isEmpty(errors)
   }
 
   const cancel = () => {
@@ -64,11 +66,12 @@ const EditBrewMethodForm = (props) => {
   
   return (
     <Aux>
+      <ErrorList errors={errors}/>
       <EditBrewForm 
         handleEditSubmit={handleEditSubmit}
         handleInputChange={handleInputChange}
         cancel={cancel} 
-        brewData={brewData}
+        brew={brew}
       />
     </Aux>
   );

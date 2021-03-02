@@ -3,6 +3,7 @@ import React from 'react'
 import getPhoto from '../../requests/Functions/GetPhoto'
 
 const RoastTile = (props) =>{
+  console.log('roast tile');
   return (
     <div className="cell small-6 medium-2">
       <div>

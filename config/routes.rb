@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :landings, only: [:index]
       resources :searches, only: [:create]
       resources :users, only: [:show]
-      resources :brews, only: [:create, :index, :show, :update] do
+      resources :brews, only: [:create, :index, :show, :update, :destroy] do
         get :edit_brew
       end
       resources :favorites, only: [:create]  

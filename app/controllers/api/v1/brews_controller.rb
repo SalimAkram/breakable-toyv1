@@ -24,10 +24,7 @@ class Api::V1::BrewsController < ApplicationController
   def update
     brew = Brew.find(params[:id])
     brew.update_attributes(brew_params)
-    if brew.save
-      binding.pry
-      # need this to return the brew object or re-render the page to trigger the useEffect on the front end
-    else
+    if !brew.save
       render json: { error: brew.errors.full_messages } 
     end
   end
@@ -38,6 +35,13 @@ class Api::V1::BrewsController < ApplicationController
       render json: { brew: brew, loaded: true }
     else
       render json: { error: "hmmm...something is wierd" }
+    end
+  end
+
+  def destroy 
+    brew = Brew.find(params[:id])
+    if brew.user_id == current_user.id
+      brew.destroy
     end
   end
 

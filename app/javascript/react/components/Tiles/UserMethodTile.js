@@ -3,7 +3,7 @@ import React from 'react';
 import Button from '../UI/button/Button';
 
 const UserMethodTile = (props) => {
-  
+  console.log('usermethod tile');
   return(
     <div className="article-row-section">
       <div className="article-row-section-inner">

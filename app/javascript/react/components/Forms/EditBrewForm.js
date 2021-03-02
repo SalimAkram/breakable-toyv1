@@ -1,6 +1,7 @@
 import React from 'react';
 
 const EditBrewForm = (props) => {
+  console.log('edit brew form');
   return (
       <div className="grid-x translucent-form-overlay">
       <form className="brew-form " onSubmit={props.handleEditSubmit}>
@@ -9,7 +10,7 @@ const EditBrewForm = (props) => {
             <div className="grid-x grid-padding-x">
               <div className="small-6 cell">
                 <label className="field">Maker 
-                  <select value={props.brewData.maker} onChange={props.handleInputChange} name="maker" id="maker">
+                  <select value={props.brew.maker} onChange={props.handleInputChange} name="maker" id="maker">
                     <option value=""></option>
                     <option value="chemex">CHEMEX</option>
                     <option value="travel">TRAVEL</option>
@@ -20,7 +21,7 @@ const EditBrewForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label className="field">Filter Type 
-                  <select value={props.brewData.filter} onChange={props.handleInputChange} name="filter" id="filter">
+                  <select value={props.brew.filter} onChange={props.handleInputChange} name="filter" id="filter">
                     <option value=""></option>
                     <option value="natural half moon">NATURAL HALF MOON</option>
                     <option value="natural paper">NATURAL PAPER</option>
@@ -33,7 +34,7 @@ const EditBrewForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label className="field">Kettle Type 
-                  <select value={props.brewData.kettle} onChange={props.handleInputChange} name="kettle" id="kettle">
+                  <select value={props.brew.kettle} onChange={props.handleInputChange} name="kettle" id="kettle">
                     <option value=""></option>
                     <option value="electric">ELECTRIC</option>
                     <option value="stovetop">STOVETOP</option>
@@ -43,7 +44,7 @@ const EditBrewForm = (props) => {
               </div>
               <div className="small-6 cell">  
                 <label className="field">Grind
-                  <select value={props.brewData.grind} onChange={props.handleInputChange} name="grind" id="grind">
+                  <select value={props.brew.grind} onChange={props.handleInputChange} name="grind" id="grind">
                     <option value=""></option>
                     <option value="medium fine">MEDIUM FINE</option>
                     <option value="medium">MEDIUM</option>
@@ -54,7 +55,7 @@ const EditBrewForm = (props) => {
               </div>
               <div className="small-6 cell">  
                 <label className="field">Roast
-                  <select value={props.brewData.roast} onChange={props.handleInputChange} name="roast" id="roast">
+                  <select value={props.brew.roast} onChange={props.handleInputChange} name="roast" id="roast">
                     <option value=""></option>
                     <option value="light roast">LIGHT ROAST</option>
                     <option value="medium roast">MEDIUM ROAST</option>
@@ -65,7 +66,7 @@ const EditBrewForm = (props) => {
               </div>
               <div className="small-6 cell">
                 <label className="field">Region
-                  <select value={props.brewData.region} onChange={props.handleInputChange} name="region" id="region">
+                  <select value={props.brew.region} onChange={props.handleInputChange} name="region" id="region">
                     <option value=""></option>
                     <option value="Ethiopian">ETHIOPIA</option>
                     <option value="Costa Rican">COSTA RICA</option>
@@ -83,14 +84,13 @@ const EditBrewForm = (props) => {
               <div className="small-4 medium-2 cell text-center">
                 <label className="field">Time
                   <input 
-                    value="test"
                     name="time"
                     id="time"
                     type="number" 
                     min="1"
                     max="10"
                     onChange={props.handleInputChange} 
-                    value={props.brewData.time}
+                    value={props.brew.time}
                   />
                 </label>
               </div>
@@ -103,7 +103,7 @@ const EditBrewForm = (props) => {
                     min="170"
                     max="212"
                     onChange={props.handleInputChange}
-                    value={props.brewData.temperature}
+                    value={props.brew.temperature}
                   />
                 </label>
               </div>
@@ -117,7 +117,7 @@ const EditBrewForm = (props) => {
                     max="40"
                     step="4"
                     onChange={props.handleInputChange}
-                    value={props.brewData.grams}
+                    value={props.brew.grams}
                   />
                 </label>
               </div>
@@ -128,7 +128,7 @@ const EditBrewForm = (props) => {
                     id="ratio"
                     type="text"
                     onChange={props.handleInputChange}
-                    value={props.brewData.ratio}
+                    value={props.brew.ratio}
                   />
                 </label>
               </div>
@@ -141,7 +141,7 @@ const EditBrewForm = (props) => {
                     min="1"
                     max="10"
                     onChange={props.handleInputChange}
-                    value={props.brewData.rating}
+                    value={props.brew.rating}
                   />
                 </label>
               </div>
@@ -152,7 +152,7 @@ const EditBrewForm = (props) => {
                     id="instructions"
                     rows="10"
                     onChange={props.handleInputChange}
-                    value={props.brewData.instructions}
+                    value={props.brew.instructions}
                   />
                 </label>
               </div>
