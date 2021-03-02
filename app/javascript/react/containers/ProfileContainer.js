@@ -6,19 +6,19 @@ import UserTile from '../components/Tiles/UserTile';
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
-import EditBrewMethodForm from '../components/Forms/EditBrewMethodForm';
-import Modal from '../components/UI/modal/Modal'
+import EditBrewMethod from '../containers/EditBrewMethod'
 
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
-const UserShowContainer = (props) => {
+const ProfileContainer = (props) => {
   const [usersData, setUsersData] = useState({})
   const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
   const [brewId, setBrewId] = useState([])
   const [brewUpdate, setBrewUpate] = useState({})
+  const [shouldUpdate, setShouldUpdate] = useState(false)
+  const [updateSuccess, setUpdateSuccess] = useState(false)
   const [error, setError] = useState({})
-  const [showModal, setShowModal] = useState(false)
 
   const id = props.match.params.id
 
@@ -31,28 +31,39 @@ const UserShowContainer = (props) => {
       })
   },[]);
   
-  const closeEditForm = () => {
-    setShowModal(false)
-  }
-  const showEditForm = () => {
-    setShowModal(true)
-  }
-
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
   
-   const editBrew = (id) => {
+  const editHandleClick = (event, id) => { 
+    event.preventDefault()
     cupOfJoeApi.editBrew(id)
     .then(body => {
-      setBrewUpate(body)
+      setBrewUpate(body.brew)
+      setShouldUpdate(true)
+    })
+    .catch(error => {
+
     });
   }
 
-  const deleteBrew = (id) => {
-    cupOfJoeApi.deleteBrew(id)
+  const deleteHandleClick = (id) => { 
+    const deleteBrew = (id) => {
+      cupOfJoeApi.deleteBrew(id)
+    }
   }
 
+  const success = (id) => {
+    let brew = `brews/${id}`
+    return <Redirect to={brew} />
+  }
+
+  const cancel = (event) => {
+    event.preventDefault();
+    setShouldUpdate(false);
+    setUpdateSucess(false);
+  }
+  
   const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=> {
     let selected;
     if (brewId === userBrewMethod.id) {
@@ -60,9 +71,6 @@ const UserShowContainer = (props) => {
       setBrewId(userBrewMethod.id)
     }
  
-    const editHandleClick = () => { editBrew(userBrewMethod.id) }
-    const deleteHandleClick = () => { deleteBrew(userBrewMethod.id) }
-
     return(
       <Aux key={userBrewMethod.id}>
         <UserMethodTile 
@@ -80,8 +88,8 @@ const UserShowContainer = (props) => {
           region={userBrewMethod.region}
           instructions={userBrewMethod.instructions}
           selected={selected}
-          edit={editHandleClick}
-          delete={deleteHandleClick}
+          edit={(event) => editHandleClick(event, userBrewMethod.id)}
+          delete={(event) => deleteHandleClick(event, userBrewMethod.id)}
         />
       </Aux>
     )
@@ -107,6 +115,17 @@ const UserShowContainer = (props) => {
     )
   });
 
+  let form;
+  if (shouldUpdate) {
+    form = <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
+  } else {
+    form =  <BrewMethodForm addBrewMethodFromForm={addBrewMethodFromForm} />
+  }
+
+  if (updateSuccess) {
+    form =  <BrewMethodForm addBrewMethodFromForm={addBrewMethodFromForm} /> 
+  } 
+
   return (
     <div className="grid-x grid-containter align-center user-grid">
       <div className="cell small-12 medium-8">
@@ -118,15 +137,7 @@ const UserShowContainer = (props) => {
         />
       </div>
       <div className="cell small-12 medium-8">
-        <BrewMethodForm
-          addBrewMethodFromForm={addBrewMethodFromForm}
-        />
-      </div>
-      <div>
-        <Modal show={showEditForm} modalClosed={closeEditForm}>
-          {/* <EditBrewMethodForm/> */}
-        </Modal>
-
+       {form}
       </div>
       <div className="cell small-12 medium-8">
           {userBrewMethodArray}    
@@ -138,6 +149,6 @@ const UserShowContainer = (props) => {
   );
 };
 
-export default UserShowContainer;
+export default ProfileContainer;
 
-//want to render a modal with the form the edit a brew method
+//want to render a modal eventually with the form the edit a brew method

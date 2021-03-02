@@ -105,8 +105,8 @@ Brew.create(
   grind: "coarse",
   instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
   for the bloom.  Then 3 even pours of 100 grams of water for a total of 350 grams of water",
-  roast: "light",
-  region: "columbia giesha",
+  roast: "light roast",
+  region: "Columbia",
   user_id: 1
 )
 
@@ -122,8 +122,8 @@ Brew.create(
   grind: "coarse",
   instructions: "4 pours total.  The first pour should be anywhere from 30-60 grams of water but I usually do 50 grams and wait 30 seconds
   for the bloom.  Then 3 even pours of about 140 grams of water for a total of 475 grams",
-  roast: "light",
-  region: "columbia giesha",
+  roast: "light roast",
+  region: "Columbia",
   user_id: 1
 )
 

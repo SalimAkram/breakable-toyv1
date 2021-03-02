@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/users/:id/edit", to: "homes#authorized"
   get "/brews", to: "homes#index"
   get "/brews/:id", to: "homes#index"
+  get 'brews/:id/edit', to: "homes#authenticated"
   get "/search", to: "homes#index"
 
   namespace :api do    
