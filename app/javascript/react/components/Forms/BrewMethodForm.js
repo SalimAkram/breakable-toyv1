@@ -74,7 +74,8 @@ const BrewMethodForm = (props) => {
       roast: "",
       region: ""
     })
-  setErrors({})
+    setErrors({})
+    props.cancel(event)
 }
 
   const clearForm = () => {
@@ -95,7 +96,7 @@ const BrewMethodForm = (props) => {
 }
  
 return(
-  <div className="grid-x translucent-form-overlay">
+  <div>
       <form className="brew-form " onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <div className="method-title field"> <h5>Add a Method </h5></div> 
@@ -251,7 +252,7 @@ return(
               </div>
             </div> 
           </fieldset>
-          <button className="button" onClick={clear}>Clear</button>
+          <button className="button" onClick={clear}>Cancel</button>
           <input  type="submit" value="Submit" className="button" />
       </form>
     </div>

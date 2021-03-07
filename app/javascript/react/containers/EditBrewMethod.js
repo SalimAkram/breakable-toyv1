@@ -60,8 +60,9 @@ const EditBrewMethodForm = (props) => {
     return _.isEmpty(errors)
   }
 
-  const cancel = () => {
-    props.cancel();
+  const cancel = (event) => {
+    event.preventDefault()
+    props.cancel(event);
   }
   
   return (

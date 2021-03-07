@@ -49,7 +49,6 @@ const ProfileContainer = (props) => {
     .catch(error => {
       setError(error)
     });
-
   }
 
   const deleteHandleClick = (event, id) => { 
@@ -131,7 +130,7 @@ const ProfileContainer = (props) => {
   if (display && shouldUpdate) {
     form = <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
   } else {
-    form =  <BrewMethodForm addBrewMethodFromForm={addBrewMethodFromForm} /> 
+    form =  <BrewMethodForm cancel={cancel} addBrewMethodFromForm={addBrewMethodFromForm} /> 
   }
   
   return (
