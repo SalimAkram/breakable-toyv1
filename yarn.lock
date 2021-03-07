@@ -3751,7 +3751,6 @@ css-loader@^5.1.1:
   dependencies:
     camelcase "^6.2.0"
     cssesc "^3.0.0"
-    icss-utils "^5.1.0"
     loader-utils "^2.0.0"
     postcss "^8.2.6"
     postcss-modules-extract-imports "^3.0.0"
