@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
 import Aux from '../hoc/Aux/Aux'
-import UserTile from '../components/Tiles/UserTile';
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
@@ -128,27 +127,35 @@ const ProfileContainer = (props) => {
 
   let form;
   if (display && shouldUpdate) {
-    form = <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
+    form = (
+        <div>
+        <Modal show={display} modalClosed={modalClosed} >
+          <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
+        </Modal>
+      </div>
+    )
   } else {
-    form =  <BrewMethodForm cancel={cancel} addBrewMethodFromForm={addBrewMethodFromForm} /> 
+    form = (
+      <Modal show={display} modalClosed={modalClosed} >
+        <BrewMethodForm cancel={cancel} addBrewMethodFromForm={addBrewMethodFromForm} /> 
+      </Modal>
+    ) 
   }
   
   return (
-  <Aux>
-    <UserTile key={usersData.id} username={usersData.username} />
-    <Button clicked={addMethodHandler}>ADD A METHOD</Button>
-    <div className="grid-x grid-containter align-center user-grid">
-      <Modal show={display} modalClosed={modalClosed} >
-        {display ? form : null}
-      </Modal>
+    <Aux>
+      <div className="user-top-bar">
+        <h4>{usersData.username}</h4>
+        <Button clicked={addMethodHandler}>ADD A METHOD</Button>
+      </div>
+      <div>
+       {display ? form : null}
+      </div>
       <div className="cell small-12 medium-8">
         {userBrewMethodArray}    
-      </div>
-      <div className="cell small-12 medium-8">  
         {favoritesTileArray}    
       </div>
-    </div>
-  </Aux>
+    </Aux>
   );
 };
 
