@@ -5,6 +5,7 @@ import ShopTile from '../Tiles/ShopTile'
 import cupOfJoeApi from '../../requests/CupOfJoeApi'
 
 const SearchForm = props => {
+  console.log('search form');
   const [errors, setErrors] = useState("");
   const [searchBarQuery, setSearchBarQuery] = useState("");
   const [searchList, setSearchList] = useState([])

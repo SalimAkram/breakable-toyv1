@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import ErrorList from '../ErrorList'
 
 const BrewMethodForm = (props) => {
-
+  console.log(('brew method form', props));
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [errors, setErrors] = useState({})
   const [userBrewMethodData, setUserBrewMethodData] = useState({
@@ -74,7 +74,8 @@ const BrewMethodForm = (props) => {
       roast: "",
       region: ""
     })
-  setErrors({})
+    setErrors({})
+    props.cancel(event)
 }
 
   const clearForm = () => {
@@ -95,7 +96,7 @@ const BrewMethodForm = (props) => {
 }
  
 return(
-  <div className="grid-x translucent-form-overlay">
+  <div>
       <form className="brew-form " onSubmit={handleSubmit}>
         <ErrorList errors={errors} />
         <div className="method-title field"> <h5>Add a Method </h5></div> 
@@ -177,7 +178,6 @@ return(
               <div className="small-4 medium-2 cell text-center">
                   <label className="field">Time
                     <input 
-                      value="test"
                       name="time"
                       id="time"
                       type="number" 
@@ -252,11 +252,11 @@ return(
               </div>
             </div> 
           </fieldset>
-          <button className="button" onClick={clear}>Clear</button>
+          <button className="button" onClick={clear}>Cancel</button>
           <input  type="submit" value="Submit" className="button" />
       </form>
     </div>
   )
 }
 
-export default BrewMethodForm
+export default BrewMethodForm;

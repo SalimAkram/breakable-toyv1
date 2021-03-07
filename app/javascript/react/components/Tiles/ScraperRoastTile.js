@@ -3,7 +3,7 @@ import React from 'react'
 import image1 from '../../../../assets/images/DSCF0745.JPG'
 
 const ScraperRoastTile = (props) => {
-
+console.log('scraper tile');
   return (
     <div className="cell grid-margin-x small-6 medium-3">
       <div>

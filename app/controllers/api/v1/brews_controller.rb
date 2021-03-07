@@ -21,6 +21,30 @@ class Api::V1::BrewsController < ApplicationController
     end
   end
 
+  def update
+    brew = Brew.find(params[:id])
+    brew.update_attributes(brew_params)
+    if !brew.save
+      render json: { error: brew.errors.full_messages } 
+    end
+  end
+
+  def edit_brew
+    brew = Brew.find(params[:brew_id])
+    if brew.user_id == current_user.id
+      render json: { brew: brew, loaded: true }
+    else
+      render json: { error: "hmmm...something is wierd" }
+    end
+  end
+
+  def destroy 
+    brew = Brew.find(params[:id])
+    if brew.user_id == current_user.id
+      brew.destroy
+    end
+  end
+
   private
 
   def brew_params

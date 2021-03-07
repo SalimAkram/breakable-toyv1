@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FavoriteTile = (props) => {
-  
+  console.log('favorite tile');
   return (
     <div className="article-row-section">
       <div className="article-row-section-inner">

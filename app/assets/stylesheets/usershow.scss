@@ -5,15 +5,13 @@
 
 .user-top-bar {
   height: 50%;
-  background-color: #587b7f;
   margin-top: 20px;
   color: $page;
   border-radius: 10px; 
   vertical-align: middle;
-}
-
-.user-top-bar-text{
-  color: $page;
+  display: flex;
+  justify-content: space-around;
+  color: #5D4A4A;
 }
 
 .user-brew-tile {
