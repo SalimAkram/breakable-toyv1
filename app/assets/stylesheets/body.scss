@@ -5,7 +5,7 @@
 @import 'font-awesome';
 @import url("https://fonts.googleapis.com/css?family=Dosis|Titillium+Web");
 
-.body {
+body {
   background-color: #f0efeb;
   text-align: center;
   Font-Family: 'Dosis', Sans-Serif;
@@ -18,20 +18,8 @@ li {
   list-style: none;
 }
 
-.button {
-  border: 0;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 10px;
-  font-size: 16px;
-  color: white;
-  background: $buttons;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: .75rem .75rem;
-  cursor: pointer;
+.pg {
+  width: fit-content;
 }
 
 .main-title {
@@ -57,17 +45,6 @@ li {
   margin: 30px;
   border-radius: 5px;
   color: #5D4A4A;
-}
-
-.button:hover {
-  background-color: $fa;
-  padding: .75rem .75rem;
-  border-radius: 10px;
-}
-
-a:hover {
-  background-color: $fa;
-  border-radius: 10px;
 }
 
 .roast-a:hover {
@@ -115,26 +92,4 @@ a:hover {
 
 .closebtn:hover {
   color: black;
-}
-
-.profile-button {
-  border: 0;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 10px;
-  font-size: 16px;
-  color: white;
-  background: $user-brown;
-  white-space: nowrap;
-  text-decoration: none;
-  padding: .75rem .75rem;
-  cursor: pointer;
-}
-
-.profile-button:hover {
-  background-color: $dark-gray;
-  padding: .75rem .75rem;
-  border-radius: 10px;
 }

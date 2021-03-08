@@ -7,52 +7,54 @@
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web" rel="stylesheet">
 </head>
-<body class="body">
+<body>
   <div data-sticky-container>
-  <div data-sticky data-options="marginTop:0;">
-
-    <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle="example-menu"></button>
-      <div class="title-bar-title">Menu</div>
-    </div>
-
-    <div class="top-bar" id="example-menu">
-        <div class="">
-          <ul class="vertical medium-horizontal dropdown menu" data-responsive-menu="accordion medium-dropdown">
-            <%- if current_user -%>
-              <li><%= image_tag current_user.profile_photo.url(:thumb), class: "profile-photo" %></li> 
-              <li ><%= link_to 'Sign Out', destroy_user_session_path, class: "button", method: :delete %></li>
-            <%- else -%>
-              <li><%= link_to 'Sign Up', new_user_registration_path, class: "button" %></li>
-              <li><%= link_to 'Sign In', new_user_session_path, class: "button" %></li>
-            <%- end -%>
-          </ul>
+    <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+      <div>
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li>
+            <a class="nav-links" href="#">Menu</a>
+            <ul class="menu">
+              <li><%= link_to "Home", "/", class: "nav-links" %></li>
+              <li><%= link_to "Find a Shop", "/search", class: "nav-links" %></li>
+              <li><%= link_to "Brews", "/brews", class: "nav-links" %></li>
+              <li><%= link_to "Roasts", "/roasts", class: "nav-links" %></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <%- if current_user -%>
+        <div>
+          <%= image_tag current_user.profile_photo.url(:thumb), class: "profile-photo" %>
         </div>
-        <nav>
-          <ul>
-            <a class="nav-links" href="/"><button class="nav-links"> Home</button></a>
-            <a class="nav-links" href="/search"><button class="nav-links"> Find  a Coffee Shop</button></a>
-            <a class="nav-links" href="/brews"><button class="nav-links"> Brews</button></a>
-            <a class="nav-links" href="/roasts"><button class="nav-links">Roasts</button ></a>
+      <%- end -%>
+      <div>
+        <ul class="dropdown menu" data-dropdown-menu >
+          <li>
             <%- if current_user -%>
-              <a class="nav-links" href="/roasts/new"><button class="nav-links">Add a roast</button></a> 
-              <%= link_to 'Profile', "/users/#{current_user.id}", class: "button"%> 
+              <a class="nav-links" href="#">Account</a>
+              <ul class="menu">            
+                <li><%= link_to 'Profile', "/users/#{current_user.id}", class: "nav-links"%></li>  
+                <li><%= link_to "Add a Roast", "/roasts/new", class: "nav-links" %></li> 
+                <%= link_to 'Sign Out', destroy_user_session_path, class: "nav-links", method: :delete %></>
+              </ul>
+            <%- else -%>
+              <a class="nav-links" href="#">Account</a>
+              <ul class="menu">            
+                <%= link_to 'Log In', new_user_session_path, class: "nav-links" %>
+              </ul>
             <%- end -%>
-          </ul>
-        </nav>
+          </li>
+        </ul>
+      </div>
     </div>
-
   </div>
-</div>
-
-
 
   <%- flash.each do |key, value| -%>
     <div class="alert flash flash-<%= key %>">
-     <h2>
-      <%= value %>
-     </h2> 
-     
+      <h2>
+        <%= value %>
+      </h2> 
     </div>
   <%- end -%>
 
@@ -60,14 +62,14 @@
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag 'application' %>
-  
-  
+      
+      
   <%- if Rails.env.development? || Rails.env.test? -%> 
     <%= javascript_tag do %>
       window.railsEnv = '<%= Rails.env %>'
     <%- end -%>
   <%- end -%>
-  
+      
   <%= yield :extra_footer %>
 </body>
 </html>

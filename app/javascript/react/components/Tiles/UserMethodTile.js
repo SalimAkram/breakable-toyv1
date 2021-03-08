@@ -3,11 +3,10 @@ import React from 'react';
 import Button from '../UI/button/Button';
 
 const UserMethodTile = (props) => {
-  console.log('usermethod tile');
   return(
     <div className="article-row-section">
-      <div className="article-row-section-inner">
-        <h4 className="article-row-section-header">method {props.id}</h4>
+      <div>
+        <h4 className="article-row-section-header"></h4>
         <article className="article-row">
           <div className="left">
             <ul> 
@@ -31,13 +30,11 @@ const UserMethodTile = (props) => {
             </ul>
           </div>
         </article>
+        <p>{props.ratio} water ratio (optional)</p>
+        <p className="pg">{props.instructions}</p>
       </div>
-      <div>
-        <li>{props.ratio} water ratio (optional)</li>
-        <p>{props.instructions}</p>
-      </div>
-      <Button clicked={props.edit}>EDIT</Button>
-      <Button clicked={props.delete}>DELETE</Button>    
+      <Button btnType="profile-button" clicked={props.edit}>EDIT</Button>
+      <Button btnType="profile-button" clicked={props.delete}>DELETE</Button>    
     </div>
   );
 };
