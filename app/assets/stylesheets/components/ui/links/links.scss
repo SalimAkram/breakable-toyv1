@@ -1,0 +1,11 @@
+@import "abstracts/variables";
+
+.forgot-link{ 
+  color: $nav;
+  margin-top: 1rem;
+  // "Forgot your password?" in the users sign in page
+  &:hover {
+    border-radius: 1rem;
+    color: $dolphin-orange;
+  }
+}

@@ -1,0 +1,10 @@
+@import "abstracts/variables";
+
+.alert {
+  align-items: center;
+  padding: 20px;
+  background-color: $dolphin-orange;
+  color: $page;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}

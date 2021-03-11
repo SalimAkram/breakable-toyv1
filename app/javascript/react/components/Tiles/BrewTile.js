@@ -7,14 +7,12 @@ const BrewTile = (props) => {
   console.log('brew tile');
   return(
     <div className="cell small-12 medium-6">
-      <div className="product-image-gallery">
+      <div>
         <Link to={`brews/${props.id}`}> 
           <img className="pdp-product-image" id="main-product-image" src={ph} alt=""/>
-          <div className="user">
-            {props.user}
-          </div> 
         </Link>  
-      </div> 
+      </div>
+        {props.user}
     </div>
   )
 }

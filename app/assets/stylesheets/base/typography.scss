@@ -1,0 +1,16 @@
+@import "abstracts/variables";
+@import url("https://fonts.googleapis.com/css?family=Dosis|Titillium+Web");
+
+body h3 h1 {
+  font-family: 'Dosis', Sans-Serif;
+  font-size: 4.3rem;
+  font-family: 'Titillium Web', Sans-Serif;
+  font-size: 1.6rem;
+} 
+
+.main-title {
+  font-size: 5rem;
+  color: $dolphin-orange;
+  margin-bottom: 1rem;
+   -webkit-text-stroke: .1rem $user-brown;
+}

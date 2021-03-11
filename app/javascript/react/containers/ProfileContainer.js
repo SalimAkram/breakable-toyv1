@@ -9,6 +9,7 @@ import Modal from '../components/UI/modal/Modal'
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const ProfileContainer = (props) => {
+  console.log('profile container');
   const [usersData, setUsersData] = useState({})
   const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
@@ -147,7 +148,7 @@ const ProfileContainer = (props) => {
     <Fragment>
       <div className="user-top-bar">
         <h4>{usersData.username}</h4>
-        <Button btnType="profile-button" clicked={addMethodHandler}>ADD A METHOD</Button>
+        <Button btnType="button profile" clicked={addMethodHandler}>ADD A METHOD</Button>
       </div>
       {display ? form : null}
       <div className="cell small-12 medium-8">

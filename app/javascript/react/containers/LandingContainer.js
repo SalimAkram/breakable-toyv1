@@ -9,6 +9,7 @@ import ShopTile from '../components/Tiles/ShopTile'
 import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const LandingContainer = (props) => {
+  console.log('landing container');
   const [shopList, setShopList] = useState([])
 
   useEffect(() => {

@@ -6,6 +6,7 @@ import chemex from '../../../../assets/images/depositphotos_190894814-stock-phot
 // import travel from '../../../assets/images/'
 
 const BrewShow = (props) => {
+console.log('brew show');
 const [brewShow, setBrewShow] = useState({});
 const [user, setUser] = useState({});
 
@@ -45,7 +46,7 @@ const id = props.match.params.id
     <div className="grid-x grid-container align-center">
       <div className="cell small-12 medium-12">
         <div>
-          <h3 className="title">{user.username}</h3>
+          <h3>{user.username}</h3>
         </div>
       <div className="article-row-section">
         <div className="article-row-section-inner">
