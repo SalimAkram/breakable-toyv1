@@ -9,6 +9,7 @@ import addRoast from './Functions/AddRoast'
 import editBrew from './Functions/EditBrew'
 import deleteBrew from './Functions/DeleteBrew'
 import updateBrew from './Functions/UpdateBrew'
+import getBrew from './Functions/GetBrew'
 
 class cupOfJoeApi {
   static getCafes() {
@@ -53,6 +54,10 @@ class cupOfJoeApi {
 
   static updateBrew(updatedBrew) {
     return updateBrew(updatedBrew)
+  }
+
+  static getBrew(url) {
+    return getBrew(url)
   }
 }
 
