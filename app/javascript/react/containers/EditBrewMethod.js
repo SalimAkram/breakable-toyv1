@@ -6,6 +6,7 @@ import Aux from '../hoc/Aux/Aux';
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const EditBrewMethodForm = (props) => {
+  console.log('edit brew method form');
   const [errors, setErrors] = useState({})
   const [brew, setBrew] = useState ({
     maker: props.brew.maker,

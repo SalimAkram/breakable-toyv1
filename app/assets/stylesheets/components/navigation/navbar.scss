@@ -1,34 +1,28 @@
-@import 'settings';
-@import 'colors';
-@import 'foundation';
-@import 'motion-ui/motion-ui';
+@import "abstracts/variables";
+
 
 .profile-photo {
+  margin: 10px;
   border-radius: 10px;
-}
-
-.top-bar, .top-bar ul{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: $nav;
+  background-color: $nav;
 }
 
 .title-bar {
   background: $nav;
+  justify-content: space-between;
 }
 
 .nav-links {
-  padding-top: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
+  padding: 5px;
+  font-size: 16px;
   color: white;
-  cursor: pointer;
+  align-content: center;
+  background: $buttons;
 }
 
-
-
+.nav-links:hover {
+  color: #eb6534;
+}
 
 @media screen and (max-width: 39.9375em) {
   .no-js .top-bar {

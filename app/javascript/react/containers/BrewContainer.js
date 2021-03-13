@@ -1,10 +1,10 @@
-import React, { useEffect, useState, Fragment } from 'react'
+import React, { useEffect, useState, Fragment } from 'react';
 
-import BrewTile from '../components/Tiles/BrewTile'
-
-import cupOfJoeApi from '../requests/CupOfJoeApi'
+import BrewTile from '../components/Tiles/BrewTile';
+import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const BrewContainer = (props) => {
+  console.log('brew container');
   const [brewData, setBrewData] = useState([])
 
   useEffect(() => {
@@ -39,17 +39,13 @@ const BrewContainer = (props) => {
   })
  
   return(
-    <Fragment>
-      <div>
-        <h4 className="brew-title">User Brews</h4>
-        <div className="grid-x align-center" >
-          <div className="small-12 medium-6">
-            {brewTileArray}
-          </div>
+    <div>
+      <h3>User Brews</h3>
+        <div>
+          {brewTileArray}
         </div>
-      </div>
-    </Fragment>
+    </div>
   )
 }
 
-export default BrewContainer
+export default BrewContainer;

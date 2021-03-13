@@ -6,6 +6,7 @@ import ScraperRoastTile from '../components/Tiles/ScraperRoastTile'
 import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const RoastContainer = (props) => {
+  console.log('roast container');
   const [roastData, setRoastData] = useState ([])
   const [scraperData, setScraperData] = useState([])
 

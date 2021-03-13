@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom"
 import ErrorList from '../ErrorList'
 
 const BrewMethodForm = (props) => {
-  console.log(('brew method form', props));
+  console.log('brew method form');
   const [shouldRedirect, setShouldRedirect] = useState(false)
   const [errors, setErrors] = useState({})
   const [userBrewMethodData, setUserBrewMethodData] = useState({

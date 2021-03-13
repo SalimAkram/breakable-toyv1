@@ -1,16 +1,9 @@
-@import 'settings';
-@import 'foundation';
-@import 'colors';
-@import 'motion-ui/motion-ui';
+@import "abstracts/variables";
+
 
 .user-top-bar {
-  height: 50%;
-  margin-top: 20px;
   color: $page;
-  border-radius: 10px; 
   vertical-align: middle;
-  display: flex;
-  justify-content: space-around;
   color: #5D4A4A;
 }
 
@@ -38,8 +31,9 @@
 }
 .article-row-section {
   Font-Family: 'Dosis', Sans-Serif;
+  text-align: center;
   color: $font;
-  max-width: 75rem;
+  max-width: 50%;
   margin-right: auto;
   margin-left: auto;
   display: -webkit-flex;

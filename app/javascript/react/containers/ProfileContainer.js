@@ -1,6 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
-import Aux from '../hoc/Aux/Aux'
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
@@ -10,6 +9,7 @@ import Modal from '../components/UI/modal/Modal'
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const ProfileContainer = (props) => {
+  console.log('profile container');
   const [usersData, setUsersData] = useState({})
   const [favorites, setFavorites] = useState([])
   const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
@@ -83,7 +83,7 @@ const ProfileContainer = (props) => {
   
   const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=> {
     return(
-      <Aux key={userBrewMethod.id}>
+      <Fragment key={userBrewMethod.id}>
         <UserMethodTile 
           id={userBrewMethod.id}
           maker={userBrewMethod.maker}
@@ -101,13 +101,13 @@ const ProfileContainer = (props) => {
           edit={(event) => editHandleClick(event, userBrewMethod.id)}
           delete={(event) => deleteHandleClick(event, userBrewMethod.id)}
         />
-      </Aux>
+      </Fragment>
     )
   });
 
   const favoritesTileArray = favorites.map((favorite) => {
     return (
-      <Aux key={favorite.id}>
+      <Fragment key={favorite.id}>
         <FavoriteTile
           id={favorite.id} 
           name={favorite.name}
@@ -121,14 +121,14 @@ const ProfileContainer = (props) => {
           altitude={favorite.altitude}
           url={favorite.url}
         />
-      </Aux>
+      </Fragment>
     )
   });
 
   let form;
   if (display && shouldUpdate) {
     form = (
-        <div>
+      <div className="cell small-12 medium-8">
         <Modal show={display} modalClosed={modalClosed} >
           <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
         </Modal>
@@ -136,26 +136,26 @@ const ProfileContainer = (props) => {
     )
   } else {
     form = (
-      <Modal show={display} modalClosed={modalClosed} >
-        <BrewMethodForm cancel={cancel} addBrewMethodFromForm={addBrewMethodFromForm} /> 
-      </Modal>
+      <div className="cell small-12 medium-8">     
+        <Modal show={display} modalClosed={modalClosed} >
+          <BrewMethodForm cancel={cancel} addBrewMethodFromForm={addBrewMethodFromForm} /> 
+        </Modal>
+      </div>
     ) 
   }
   
   return (
-    <Aux>
+    <Fragment>
       <div className="user-top-bar">
         <h4>{usersData.username}</h4>
-        <Button clicked={addMethodHandler}>ADD A METHOD</Button>
+        <Button btnType="button profile" clicked={addMethodHandler}>ADD A METHOD</Button>
       </div>
-      <div>
-       {display ? form : null}
-      </div>
+      {display ? form : null}
       <div className="cell small-12 medium-8">
         {userBrewMethodArray}    
         {favoritesTileArray}    
       </div>
-    </Aux>
+    </Fragment>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 const RoastShow = (props) => {
-
+  console.log('roast show');
   const [roastShow, setRoastShow] = useState({})
 
   const id = props.match.params.id

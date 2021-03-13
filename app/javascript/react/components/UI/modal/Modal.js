@@ -4,6 +4,7 @@ import Aux from '../../../hoc/Aux/Aux'
 import Backdrop from '../backdrop/Backdrop'
 
 const Modal = (props) => {
+  console.log('modal');
   const cssClasses = ['modal', props.show ? 'modalOpen' : 'modalClosed']
   return (
     <Aux>

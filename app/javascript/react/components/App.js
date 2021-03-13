@@ -3,10 +3,10 @@ import { Route, Switch, BrowserRouter } from "react-router-dom"
 
 import LandingContainer from '../containers/LandingContainer'
 import RoastContainer from '../containers/RoastContainer'
-import RoastShow from './Shows/RoastShow'
+import RoastShow from '../containers/Shows/RoastShow'
 import RoastForm from './Forms/RoastForm'
 import BrewContainer from '../containers/BrewContainer'
-import BrewShow from './Shows/BrewShow'
+import BrewShow from '../containers/Shows/BrewShow'
 import SearchForm from './Forms/SearchForm'
 import EditBrewMethodForm from '../containers/EditBrewMethod'
 import ProfileContainer from '../containers/ProfileContainer'
