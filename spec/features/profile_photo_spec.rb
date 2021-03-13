@@ -2,8 +2,7 @@ require "rails_helper"
 
 feature "profile photo" do
   scenario "user uploads a profile photo" do
-    visit root_path
-    click_link "Sign Up"
+    visit new_user_registration_path
     
     fill_in "Username", with: "the test"
     fill_in "Email", with: "ash@s-mart.com"
