@@ -13,16 +13,9 @@
   cursor: pointer;
 
   &.profile {
-    outline: none;
-    border: none;
-    padding: 1rem;
-    border-radius: 1rem;
-    font-size: 1rem;
     color: white;
     background: $user-brown;
-    white-space: nowrap;
-    cursor: pointer;
-  
+
     &:hover {
       background-color: $dark-gray;
       padding: 1rem;
@@ -30,6 +23,16 @@
     }
   }
   
+  &.close-modal {
+    background: none;
+    
+    &:hover {
+      background-color: $buttons;
+      border-radius: .5rem;
+    }
+  }
+
+
   &:hover {
     background-color: $dolphin-orange;
     padding: 1rem;

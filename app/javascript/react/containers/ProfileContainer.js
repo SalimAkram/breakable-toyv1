@@ -5,7 +5,7 @@ import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
 import EditBrewMethod from '../containers/EditBrewMethod'
 import Button from '../components/UI/button/Button'
-import Modal from '../components/UI/modal/Modal'
+import Modal from '../components/UI/modals/Modal'
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const ProfileContainer = (props) => {

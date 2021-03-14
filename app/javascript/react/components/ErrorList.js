@@ -1,5 +1,6 @@
-import React, { Fragment } from 'react'
-import _ from "lodash"
+import React, { Fragment } from 'react';
+import _ from "lodash";
+import ErrorModal from './UI/modals/ErrorModal/ErrorModal';
 
 const ErrorList = props => {
   const errantFields = Object.keys(props.errors)
@@ -16,11 +17,9 @@ const ErrorList = props => {
     return (
       <Fragment>
         <h4>oops! you missed some stuff!</h4>
-        <div className="alert">
-          <ul>
+          <p>
             {listItems}
-          </ul>
-        </div>
+          </p>
       </Fragment>
     )
   } else {
