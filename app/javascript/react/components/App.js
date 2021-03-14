@@ -7,7 +7,6 @@ import RoastForm from './Forms/RoastForm'
 import BrewContainer from '../containers/BrewContainer'
 import BrewShow from '../containers/Shows/BrewShow'
 import SearchForm from './Forms/SearchForm'
-import EditBrewMethodForm from '../containers/EditBrewMethod'
 import ProfileContainer from '../containers/ProfileContainer'
 
 export const App = (props) => {
@@ -20,7 +19,6 @@ export const App = (props) => {
         <Route exact path="/users/:id" component={ProfileContainer} />
         <Route exact path="/brews" component={BrewContainer} />
         <Route exact path="/brews/:id" component={BrewShow} />
-        <Route exact path="/brews/:id/edit" component={EditBrewMethodForm} />
         <Route exact path="/search" component={SearchForm} />
       </Switch>
     </BrowserRouter>
