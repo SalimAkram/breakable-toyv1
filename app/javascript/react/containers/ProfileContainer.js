@@ -3,9 +3,10 @@ import React, { useState, useEffect, Fragment } from 'react';
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
-import EditBrewMethod from '../containers/EditBrewMethod'
+import EditBrewContainer from './EditBrewContainer'
 import Button from '../components/UI/button/Button'
 import Modal from '../components/UI/modals/Modal'
+
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const ProfileContainer = (props) => {
@@ -31,10 +32,6 @@ const ProfileContainer = (props) => {
   
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
-  }
-  
-  const addMethodHandler = () => {
-    setDisplay(true)
   }
 
   const editHandleClick = (event, id) => { 
@@ -69,14 +66,16 @@ const ProfileContainer = (props) => {
     setDisplay(false);
   }
 
-  const cancel = (event) => {
-    event.preventDefault();
+  const addMethodHandler = () => {
+    setDisplay(true)
+  }
+
+  const cancel = () => {
     setShouldUpdate(false);
     setDisplay(false);
   }
 
-  const modalClosed = (event) => {
-    event.preventDefault()
+  const modalClosed = () => {
     setDisplay(false)
     setShouldUpdate(false)
   }
@@ -130,7 +129,7 @@ const ProfileContainer = (props) => {
     form = (
       <div className="cell small-12 medium-8">
         <Modal show={display} modalClosed={modalClosed} >
-          <EditBrewMethod brew={brewUpdate} success={success} cancel={cancel} />
+          <EditBrewContainer brew={brewUpdate} success={success} cancel={cancel} />
         </Modal>
       </div>
     )
@@ -143,7 +142,7 @@ const ProfileContainer = (props) => {
       </div>
     ) 
   }
-  
+    
   return (
     <Fragment>
       <div className="user-top-bar">

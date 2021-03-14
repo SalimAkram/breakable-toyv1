@@ -5,8 +5,8 @@ import EditBrewForm from '../components/Forms/EditBrewForm';
 import Aux from '../hoc/Aux/Aux';
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
-const EditBrewMethodForm = (props) => {
-  console.log('edit brew method form');
+const EditBrewContainer = (props) => {
+  console.log('edit brew container');
   const [errors, setErrors] = useState({})
   const [brew, setBrew] = useState ({
     maker: props.brew.maker,
@@ -79,4 +79,4 @@ const EditBrewMethodForm = (props) => {
   );
 };
 
-export default EditBrewMethodForm;
+export default EditBrewContainer;
