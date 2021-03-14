@@ -59,19 +59,17 @@ const RoastContainer = (props) => {
 
   return(
     <Fragment>
-      <div className="grid-container">
-        <div>
-          <h3 className="roast-title">User Favorites</h3>
-        </div>
-        <div className="grid-x grid-margin-x">
-          {roastTileArray}
-        </div>
-        <div>
-          <h3 className="roast-title">Creator Suggestions</h3>
-        </div>
-        <div className="grid-x grid-margin-x">
-          {scraperTileArray}
-        </div>
+      <div className="roast-header">
+        <h3>User Favorites</h3>
+      </div>
+      <div className="grid-x grid-margin-x">
+        {roastTileArray}
+      </div>
+      <div className="roast-header"> 
+        <h3>Creator Suggestions</h3>
+      </div>
+      <div className="grid-x grid-margin-x">
+        {scraperTileArray}
       </div>
     </Fragment>
   )
