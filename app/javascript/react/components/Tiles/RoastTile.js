@@ -5,11 +5,11 @@ import getPhoto from '../../requests/Functions/GetPhoto'
 const RoastTile = (props) =>{
   console.log('roast tile');
   return (
-    <div className="cell small-6 medium-2">
-      <div>
-        <h5 className="roast-tile-title">{props.name}</h5>
+    <div className="cell small-4 medium-4 large-4">
+      <div className="roast-title">
+        {props.name}
       </div>
-      <div className="roast-thumbnail">
+      <div>
         <a href={props.url} target="blank"><img className="card-img" src={getPhoto()} /></a>
       </div>
       <div className="product-card-colors">
