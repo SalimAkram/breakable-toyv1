@@ -3,9 +3,9 @@ import React, { useState, useEffect, Fragment } from 'react';
 import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
-import EditBrewContainer from './EditBrewContainer'
-import Button from '../components/UI/button/Button'
-import Modal from '../components/UI/modals/Modal'
+import EditBrewContainer from './EditBrewContainer';
+import Button from '../components/UI/button/Button';
+import Modal from '../components/UI/modals/Modal';
 
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
@@ -18,15 +18,18 @@ const ProfileContainer = (props) => {
   const [shouldUpdate, setShouldUpdate] = useState(false)
   const [error, setError] = useState({})
   const [display, setDisplay] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const id = props.match.params.id
 
   useEffect(() => {
+    setIsLoading(true)
     cupOfJoeApi.getUsers(id)
       .then(body => {
         setUsersData(body.user)
         setFavorites(body.favorites)
         setBrewMethodsFromDataBase(body.brews)
+        setIsLoading(false)
       })
   },[]);
   
@@ -80,11 +83,11 @@ const ProfileContainer = (props) => {
     setShouldUpdate(false)
   }
   
-  const userBrewMethodArray = brewMethodsFromDataBase.map((userBrewMethod)=> {
-    return(
+  const userBrewMethodArray = brewMethodsFromDataBase.map(userBrewMethod => {
+    return (
       <Fragment key={userBrewMethod.id}>
         <UserMethodTile 
-          id={userBrewMethod.id}
+          brewId={userBrewMethod.id}
           maker={userBrewMethod.maker}
           filter={userBrewMethod.filter}
           time={userBrewMethod.time}
@@ -104,11 +107,11 @@ const ProfileContainer = (props) => {
     )
   });
 
-  const favoritesTileArray = favorites.map((favorite) => {
-    return (
-      <Fragment key={favorite.id}>
+  const favoritesTileArray = favorites.map(favorite => {
+     return (
+     <Fragment key={favorite.id}>
         <FavoriteTile
-          id={favorite.id} 
+          favoriteId={favorite.id} 
           name={favorite.name}
           brand={favorite.brand}
           region={favorite.region}
@@ -121,7 +124,7 @@ const ProfileContainer = (props) => {
           url={favorite.url}
         />
       </Fragment>
-    )
+     )
   });
 
   let form;
@@ -142,9 +145,9 @@ const ProfileContainer = (props) => {
       </div>
     ) 
   }
-    
+    // debugger
   return (
-    <Fragment>
+    <Fragment>      
       <div className="user-top-bar">
         <h4>{usersData.username}</h4>
         <Button btnType="button profile" clicked={addMethodHandler}>ADD A METHOD</Button>
