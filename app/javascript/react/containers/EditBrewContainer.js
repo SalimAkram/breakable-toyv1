@@ -34,7 +34,6 @@ const EditBrewContainer = (props) => {
         } 
       })
     } else {
-
     }
   }
 

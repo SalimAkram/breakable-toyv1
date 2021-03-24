@@ -5,7 +5,7 @@ class Api::V1::RoastsController < ApplicationController
     roasts = Roast.all 
     scraper = Scraper.crawler
     roasts_scraper = Scraper.set_id(scraper)
-    render json: { roast: roasts, roasts_scraper: roasts_scraper }
+    render json: { roast: roasts, scraper: roasts_scraper }
   end
 
   def show

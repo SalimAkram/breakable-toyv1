@@ -1,44 +1,39 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect, Fragment, useCallback } from 'react';
 
-import FavoriteTile from '../components/Tiles/FavoriteTile';
 import UserMethodTile from '../components/Tiles/UserMethodTile';
 import BrewMethodForm from '../components/Forms/BrewMethodForm';
 import EditBrewContainer from './EditBrewContainer';
 import Button from '../components/UI/button/Button';
 import Modal from '../components/UI/modals/Modal';
+import FavoriteTile from '../components/Tiles/FavoriteTile';
 
 import cupOfJoeApi from '../requests/CupOfJoeApi';
 
 const ProfileContainer = (props) => {
   console.log('profile container');
-  const [usersData, setUsersData] = useState({})
-  const [favorites, setFavorites] = useState([])
-  const [brewMethodsFromDataBase, setBrewMethodsFromDataBase] = useState([])
+  const [usersData, setUsersData] =  useState({ user: {}, brews: [], favorites: [] })
   const [brewUpdate, setBrewUpate] = useState({})
   const [shouldUpdate, setShouldUpdate] = useState(false)
-  const [error, setError] = useState({})
   const [display, setDisplay] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState({})
 
   const id = props.match.params.id
 
   useEffect(() => {
-    setIsLoading(true)
     cupOfJoeApi.getUsers(id)
       .then(body => {
-        setUsersData(body.user)
-        setFavorites(body.favorites)
-        setBrewMethodsFromDataBase(body.brews)
-        setIsLoading(false)
+        setUsersData(body)
       })
+      .catch(error => {
+        setError(error)
+    });
   },[]);
   
   const addBrewMethodFromForm = (brewMethodFromForm) => {
     cupOfJoeApi.addBrewMethod(brewMethodFromForm)
   }
 
-  const editHandleClick = (event, id) => { 
-    event.preventDefault()
+  const editHandleClick = (id) => { 
     cupOfJoeApi.editBrew(id)
     .then(body => {
       setBrewUpate(body.brew)
@@ -50,8 +45,7 @@ const ProfileContainer = (props) => {
     });
   }
 
-  const deleteHandleClick = (event, id) => { 
-    event.preventDefault();
+  const deleteHandleClick = (id) => { 
     cupOfJoeApi.deleteBrew(id)
     .then(body => {
       console.log(body);
@@ -61,16 +55,14 @@ const ProfileContainer = (props) => {
   const success = () => {
     cupOfJoeApi.getUsers(id)
       .then(body => {
-        setUsersData(body.user)
-        setFavorites(body.favorites)
-        setBrewMethodsFromDataBase(body.brews)
+        setUsersData(body)
       })
     setShouldUpdate(false);
     setDisplay(false);
   }
 
   const addMethodHandler = () => {
-    setDisplay(true)
+    setDisplay(true);
   }
 
   const cancel = () => {
@@ -79,11 +71,11 @@ const ProfileContainer = (props) => {
   }
 
   const modalClosed = () => {
-    setDisplay(false)
-    setShouldUpdate(false)
+    setDisplay(false);
+    setShouldUpdate(false);
   }
   
-  const userBrewMethodArray = brewMethodsFromDataBase.map(userBrewMethod => {
+  const userBrewMethodArray = usersData.brews.map(userBrewMethod => {
     return (
       <Fragment key={userBrewMethod.id}>
         <UserMethodTile 
@@ -100,16 +92,16 @@ const ProfileContainer = (props) => {
           roast={userBrewMethod.roast}
           region={userBrewMethod.region}
           instructions={userBrewMethod.instructions}
-          edit={(event) => editHandleClick(event, userBrewMethod.id)}
-          delete={(event) => deleteHandleClick(event, userBrewMethod.id)}
+          edit={() => editHandleClick(userBrewMethod.id)}
+          delete={() => deleteHandleClick(userBrewMethod.id)}
         />
       </Fragment>
     )
   });
 
-  const favoritesTileArray = favorites.map(favorite => {
-     return (
-     <Fragment key={favorite.id}>
+  const favoritesTileArray = usersData.favorites.map(favorite => {
+    return (
+      <Fragment key={favorite.id}>
         <FavoriteTile
           favoriteId={favorite.id} 
           name={favorite.name}
@@ -124,7 +116,7 @@ const ProfileContainer = (props) => {
           url={favorite.url}
         />
       </Fragment>
-     )
+    )
   });
 
   let form;
@@ -145,17 +137,17 @@ const ProfileContainer = (props) => {
       </div>
     ) 
   }
-    // debugger
+
   return (
     <Fragment>      
+      {display ? form : null}
       <div className="user-top-bar">
         <h4>{usersData.username}</h4>
         <Button btnType="button profile" clicked={addMethodHandler}>ADD A METHOD</Button>
       </div>
-      {display ? form : null}
       <div className="cell small-12 medium-8">
         {userBrewMethodArray}    
-        {favoritesTileArray}    
+        {favoritesTileArray} 
       </div>
     </Fragment>
   );

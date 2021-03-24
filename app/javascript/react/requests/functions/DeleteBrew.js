@@ -1,5 +1,4 @@
 const deleteBrew = (id) => {
-  debugger
   return(
     fetch(`/api/v1/brews/${id}`, {
       credentials: "same-origin",

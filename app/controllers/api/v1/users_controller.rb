@@ -10,9 +10,8 @@ class Api::V1::UsersController < ApplicationController
 
     user_favorites.each do |favorite|
       roast = Roast.find(favorite.id)
-      favorites << roast
+      favorites << roast 
     end
-
     brews = user.brews
   
     render json: { favorites: favorites, user: user, brews: brews }

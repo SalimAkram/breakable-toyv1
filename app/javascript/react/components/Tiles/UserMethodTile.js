@@ -31,8 +31,11 @@ const UserMethodTile = (props) => {
             </ul>
           </div>
         </article>
+        <div>
+
         <p>{props.ratio} water ratio (optional)</p>
         <p>{props.instructions}</p>
+        </div>
       </div>
       <Button btnType="button profile" clicked={props.edit}>EDIT</Button>
       <Button btnType="button profile" clicked={props.delete}>DELETE</Button>    

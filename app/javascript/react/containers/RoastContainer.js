@@ -7,19 +7,17 @@ import cupOfJoeApi from '../requests/CupOfJoeApi'
 
 const RoastContainer = (props) => {
   console.log('roast container');
-  const [roastData, setRoastData] = useState ([])
-  const [scraperData, setScraperData] = useState([])
+  const [roasts, setRoasts] = useState ({ roast: [], scraper: [] })
 
   const id = props.match.params.id
     useEffect(() => {
       cupOfJoeApi.getRoasts()
         .then(body => {
-          setRoastData(body.roast)
-          setScraperData(body.roasts_scraper)
+          setRoasts(body)
         })
     },[])
 
-  const scraperTileArray = scraperData.map((scraper) => {
+  const scraperTileArray = roasts.scraper.map((scraper) => {
     return (
       <ScraperRoastTile
         key={scraper.id}
@@ -30,7 +28,7 @@ const RoastContainer = (props) => {
     )
   })
 
-  const roastTileArray = roastData.map((roast) =>{
+  const roastTileArray = roasts.roast.map((roast) =>{
     const handleClick = () => {
       cupOfJoeApi.addToFavorites(roast.id)
     }
